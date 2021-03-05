@@ -1,0 +1,3 @@
+rails g model Deliverable name:string description:text status:string
+
+rails g model Project name:string description:text
