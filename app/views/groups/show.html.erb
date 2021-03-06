@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
+<h1>Welcome to <%= @group.name %> </h1>
+<h1>Description: <%= @group.description %> </h1>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project_path(project) %></td>
+        <td><%= project.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

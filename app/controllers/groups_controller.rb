@@ -8,6 +8,8 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
+    @group = Group.find(params[:id])
+		@projects = Project.where(group_id: params[:id])
   end
 
   # GET /groups/new

@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
+<h1>Project: <%= @project.name %> </h1>
+<h1>Description: <%= @project.description %> </h1>
+<table>
+  <thead>
+    <tr>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @deliverables.each do |deliverable| %>
+      <tr>
+        <td><%= deliverable.name %></td>
+        <td><%= deliverable.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

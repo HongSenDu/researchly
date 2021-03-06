@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
     id = params[:id]
     m = Membership.select('group_id').where(user_id: id)
 		g = Group.where(id:m)
-    puts g.inspect
+    @groups = g
   end
 
   # GET /profiles/new
