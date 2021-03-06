@@ -9,8 +9,10 @@ class ProfilesController < ApplicationController
   # GET /profiles/1 or /profiles/1.json
   def show
     id = params[:id]
-    m = Group.joins(:membership)
-    puts m
+    m = Membership.select('group_id').where(user_id: id)
+		puts m.inspect
+		g = Group.select('id').where(id:m)
+    puts g.inspect
   end
 
   # GET /profiles/new
