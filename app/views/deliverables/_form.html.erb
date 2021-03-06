@@ -1,0 +1,17 @@
+<%= form_with(model: deliverable) do |form| %>
+  <% if deliverable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(deliverable.errors.count, "error") %> prohibited this deliverable from being saved:</h2>
+
+      <ul>
+        <% deliverable.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
