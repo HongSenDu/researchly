@@ -10,8 +10,7 @@ class ProfilesController < ApplicationController
   def show
     id = params[:id]
     m = Membership.select('group_id').where(user_id: id)
-		puts m.inspect
-		g = Group.select('id').where(id:m)
+		g = Group.where(id:m)
     puts g.inspect
   end
 
