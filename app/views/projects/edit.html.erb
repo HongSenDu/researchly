@@ -1,6 +1,11 @@
-<h1>Editing Project</h1>
+<h2>Edit Existing Project</h2>
+<%= form_tag project_path(@project), :method => :put do %>
+  <%= label :project, :name, 'Project Name', :class => 'col-form-label' %>
+  <%= text_field :project, 'name', :class => 'form-control' %>
+  <%= label :movie, :description, 'Description', :class => 'col-form-label' %>
+  <%= text_field :project, 'description', :class => 'form-control' %>
+  <br/>
+  <%= submit_tag 'Update Project', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', @project, :class => 'btn btn-secondary' %>
+<% end %>
 
-<%= render 'form', project: @project %>
-
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>

@@ -38,15 +38,10 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        format.html { redirect_to @project, notice: "Project was successfully updated." }
-        format.json { render :show, status: :ok, location: @project }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
-    end
+    @project = Project.find params[:id]
+    @project.update(project_params)
+    flash[:notice] = "#{@project.name} was successfully updated."
+    redirect_to project_path(@project)
   end
 
   # DELETE /projects/1 or /projects/1.json
@@ -66,6 +61,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.fetch(:project, {})
+      params.require(:project).permit(:name, :description)
     end
 end
