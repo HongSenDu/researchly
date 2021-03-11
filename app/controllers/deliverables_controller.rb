@@ -17,6 +17,8 @@ class DeliverablesController < ApplicationController
 
   # GET /deliverables/1/edit
   def edit
+    #puts "Hello world"
+    puts params
   end
 
   # POST /deliverables or /deliverables.json
@@ -36,9 +38,14 @@ class DeliverablesController < ApplicationController
 
   # PATCH/PUT /deliverables/1 or /deliverables/1.json
   def update
+    
+    project_id = (Deliverable.find params[:id]).project_id
+    puts "The project ID is #{project_id}"
+    @project = Project.find_by_id(project_id)
+    puts @project
     respond_to do |format|
       if @deliverable.update(deliverable_params)
-        format.html { redirect_to @deliverable, notice: "Deliverable was successfully updated." }
+        format.html { redirect_to @project, notice: "Deliverable was successfully updated." }
         format.json { render :show, status: :ok, location: @deliverable }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -64,6 +71,7 @@ class DeliverablesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def deliverable_params
-      params.fetch(:deliverable, {})
+      #params.fetch(:deliverable, {})
+      params.require(:deliverable).permit(:name, :description, :status)
     end
 end
