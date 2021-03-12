@@ -20,5 +20,7 @@
     <% end %>
   </tbody>
 </table>
+<%= link_to 'Add new deliverable', new_deliverable_path(@project), :class => 'btn btn-warning' %>
+<br>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

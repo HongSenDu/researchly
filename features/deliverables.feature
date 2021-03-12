@@ -25,3 +25,11 @@ Scenario: Edit an exisitng deliverable
     And I press "Update Deliverable"
     Then I should be on "the project11 homepage"
     And the project "Deliver 5" should have a status of "Complete"
+
+Scenario: Create a new deliverable
+    When I follow "Add new deliverable"
+    Then I should see "Create a new deliverable for project11"
+    And  I fill in "Name" with "Brand new deliverable"
+    And I press "Create Deliverable"
+    Then I should be on "the project11 homepage"
+    And I should see "Brand new deliverable"
