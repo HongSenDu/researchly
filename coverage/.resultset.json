@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/aaron/researchly/app/models/user.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -9,154 +9,39 @@
           1,
           null,
           1,
+          null,
           null
         ]
       },
-      "/home/aaron/researchly/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/aaron/researchly/app/models/group.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/aaron/researchly/app/models/project.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/group.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/aaron/researchly/app/controllers/groups_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/project.rb": {
         "lines": [
           1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          7,
-          7,
-          7,
-          7,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          7,
-          7,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/home/aaron/researchly/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/home/aaron/researchly/app/helpers/application_helper.rb": {
-        "lines": [
           1,
           null
         ]
       },
-      "/home/aaron/researchly/app/helpers/deliverables_helper.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/deliverable.rb": {
         "lines": [
+          1,
           1,
           null
         ]
       },
-      "/home/aaron/researchly/app/helpers/groups_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/aaron/researchly/app/helpers/profiles_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/aaron/researchly/app/helpers/projects_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/aaron/researchly/app/helpers/welcome_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/aaron/researchly/app/controllers/projects_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/projects_controller.rb": {
         "lines": [
           1,
           1,
@@ -168,8 +53,8 @@
           null,
           null,
           1,
-          6,
-          6,
+          10,
+          10,
           null,
           null,
           null,
@@ -228,7 +113,7 @@
           1,
           null,
           1,
-          13,
+          17,
           null,
           null,
           null,
@@ -238,14 +123,331 @@
           null
         ]
       },
-      "/home/aaron/researchly/app/models/deliverable.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/application_controller.rb": {
         "lines": [
+          1,
+          1,
+          3,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/deliverables_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/groups_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/profiles_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/projects_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/welcome_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/deliverables_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          null,
+          4,
+          null,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/groups_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          7,
+          7,
+          7,
+          7,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          7,
+          7,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/welcome_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          11,
+          null,
+          null,
+          1,
+          10,
+          null,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/profiles_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          4,
+          4,
+          4,
+          4,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          4,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/membership.rb": {
+        "lines": [
+          1,
           1,
           1,
           null
         ]
       },
-      "/home/aaron/researchly/app/channels/application_cable/channel.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -255,181 +457,7 @@
         "branches": {
         }
       },
-      "/home/aaron/researchly/app/channels/application_cable/connection.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aaron/researchly/app/controllers/deliverables_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aaron/researchly/app/controllers/profiles_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aaron/researchly/app/controllers/welcome_controller.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aaron/researchly/app/jobs/application_job.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -442,7 +470,7 @@
         "branches": {
         }
       },
-      "/home/aaron/researchly/app/mailers/application_mailer.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -452,7 +480,7 @@
         "branches": {
         }
       },
-      "/home/aaron/researchly/app/models/membership.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -463,6 +491,6 @@
         }
       }
     },
-    "timestamp": 1615580214
+    "timestamp": 1615587040
   }
 }

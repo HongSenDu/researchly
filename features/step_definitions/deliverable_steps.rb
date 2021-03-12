@@ -4,11 +4,11 @@ Given /the following groups exist/ do |groups_table|
     end
 end
 
-Given /the following projects exist/ do |projects_table|
-    projects_table.hashes.each do |project|
-      Project.create project
-    end
-end
+# Given /the following projects exist/ do |projects_table|
+#     projects_table.hashes.each do |project|
+#       Project.create project
+#     end
+# end
 
 Given /the following deliverables exist/ do |deliverables_table|
     deliverables_table.hashes.each do |deliverable|
