@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.new
+    @project = Project.new 
   end
 
   # GET /projects/1/edit
@@ -23,25 +23,37 @@ class ProjectsController < ApplicationController
 
   # POST /projects or /projects.json
   def create
-    @project = Project.new(project_params)
+    if (params[:project][:name].nil?) or (params[:project][:name] == "")
+      flash[:notice] = "Project must have a name"
+      redirect_to new_project_path
+    else  
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: "Project was successfully created." }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+      @project = Project.new(project_params)
+
+      respond_to do |format|
+        if @project.save
+          format.html { redirect_to @project, notice: "Project was successfully created." }
+          format.json { render :show, status: :created, location: @project }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @project.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
 
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
-    @project = Project.find params[:id]
-    @project.update(project_params)
-    flash[:notice] = "#{@project.name} was successfully updated."
-    redirect_to project_path(@project)
+    if (params[:project][:name].nil?) or (params[:project][:name] == "")
+      flash[:notice] = "Project must have a name"
+      redirect_to edit_project_path(@project)
+    else 
+
+      @project = Project.find params[:id]
+      @project.update(project_params)
+      flash[:notice] = "#{@project.name} was successfully updated."
+      redirect_to project_path(@project)
+    end
   end
 
   # DELETE /projects/1 or /projects/1.json
@@ -61,6 +73,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :description)
+      params.require(:project).permit(:name, :description, :group_id)
     end
 end

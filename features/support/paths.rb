@@ -29,6 +29,12 @@ module NavigationHelpers
 
       when /^the project1 homepage$/
         '/projects/1'
+
+      when /^the new Project page$/
+        '/projects/new'
+
+      when /^the projects3 detail page$/
+        '/projects/3'
       
   
       else

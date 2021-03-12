@@ -2,7 +2,7 @@
 <%= form_tag project_path(@project), :method => :put do %>
   <%= label :project, :name, 'Project Name', :class => 'col-form-label' %>
   <%= text_field :project, 'name', :class => 'form-control' %>
-  <%= label :movie, :description, 'Description', :class => 'col-form-label' %>
+  <%= label :project, :description, 'Description', :class => 'col-form-label' %>
   <%= text_field :project, 'description', :class => 'form-control' %>
   <br/>
   <%= submit_tag 'Update Project', :class => 'btn btn-primary' %>

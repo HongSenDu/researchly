@@ -6,7 +6,7 @@ Given /the following projects exist/ do |projects_table|
 
 Given /the following group exists/ do |groups_table|
   groups_table.hashes.each do |group|
-    Group. create group
+    Group.create group
   end
 end 
   
