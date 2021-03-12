@@ -58,6 +58,7 @@ group :test do
   gem 'simplecov', :require => false
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 
   
 end
