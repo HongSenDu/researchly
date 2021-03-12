@@ -12,7 +12,6 @@ class DeliverablesController < ApplicationController
 
   # GET /deliverables/new
   def new
-    puts params
     project_id = params[:format]
     @project = Project.find_by_id project_id
     #@deliverable = Deliverable.new
@@ -26,7 +25,6 @@ class DeliverablesController < ApplicationController
 
   # POST /deliverables or /deliverables.json
   def create
-    puts params
     project_id = params[:format]
     deliverable_new = Hash.new
     deliverable_new[:name] = deliverable_params[:name]
@@ -34,7 +32,6 @@ class DeliverablesController < ApplicationController
     deliverable_new[:status] = deliverable_params[:status]
     deliverable_new[:project_id] = project_id
     @project = Project.find_by_id(project_id)
-    puts deliverable_new
     @deliverable = Deliverable.new(deliverable_new)
     @deliverable.save
     redirect_to @project, notice: "Deliverable was successfully created."
@@ -54,9 +51,7 @@ class DeliverablesController < ApplicationController
   def update
     
     project_id = (Deliverable.find params[:id]).project_id
-    puts "The project ID is #{project_id}"
     @project = Project.find_by_id(project_id)
-    puts @project
     respond_to do |format|
       if @deliverable.update(deliverable_params)
         format.html { redirect_to @project, notice: "Deliverable was successfully updated." }
