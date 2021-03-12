@@ -44,6 +44,14 @@ Scenario: Create a Project
 	And I should see "Project 3 Description"
 
 Scenario: Cannot Create Project with no Name (Sad Path)
+	When I follow "project1"
+	And I follow "Edit"
+	Then I should be on the details page for “project1”
+	And I fill in "Name" with ""
+	And I press "Update Project"
+	And I should see "Project must have a name"
+
+Scenario: Cannot Edit Project to Have No Name (Sad Path)
 	When I follow "New Project"
 	Then I should be on the new Project page
 	And I fill in "Description" with "Project 4 Description"
