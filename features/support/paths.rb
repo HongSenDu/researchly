@@ -1,8 +1,3 @@
-# TL;DR: YOU SHOULD DELETE THIS FILE
-#
-# This file is used by web_steps.rb, which you should also delete
-#
-# You have been warned
 module NavigationHelpers
     # Maps a name to a path. Used by the
     #
@@ -13,7 +8,18 @@ module NavigationHelpers
     def path_to(page_name)
       case page_name
   
-      when /^the (RottenPotatoes )?home\s?page$/ then '/movies'
+      when /the project11 homepage/
+        '/projects/11'
+        
+      
+      when /the home\s?page/
+        '/'
+  
+      when /the sign up page/
+        '/users/sign_up'
+  
+      when /the sign in page/
+        '/users/sign_in'
   
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:

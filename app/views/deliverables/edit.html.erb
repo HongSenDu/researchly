@@ -1,6 +1,20 @@
 <h1>Editing Deliverable</h1>
 
-<%= render 'form', deliverable: @deliverable %>
+
+<%= form_tag deliverable_path(@deliverable), :method => :put, :style => 'width:80% ; margin:auto' do %>
+    <%= label :deliverable, :name, 'Name', :class => 'col-form-label' %>
+    <%= text_field :deliverable, 'name', :class => 'form-control' %>
+
+    <%= label :deliverable, :description, 'Description', :class => 'col-form-label' %>
+    <%= text_field :deliverable, 'description', :class => 'form-control' %>
+
+    <%= label :deliverable, :status, 'Status', :class => 'col-form-label' %>
+    <%= text_field :deliverable, 'status', :class => 'form-control' %>
+    <br/>
+    <%= submit_tag 'Update Deliverable', :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', deliverables_path, :class => 'btn btn-secondary' %>
+  <% end %>
+
 
 <%= link_to 'Show', @deliverable %> |
 <%= link_to 'Back', deliverables_path %>

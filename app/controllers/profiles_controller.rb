@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles or /profiles.json
   def index
-    @profiles = Profile.all
+    @profiles = User.all
   end
 
   # GET /profiles/1 or /profiles/1.json
@@ -14,9 +14,13 @@ class ProfilesController < ApplicationController
     @groups = g
   end
 
+  def view
+    id = params[:id]
+    @user = User.find(id)
+  end
   # GET /profiles/new
   def new
-    @profile = Profile.new
+    @profile = User.new
   end
 
   # GET /profiles/1/edit
@@ -25,7 +29,7 @@ class ProfilesController < ApplicationController
 
   # POST /profiles or /profiles.json
   def create
-    @profile = Profile.new(profile_params)
+    @profile = User.new(profile_params)
 
     respond_to do |format|
       if @profile.save
