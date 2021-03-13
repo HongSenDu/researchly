@@ -12,7 +12,7 @@
     <%= text_field :deliverable, 'status', :class => 'form-control' %>
     <br/>
     <%= submit_tag 'Update Deliverable', :class => 'btn btn-primary' %>
-    <%= link_to 'Cancel', deliverables_path, :class => 'btn btn-secondary' %>
+    <%= link_to 'Cancel', project_path(session[:project_id]), :class => 'btn btn-secondary' %>
   <% end %>
 
 

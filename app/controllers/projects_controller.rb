@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 		@deliverables = Deliverable.where(project_id: params[:id])
+    session[:project_id] = params[:id]
   end
 
   # GET /projects/new
