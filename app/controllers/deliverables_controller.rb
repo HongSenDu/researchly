@@ -52,18 +52,24 @@ class DeliverablesController < ApplicationController
 
   # PATCH/PUT /deliverables/1 or /deliverables/1.json
   def update
+
+    if (params[:deliverable][:name].nil?) or (params[:deliverable][:name] == "")
+      flash[:alert] = "Deliverable must have a name"
+      redirect_to edit_deliverable_path
+    else 
     
-    project_id = (Deliverable.find params[:id]).project_id
-    puts "The project ID is #{project_id}"
-    @project = Project.find_by_id(project_id)
-    puts @project
-    respond_to do |format|
-      if @deliverable.update(deliverable_params)
-        format.html { redirect_to @project, notice: "Deliverable was successfully updated." }
-        format.json { render :show, status: :ok, location: @deliverable }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @deliverable.errors, status: :unprocessable_entity }
+      project_id = (Deliverable.find params[:id]).project_id
+      puts "The project ID is #{project_id}"
+      @project = Project.find_by_id(project_id)
+      puts @project
+      respond_to do |format|
+        if @deliverable.update(deliverable_params)
+          format.html { redirect_to @project, notice: "Deliverable was successfully updated." }
+          format.json { render :show, status: :ok, location: @deliverable }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @deliverable.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
