@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Groups</h1>
-<%= form_tag group_index_path method => "GET" do%>
+<%= form_tag groups_path :method => "GET" do%>
   <%= label_tag(:search, "Search for Groups: ") %>
   <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag ("Search", :name => nil %>
+  <%= submit_tag("Search", :name => nil) %>
 <%end%>
 
 <table>
@@ -17,10 +17,9 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Join Group', join_group_path(group.id)%>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', @group %></td>
+        <td><%= link_to 'Edit', @group %></td>
+        <td><%= link_to 'Destroy', @group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

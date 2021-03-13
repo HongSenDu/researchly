@@ -3,18 +3,19 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.search(params[:search])
+    @groups = Group.all
   end
 
   # GET /groups/1 or /groups/1.json
   def show
     @group = Group.find(params[:id])
+    @projects = Project.where(group_id: @group.id)
     session[:group_id] = @group.id
   end
 
   # GET /groups/new
   def new
-    @group = Group.find(params[:id])
+    @group = Group.new
   end
 
   # GET /groups/1/edit
@@ -28,7 +29,7 @@ class GroupsController < ApplicationController
       redirect_to new_group_path
     else
       
-      @group = group.new(group_params)
+      @group = Group.new(group_params)
 
       respond_to do |format|
         if @group.save
@@ -69,7 +70,7 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      @groups = Group.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

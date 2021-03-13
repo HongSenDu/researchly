@@ -15,8 +15,10 @@ end
 
 def join_group
     delete_group
+    create_group
     visit '/groups/'
-    fill_in "groups name", :with => @temp[:name]
+    fill_in "search", :with => @temp[:name]
+    click_button "Search"
     click_button "Join Group"
 end
 
@@ -37,7 +39,22 @@ def sign_in
     click_button "Log in"
 end
 ### Given ###
+Given /the following group exist/ do |groups_table|
+    groups_table.hashes.each do |group|
+        Group.create group
+    end
+end
+Given /the following users exist/ do |users_table|
+    users_table.hashes.each do |user|
+        User.create user
+    end
+end
 
+Given /the following memberships exist/ do |memeberships_table|
+    memeberships_table.hashes.each do |membership|
+        Membership.create membership
+    end
+end
 Given /^I exist as a user$/ do
     create_user
 end
