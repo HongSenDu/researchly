@@ -8,6 +8,6 @@ Given I am logged in
 Given I am a group member
 When I leave a group
 Then I should see a left group message
-Hwne I return to the site
+When I return to the site
 Then I should no longer be a part of group
 
