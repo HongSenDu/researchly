@@ -16,7 +16,18 @@ module NavigationHelpers
   
       when /the sign in page/
         '/users/sign_in'
-  
+
+      when /the Group1 homepage/
+        '/groups/1'
+
+      when /the home\s?page/
+        '/'
+
+      when /the group sign up page/
+        '/groups/sign_up'
+      
+      when /the User1 homepage/
+        '/users/1'
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #

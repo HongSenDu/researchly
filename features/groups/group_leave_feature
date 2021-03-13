@@ -1,13 +1,13 @@
 Feature: allow users to leave a group
 
-As an existing researchly user with group memberships
-so I can better manage my research group
+    As an existing researchly user with group memberships
+    so I can better manage my research group
 
 Scenario: User leaves group
-Given I am logged in
-Given I am a group member
-When I leave a group
-Then I should see a left group message
-When I return to the site
-Then I should no longer be a part of group
+    Given I am logged in
+    Given I am a group member
+    When I leave a group
+    Then I should see a left group message
+    When I return to the site
+    Then I should no longer be a part of group
 

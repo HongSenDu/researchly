@@ -3,18 +3,18 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.all
+    @groups = Group.search(params[:search])
   end
 
   # GET /groups/1 or /groups/1.json
   def show
     @group = Group.find(params[:id])
-		@projects = Project.where(group_id: params[:id])
+    session[:group_id] = @group.id
   end
 
   # GET /groups/new
   def new
-    @group = Group.new
+    @group = Group.find(params[:id])
   end
 
   # GET /groups/1/edit
@@ -23,38 +23,46 @@ class GroupsController < ApplicationController
 
   # POST /groups or /groups.json
   def create
-    @group = Group.new(group_params)
+    if(params[:group][:name].nil?) or (params[:group][:name] == "")
+      flash[:notice] = "Group must have a name"
+      redirect_to new_group_path
+    else
+      
+      @group = group.new(group_params)
 
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to @group, notice: "Group was successfully created." }
-        format.json { render :show, status: :created, location: @group }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @group.save
+          format.html {redirect_to @group, notice: "Group was successfully created."}
+          format.json {render :show, status: :created, location: @group}
+        else
+          format.html {render :new, status: :unprocessable_entity}
+          format.json {render json: @group.errors, status: :unprocessable_entity}
+        end
       end
     end
   end
 
   # PATCH/PUT /groups/1 or /groups/1.json
   def update
-    respond_to do |format|
-      if @group.update(group_params)
-        format.html { redirect_to @group, notice: "Group was successfully updated." }
-        format.json { render :show, status: :ok, location: @group }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+    if(params[:group][:name].nil?) or (params[:group][:name] == "")
+      flash[:notice] = "Group must have a name"
+      redirect_to edit_group_path(@project)
+    else
+      @group = Group.find[:id]
+      @group.update(group_params)
+      flash[:notice] = "#{@group.name} was sucessfully updated"
+      redirect_to group_path(@group)
     end
   end
-
+  def group_params
+    params.require(:group).permit(:name, :description, :group_id)
+  end
   # DELETE /groups/1 or /groups/1.json
   def destroy
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: "Group was successfully destroyed." }
-      format.json { head :no_content }
+      format.html{ redirect_to groups_url, notice: "Group was successfully destroyed." }
+      format.json{ head :no_content }
     end
   end
 
@@ -66,6 +74,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.fetch(:group, {})
+      params.require(:group).permit(:name, :description)
     end
 end
