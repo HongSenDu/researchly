@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2021_03_12_034040) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "deliverables", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "project_id", null: false
+    t.bigint "project_id", null: false
     t.index ["project_id"], name: "index_deliverables_on_project_id"
   end
 
@@ -30,8 +33,8 @@ ActiveRecord::Schema.define(version: 2021_03_12_034040) do
   end
 
   create_table "memberships", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_id"
+    t.bigint "user_id"
+    t.bigint "group_id"
     t.datetime "membership_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_034040) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "group_id", null: false
+    t.bigint "group_id", null: false
     t.index ["group_id"], name: "index_projects_on_group_id"
   end
 
