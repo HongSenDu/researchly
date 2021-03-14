@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
   resources :profiles
   get "profiles/:id/view", to: "profiles#view", as: 'view_profile'
+  get '/groups/:id/join_group', to: 'groups#join_group', as: 'join_group'
   #get 'welcome/index'
-  resources :groups do
-    member do
-      get :join_group
-    end
-  end
+  resources :groups
   resources :deliverables
   resources :projects
   devise_for :users

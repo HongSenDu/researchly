@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @projects = Project.where(group_id: @group.id)
+    session[:group] = @group
   end
 
   # GET /groups/new
@@ -20,14 +21,19 @@ class GroupsController < ApplicationController
   # GET /groups/1/edit
   def edit
   end
-  def join_group(group_join_id)
+
+  def join_group
     #check if user is already a member
-    existing_memberships = Membership.where(user_id: params[:user][:id])
-    if existing_memberships.where(group_id: group_join_id).isnil?
-      Membership.create(user_id: params[:user][:id], group_id: group_join_id)
-      flash[:notice] = "Successfully Joined"
-    else
-      flash[:notice] = "Cannot Join Group"
+    existing_memberships = Membership.where(user_id: params[:id])
+    existing_memberships.each do |member|
+      if member.user_id != params[:id]
+        Membership.create(user_id: params[:id], group_id: session[:group][:id])
+        redirect_to group_path(session[:group])
+        flash[:notice] = "Successfully Joined"
+        return
+      else
+        flash[:notice] = "Cannot Join Group"
+      end
     end
   end
   # POST /groups or /groups.json
