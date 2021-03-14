@@ -72,13 +72,13 @@ class DeliverablesController < ApplicationController
   end
 
   # DELETE /deliverables/1 or /deliverables/1.json
-  def destroy
-    @deliverable.destroy
-    respond_to do |format|
-      format.html { redirect_to deliverables_url, notice: "Deliverable was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @deliverable.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to deliverables_url, notice: "Deliverable was successfully destroyed." }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

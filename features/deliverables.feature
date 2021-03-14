@@ -33,3 +33,10 @@ Scenario: Create a new deliverable
     And I press "Create Deliverable"
     Then I should be on "the project11 homepage"
     And I should see "Brand new deliverable"
+
+Scenario: Did not fill out fields
+    When I click on edit for deliverable 5
+    Then I should see "Editing Deliverable"
+    And  I fill in "Name" with ""
+    And I press "Update Deliverable"
+    Then I should see "Deliverable must have a name"

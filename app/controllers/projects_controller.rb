@@ -58,13 +58,13 @@ class ProjectsController < ApplicationController
   end
 
   # DELETE /projects/1 or /projects/1.json
-  def destroy
-    @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @project.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

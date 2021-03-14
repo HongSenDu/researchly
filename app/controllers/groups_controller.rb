@@ -77,13 +77,13 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :description, :group_id)
   end
   # DELETE /groups/1 or /groups/1.json
-  def destroy
-    @group.destroy
-    respond_to do |format|
-      format.html{ redirect_to groups_url, notice: "Group was successfully destroyed." }
-      format.json{ head :no_content }
-    end
-  end
+  # def destroy
+  #   @group.destroy
+  #   respond_to do |format|
+  #     format.html{ redirect_to groups_url, notice: "Group was successfully destroyed." }
+  #     format.json{ head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
