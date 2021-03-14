@@ -38,11 +38,11 @@ def sign_in
     click_button "Log in"
 end
 ### Given ###
-Given /the following group exist/ do |groups_table|
-    groups_table.hashes.each do |group|
-        Group.create group
-    end
-end
+#Given /the following group exist/ do |groups_table|
+#    groups_table.hashes.each do |group|
+#        Group.create group
+#    end
+#end
 Given /the following users exist/ do |users_table|
     users_table.hashes.each do |user|
         User.create user
@@ -54,9 +54,9 @@ Given /the following memberships exist/ do |memeberships_table|
         Membership.create membership
     end
 end
-Given /^I exist as a user$/ do
-    create_user
-end
+#Given /^I exist as a user$/ do
+#    create_user
+#end
 
 Given /^I am a group member$/ do
     create_user
@@ -74,9 +74,9 @@ Given /^I am a member of a group$/ do
 end
 ### THEN ###
 
-Then /^I should see a successful sign up message$/ do
-    expect(page).to have_content /Successfully Joined Group./.i
-end
+#Then /^I should see a successful sign up message$/ do
+#    expect(page).to have_content /Successfully Joined Group./.i
+#end
 
 Then /^I should see a left group message$/ do
     expect(page).to have_content /You have left Group/.i
@@ -88,9 +88,9 @@ When /^I leave a group$/ do
     leave_group
 end
 
-When /^I return to the site/ do
-    visit '/groups/index.html'
-end
+#When /^I return to the site/ do
+#    visit '/groups/index.html'
+#end
 
 When /^I sign up with {string}/ do |string|
     join_group(string)

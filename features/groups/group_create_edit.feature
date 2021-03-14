@@ -4,7 +4,7 @@ Feature: allow users to create and edit the details of a group
     so I can view, edit, create groups
 
 Background:
-    Given the following group exist:
+    Given the following groups exist:
     |name              |description        |
     |Bio Group         |bio group          |
     |Chemistry Group   |chem group         |

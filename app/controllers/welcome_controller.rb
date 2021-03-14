@@ -7,6 +7,5 @@ class WelcomeController < ApplicationController
   end
 
   def index
-    puts "hi"
   end
 end

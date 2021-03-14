@@ -5,7 +5,7 @@ Feature: allow users to join groups
     I want to be able to sign up for a group
 
 Background:
-    Given the following group exist:
+    Given the following groups exist:
     |name              |description        |
     |Bio Group         |bio group          |
     |Chemistry Group   |chem group         |

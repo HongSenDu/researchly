@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @projects = Project.where(group_id: @group.id)
     session[:group] = @group
+    session[:group_id] = @group.id
   end
 
   # GET /groups/new
@@ -87,7 +88,10 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
+      #groupID = Project.find_by_id(params[:id]).group_id
+      #group = Group.find_by_id(groupID)
       @group = Group.find(params[:id])
+
     end
 
     # Only allow a list of trusted parameters through.

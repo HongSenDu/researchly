@@ -1,5 +1,13 @@
-<h1>New Project</h1>
+<h2>Create New Project</h2>
 
-<%= render 'form', project: @project %>
+<%= form_tag projects_path, :class => 'form' do %>
+  <%= label :project, :name, 'Name', :class => 'col-form-label' %>
+  <%= text_field :project, :name, :class => 'form-control' %>
+  <%= label :project, :description, 'Description', :class => 'col-form-label' %>
+  <%= text_field :project, :description, :class => 'form-control' %>
+  <%= hidden_field :project, :group_id, :value => session[:group_id], :class => 'form-control' %>
+  <br/>
+  <%= submit_tag 'Create', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', group_path(session[:group_id]), :class => 'btn btn-secondary' %>
+<% end %>
 
-<%= link_to 'Back', projects_path %>
