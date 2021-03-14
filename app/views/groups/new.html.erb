@@ -1,5 +1,10 @@
-<h1>New Group</h1>
-
-<%= render 'form', group: @group %>
-
-<%= link_to 'Back', groups_path %>
+<h1>Create new Group</h1>
+<%= form_tag groups_path, :class => 'form' do %>
+   <%= label :group, :name, 'Name', :class => 'col-form-label' %>
+   <%= text_field :group, :name, :class => 'form-control' %>
+   <%= label :group, :description, 'Description', :class => 'col-form-label' %>
+   <%= text_field :group, :description, :class => 'form-control' %>
+   <br/>
+   <%= submit_tag 'Create', :class => 'btn btn-primary' %>
+   <%= link_to 'Cancel', groups_path, :class => 'btn btn-secondary' %>
+ <% end %>

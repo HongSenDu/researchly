@@ -6,6 +6,10 @@ module NavigationHelpers
     # step definition in web_steps.rb
     #
     def path_to(page_name)
+      if page_name =~ /the ([^"]+) page for "([^"]+)"/
+        page = $1.to_s
+        group = $2.to_s
+      end
       case page_name
   
       when /the project11 homepage/
@@ -18,6 +22,22 @@ module NavigationHelpers
       when /the sign up page/
         '/users/sign_up'
   
+      when /the sign in page/
+        '/users/sign_in'
+
+      when /the Group1 homepage/
+        '/groups/1'
+
+      when /the home\s?page/
+        '/'
+
+      when /the group sign up page/
+        '/groups/sign_up'
+      when /^the show page for "(.*)"/ then
+        group_path(Group.find_by(name: group))
+      when /^the "Edit" page for "(.*)"/ then
+        edit_group_path(Group.find_by_title(group))  
+
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
