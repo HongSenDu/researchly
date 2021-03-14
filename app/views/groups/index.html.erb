@@ -19,6 +19,7 @@
       <tr>
         <td><%= link_to 'Show', @group %></td>
         <td><%= link_to 'Edit', @group %></td>
+        <td><% link_to 'Join Group', @group%><td>
         <td><%= link_to 'Destroy', @group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

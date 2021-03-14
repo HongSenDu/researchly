@@ -13,11 +13,10 @@ def find_group
     @group || Group.where(:name => @temp[:name]).first
 end
 
-def join_group
-    delete_group
-    create_group
+def join_group(group_name)
+    puts(group_name)
     visit '/groups/'
-    fill_in "search", :with => @temp[:name]
+    fill_in "search", :with => group_name
     click_button "Search"
     click_button "Join Group"
 end
@@ -73,10 +72,6 @@ Given /^I am a member of a group$/ do
     create_group
     join_group
 end
-
-Given /^I am on the User1 homepage$/ do
-    create_user
-end
 ### THEN ###
 
 Then /^I should see a successful sign up message$/ do
@@ -97,7 +92,7 @@ When /^I return to the site/ do
     visit '/groups/index.html'
 end
 
-When /^I sign up with a valid group$/ do
-    create_group
-    join_group
-end
+When /^I sign up with {string}/ do |string|
+    join_group(string)
+  end
+

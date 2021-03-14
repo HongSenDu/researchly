@@ -36,38 +36,35 @@ Scenario: Create a new group
 
 Scenario: Edit Existing Group Description
     When I go to the show page for "Bio Group"
-    When I follow "Edit"
-    Then I should be on the details page for "Bio Group"
+    And I follow "Edit"
+    Then I should see "Editing Group"
     And I fill in "Description" with "coolest group"
     And I press "Update Group"
-    Then I should be on the User1 homepage
     And I should see "coolest group"
 
 Scenario: Edit Existing Group Name
     When I go to the show page for "Bio Group"
-    Then I follow "Edit"
-    Then I should be on the details page for "Bio Group"
-    And I fill in "name" with "Cool Group 1"
+    And I follow "Edit"
+    Then I should see "Editing Group"
+    And I fill in "Name" with "Cool Group 1"
     And I press "Update Group"
-    Then I should be on the User1 homepage
     And I should see "Cool Group 1"
 
 Scenario: Cannot Create Group with no Name (Sad Path)
     When I go to the show page for "Bio Group"
-    Then I follow "Edit"
-    Then I should be on the details page for "Bio Group"
+    And I follow "Edit"
+    Then I should see "Editing Group"
     And I fill in "Name" with ""
-    And I press "Create"
     And I press "Update Group"
-    And I should see "Group must have a name"
+    And I should see "Group must have a name and description"
 
 Scenario: Cannot Edit Group to have No Descritption (Sad Path)
     When I go to the show page for "Bio Group"
     And I follow "Edit"
-    Then I should be on the details page for "Bio Group"
+    Then I should see "Editing Group"
     And I fill in "Description" with ""
     And I press "Update Group"
-    And I should see "Group name required"
+    And I should see "Group must have a name and description"
 
 Scenario: Cancel creating a group (Sad Path)
     When I follow "New Group"

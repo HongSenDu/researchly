@@ -1,6 +1,12 @@
 <h1>Editing Group</h1>
 
-<%= render 'form', group: @group %>
+<%= form_tag group_path(@group), :method => :put do %>
+  <%= label :group, :name, 'Group Name', :class => 'col-form-label' %>
+  <%= text_field :group, 'name', :class => 'form-control' %>
+  <%= label :group, :description, 'Description', :class => 'col-form-label' %>
+  <%= text_field :group, 'description', :class => 'form-control' %>
+  <br/>
+  <%= submit_tag 'Update Group', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', @project, :class => 'btn btn-secondary' %>
+<% end %>
 
-<%= link_to 'Show', @group %> |
-<%= link_to 'Back', groups_path %>
