@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-03-15T14:01:48-04:00">2021-03-15T14:01:48-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-03-15T14:09:31-04:00">2021-03-15T14:09:31-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  74.87%
+  75.26%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.95
+         1.96
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>191</b> relevant lines,
+    <b>190</b> relevant lines,
     <span class="green"><b>143</b> lines covered</span> and
-    <span class="red"><b>48</b> lines missed. </span>
+    <span class="red"><b>47</b> lines missed. </span>
     (<span class="red">
-  74.87%
+  75.26%
 </span>
 )
   </div>
@@ -116,12 +116,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#abec176677def12719ff55f817cd17fd179027f1" class="src_link" title="app/controllers/groups_controller.rb">app/controllers/groups_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">66.07 %</td>
+            <td class="red strong cell--number t-file__coverage">67.27 %</td>
             <td class="cell--number">109</td>
-            <td class="cell--number">56</td>
+            <td class="cell--number">55</td>
             <td class="cell--number">37</td>
-            <td class="cell--number">19</td>
-            <td class="cell--number">2.07</td>
+            <td class="cell--number">18</td>
+            <td class="cell--number">2.11</td>
             
           </tr>
         
@@ -324,14 +324,14 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="red">
-  78.34%
+  78.85%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.25
+         2.26
        </span>
     </span> hits/line
     )
@@ -344,11 +344,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>157</b> relevant lines,
+    <b>156</b> relevant lines,
     <span class="green"><b>123</b> lines covered</span> and
-    <span class="red"><b>34</b> lines missed. </span>
+    <span class="red"><b>33</b> lines missed. </span>
     (<span class="red">
-  78.34%
+  78.85%
 </span>
 )
   </div>
@@ -395,12 +395,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#abec176677def12719ff55f817cd17fd179027f1" class="src_link" title="app/controllers/groups_controller.rb">app/controllers/groups_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">66.07 %</td>
+            <td class="red strong cell--number t-file__coverage">67.27 %</td>
             <td class="cell--number">109</td>
-            <td class="cell--number">56</td>
+            <td class="cell--number">55</td>
             <td class="cell--number">37</td>
-            <td class="cell--number">19</td>
-            <td class="cell--number">2.07</td>
+            <td class="cell--number">18</td>
+            <td class="cell--number">2.11</td>
             
           </tr>
         
@@ -2294,7 +2294,7 @@
     <h3>app/controllers/groups_controller.rb</h3>
     <h4>
       <span class="red">
-  66.07%
+  67.27%
 </span>
 
       lines covered
@@ -2303,9 +2303,9 @@
     
 
     <div class="t-line-summary">
-      <b>56</b> relevant lines.
+      <b>55</b> relevant lines.
       <span class="green"><b>37</b> lines covered</span> and
-      <span class="red"><b>19</b> lines missed.</span>
+      <span class="red"><b>18</b> lines missed.</span>
     </div>
 
     
@@ -2624,13 +2624,13 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="29">
+          <li class="never" data-hits="" data-linenumber="29">
             
             
 
             
 
-            <code class="ruby">      if (existing_memberships.empty?)</code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
@@ -2641,7 +2641,7 @@
 
             
 
-            <code class="ruby">        Membership.create!(user_id: session[:profile_id], group_id: params[:id])</code>
+            <code class="ruby">    if (existing_memberships.empty?)</code>
           </li>
         </div>
       
@@ -2652,7 +2652,7 @@
 
             
 
-            <code class="ruby">        flash[:notice] = &quot;Successfully Joined&quot;</code>
+            <code class="ruby">      Membership.create!(user_id: session[:profile_id], group_id: params[:id])</code>
           </li>
         </div>
       
@@ -2663,7 +2663,7 @@
 
             
 
-            <code class="ruby">        redirect_to group_path(session[:profile_id])</code>
+            <code class="ruby">      flash[:notice] = &quot;Successfully Joined&quot;</code>
           </li>
         </div>
       
@@ -2674,18 +2674,18 @@
 
             
 
-            <code class="ruby">        return</code>
+            <code class="ruby">      redirect_to profile_path(session[:profile_id])</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="34">
+          <li class="missed" data-hits="0" data-linenumber="34">
             
             
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">      return</code>
           </li>
         </div>
       
@@ -2696,18 +2696,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="36">
+          <li class="never" data-hits="" data-linenumber="36">
             
             
 
             
 
-            <code class="ruby">    existing_memberships.each do |member|</code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
@@ -2718,7 +2718,7 @@
 
             
 
-            <code class="ruby">      if member.group_id != params[:id]</code>
+            <code class="ruby">    existing_memberships.each do |member|</code>
           </li>
         </div>
       
@@ -2729,7 +2729,7 @@
 
             
 
-            <code class="ruby">        Membership.create!(user_id: session[:profile_id], group_id: params[:id])</code>
+            <code class="ruby">      if member.group_id != params[:id]</code>
           </li>
         </div>
       
@@ -2740,7 +2740,7 @@
 
             
 
-            <code class="ruby">        flash[:notice] = &quot;Successfully Joined&quot;</code>
+            <code class="ruby">        Membership.create!(user_id: session[:profile_id], group_id: params[:id])</code>
           </li>
         </div>
       
@@ -2751,7 +2751,7 @@
 
             
 
-            <code class="ruby">        redirect_to group_path(session[:prosfile_id])</code>
+            <code class="ruby">        flash[:notice] = &quot;Successfully Joined&quot;</code>
           </li>
         </div>
       
@@ -2762,12 +2762,23 @@
 
             
 
+            <code class="ruby">        redirect_to profile_path(session[:profile_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="42">
+            
+            
+
+            
+
             <code class="ruby">        return</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
+          <li class="never" data-hits="" data-linenumber="43">
             
             
 
@@ -2778,24 +2789,13 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="43">
-            
-            
-
-            
-
-            <code class="ruby">        flash[:notice] = &quot;Cannot Join Group&quot;</code>
-          </li>
-        </div>
-      
-        <div>
           <li class="missed" data-hits="0" data-linenumber="44">
             
             
 
             
 
-            <code class="ruby">        redirect_to group_path(session[:profile_id])</code>
+            <code class="ruby">        flash[:notice] = &quot;Cannot Join Group&quot;</code>
           </li>
         </div>
       
