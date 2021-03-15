@@ -7,10 +7,10 @@ Heroku Link: [https://researchly-app.herokuapp.com](https://researchly-app.herok
 Github Repository Link: [https://github.com/HongSenDu/researchly.git](https://github.com/HongSenDu/researchly.git)
 
 ## Team Members:
-Hong Du (hd2455)	
-Andrew Kenn (ajk2251)
-Michael Winitch (mlw2173)
-Aaron Jackson (arj2145)
+* Hong Du (hd2455)	
+* Andrew Kenn (ajk2251)
+* Michael Winitch (mlw2173)
+* Aaron Jackson (arj2145)
 
 ## Instructions:
 
