@@ -26,14 +26,22 @@ class GroupsController < ApplicationController
   def join_group
     #check if user is already a member
     existing_memberships = Membership.where(user_id: session[:profile_id])
+      if (existing_memberships.empty?)
+        Membership.create!(user_id: session[:profile_id], group_id: params[:id])
+        flash[:notice] = "Successfully Joined"
+        redirect_to group_path(session[:profile_id])
+        return
+      end
+
     existing_memberships.each do |member|
       if member.group_id != params[:id]
         Membership.create!(user_id: session[:profile_id], group_id: params[:id])
         flash[:notice] = "Successfully Joined"
-        redirect_to group_path(session[:group])
+        redirect_to group_path(session[:prosfile_id])
         return
       else
         flash[:notice] = "Cannot Join Group"
+        redirect_to group_path(session[:profile_id])
       end
     end 
   end
