@@ -4,16 +4,26 @@ Feature: Edit projects
 
 Background: projects added to the database
 
+	Given the following users exists:
+	|id		|email			|password	|password_confirmation	|
+	|1		|a@gmail.com	|123456		|123456					|
+
 	Given the following group exists:
 	|id		|name			|description
-	|1		|Bio Lab		|Columbia University's single Bio Lab
+	|1		|group1			|Columbia University's single Bio Lab
+
+	Given the following memberships exists:
+	|id		|user_id			|group_id 	|
+	|1		|1					|1			|
 
 	Given the following projects exist: 
 	|id		|name		|description		|group_id|
 	|1		|project1	|description		|1		 |
 	|2		|project2	|something			|1		 |
 
-	And I am on the Group1 homepage
+	And I am on the profile1 homepage
+	And I follow "group1"
+	Then I should be on the group1 homepage
 
 Scenario: Create a Project
 	When I follow "New Project"
