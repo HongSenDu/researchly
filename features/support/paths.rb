@@ -60,6 +60,9 @@ module NavigationHelpers
 
       when /^the projects3 detail page$/
         '/projects/3'
+
+      when /^the join page for "Bio Group"$/
+        'groups/1'
       
   
       else

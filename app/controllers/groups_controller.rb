@@ -29,13 +29,13 @@ class GroupsController < ApplicationController
     existing_memberships.each do |member|
       if member.group_id != params[:id]
         Membership.create!(user_id: session[:profile_id], group_id: params[:id])
-        redirect_to group_path(session[:group])
         flash[:notice] = "Successfully Joined"
+        redirect_to group_path(session[:group])
         return
       else
         flash[:notice] = "Cannot Join Group"
       end
-    end
+    end 
   end
   # POST /groups or /groups.json
   def create
@@ -77,13 +77,13 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :description, :group_id)
   end
   # DELETE /groups/1 or /groups/1.json
-  def destroy
-    @group.destroy
-    respond_to do |format|
-      format.html{ redirect_to groups_url, notice: "Group was successfully destroyed." }
-      format.json{ head :no_content }
-    end
-  end
+  # def destroy
+  #   @group.destroy
+  #   respond_to do |format|
+  #     format.html{ redirect_to groups_url, notice: "Group was successfully destroyed." }
+  #     format.json{ head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

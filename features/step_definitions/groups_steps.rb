@@ -96,3 +96,7 @@ When /^I sign up with {string}/ do |string|
     join_group(string)
   end
 
+When /I click on Join Group for group (.+)/ do |num|
+    find("a[href='/groups/#{num}/join_group']").click
+end
+
