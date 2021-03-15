@@ -46,5 +46,5 @@ On the group homepage click "edit" and then you can edit the group's name or des
 ### Editing a project:
 On the group home page, click the project you'd like to edit and then you should now be on the projects detail page. Then click "edit" and change the project name and description to your liking. Click "Update Project" and you should now be back on the project details page and see the updated name and description. 
 
-# Editing a Deliverable
+### Editing a Deliverable
 On the details page of the project whose deliverable you'd like to edit, locate the deliverable you'd like to edit. Then click the "edit" link that corresponds to it in the table. Change the deliverable name, description and status to your liking. Click "Update Deliverable" and you should now be back on the project details page and see the updated deliverable.
