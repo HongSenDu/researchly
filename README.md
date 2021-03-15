@@ -3,6 +3,7 @@ Welcome to Researchly! Researchly is a research group project management SaaS ap
 
 ## Links
 Heroku Link: [https://researchly-app.herokuapp.com](https://researchly-app.herokuapp.com)
+
 Github Repository Link: [https://github.com/HongSenDu/researchly.git](https://github.com/HongSenDu/researchly.git)
 
 ## Team Members:
