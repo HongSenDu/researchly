@@ -14,8 +14,10 @@ module NavigationHelpers
   
       when /the project11 homepage/
         '/projects/11'
+
+      when /^the profile1 homepage$/
+        '/profiles/1'
         
-      
       when /the home\s?page/
         '/'
   
@@ -44,7 +46,7 @@ module NavigationHelpers
       #   when /^(.*)'s profile page$/i
       #     user_profile_path(User.find_by_login($1))
         
-      when /^the Group1 homepage$/
+      when /^the group1 homepage$/
         '/groups/1'
 
       when /^the details page for “project1”$/
@@ -58,6 +60,9 @@ module NavigationHelpers
 
       when /^the projects3 detail page$/
         '/projects/3'
+
+      when /^the join page for "Bio Group"$/
+        'groups/1'
       
   
       else

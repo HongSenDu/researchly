@@ -4,9 +4,17 @@ Feature: Edit projects
 
 Background: projects added to the database
 
+	Given the following users exists:
+	|id		|email			|password	|password_confirmation	|
+	|1		|a@gmail.com	|123456		|123456					|
+
 	Given the following group exists:
 	|id		|name			|description
 	|1		|Bio Lab		|Columbia University's single Bio Lab
+
+	Given the following memberships exists:
+	|id		|user_id			|group_id
+	|1		|1					|1
 
 	Given the following projects exist: 
 	|id		|name		|description		|group_id|
