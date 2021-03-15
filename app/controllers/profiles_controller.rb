@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
     m = Membership.select('group_id').where(user_id: id)
 		g = Group.where(id:m)
     @groups = g
+    session[:profile_id] = id
   end
 
   def view

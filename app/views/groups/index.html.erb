@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Groups</h1>
-<%= form_tag groups_path :method => "GET" do%>
-  <%= label_tag(:search, "Search for Groups: ") %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag("Search", :name => nil) %>
-<%end%>
 
 <table>
   <thead>
@@ -17,10 +12,9 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= link_to 'Show', @group %></td>
-        <td><%= link_to 'Edit', @group %></td>
-        <td><% link_to 'Join Group', @group%><td>
-        <td><%= link_to 'Destroy', @group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= group.name %></td>
+        <td> | </td>
+        <td><%= link_to 'Join Group ', join_group_path(group)%></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +22,5 @@
 
 <br>
 
-<%= link_to 'New Group', new_group_path %>
+<%= link_to 'New Group', new_group_path %> | 
+<%= link_to 'Profile', profile_path(session[:profile_id]) %>
