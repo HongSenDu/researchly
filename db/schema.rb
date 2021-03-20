@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_034040) do
+ActiveRecord::Schema.define(version: 2021_03_19_235652) do
 
   create_table "deliverables", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_034040) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "code"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_034040) do
     t.datetime "membership_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
     t.index ["group_id"], name: "index_memberships_on_group_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_034040) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "group_id", null: false
+    t.string "status"
     t.index ["group_id"], name: "index_projects_on_group_id"
   end
 
