@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ProfilesController, type: :controller do
+RSpec.describe UsersController, type: :controller do
 
   context "user is logged in" do
     before(:each) do
