@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>users</h1>
+<h1>All researchly users</h1>
 
 <table>
   <thead>
@@ -12,14 +12,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%=user.email%></td>
-        <td><%= link_to 'Show', view_user_path(user) %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%=user.username %></td>
+        <td><%= link_to 'Show', user %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New user', new_user_path %>

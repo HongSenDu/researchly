@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ show edit view update destroy ]
 
   # GET /users or /users.json
   def index
-    @Users = User.all
+    @users = User.all
   end
 
   # GET /users/1 or /users/1.json
@@ -16,13 +16,12 @@ class UsersController < ApplicationController
   end
 
   def view
-    id = params[:id]
-    @user = User.find(id)
     if @user.bio == nil
       @bio = "You do not have a bio yet! Click edit write one."
     else
       @bio = @user.bio
     end
+    puts @is_current_user
   end
 
   #GET /users/new
@@ -32,7 +31,9 @@ class UsersController < ApplicationController
 
   #GET /users/1/edit
   def edit
-
+    if @is_current_user == false
+      redirect_to view_user_path(@user.id)
+    end 
   end
 
   # #POST /users or /users.json
@@ -53,9 +54,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+      if @user.update(user_params.permit(:username, :bio))
+        format.html { redirect_to view_user_path(@user.id), notice: 'User was successfully updated.' }
+        format.json { render :view, status: :ok, location: @user }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -76,6 +77,7 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+      @is_current_user = (current_user['id'] == @user.id)
     end
 
     # Only allow a list of trusted parameters through.

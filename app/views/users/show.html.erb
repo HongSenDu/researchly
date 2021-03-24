@@ -1,12 +1,15 @@
 <p id="notice"><%= notice %></p>
-<h1>Groups you are a member of:</h1>
+<h1>Groups <% if @is_current_user == true %>
+    you
+  <% else %>
+    <%= @user.username %>
+  <% end %> are a member of:</h1>
 <table>
   <thead>
     <tr>
       <th colspan="2"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @groups.each do |group| %>
       <tr>
@@ -18,3 +21,5 @@
 </table>
 <%= link_to 'New Group', new_group_path %> | 
 <%= link_to 'Join a Group', groups_path %>
+<br>
+<%= link_to "View #{@user.username}'s Profile", view_user_path(@user) %>
