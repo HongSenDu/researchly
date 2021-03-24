@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
     @projects = Project.where(group_id: @group.id)
     session[:group] = @group
     session[:group_id] = @group.id
+    @percent = Project.percent_completed(session[:project_id])
   end
 
   # GET /groups/new

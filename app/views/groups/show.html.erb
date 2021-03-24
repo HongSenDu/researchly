@@ -1,18 +1,21 @@
 <p id="notice"><%= notice %></p>
 <h1>Welcome to <%= @group.name %> </h1>
 <h1>Description: <%= @group.description %> </h1>
-<table>
+<table class="table table-hover" style="width:80% ; margin:auto">
   <thead>
     <tr>
-      <th colspan="2"></th>
+      <th>Project</th>
+      <th>Completion</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= link_to project.name, project_path(project) %></td>
-        <td><%= project.description %></td>
+      <td><%= link_to project.name, project_path(project) %></td>
+      <td><%= @percent %></td>
+      <td><%= button_to "delete", project_path(project), :method => :delete, data: { confirm: 'Are you certain you want to delete this?' } %></td>
       </tr>
     <% end %>
   </tbody>

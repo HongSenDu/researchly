@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
 		@deliverables = Deliverable.where(project_id: params[:id])
     session[:project_id] = params[:id]
+    @percent = Project.percent_completed(params[:id])
   end
 
   # GET /projects/new
@@ -57,14 +58,14 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1 or /projects/1.json
-  # def destroy
-  #   @project.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  #DELETE /projects/1 or /projects/1.json
+  def destroy
+    @project.destroy
+    respond_to do |format|
+      format.html { redirect_to group_path(session[:group]), notice: "Project was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
