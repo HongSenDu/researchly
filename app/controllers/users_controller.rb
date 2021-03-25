@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params.permit(:username, :bio))
+      if @user.update(user_params.permit(:username, :bio, :avatar, :remove_avatar, :avatar_cache))
         format.html { redirect_to view_user_path(@user.id), notice: 'User was successfully updated.' }
         format.json { render :view, status: :ok, location: @user }
       else
