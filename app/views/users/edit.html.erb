@@ -1,3 +1,5 @@
-<h1>Editing your profile</h1>
-<%= render 'form' %>
-<%= link_to 'Go Back to user', view_user_path(@user.id) %> 
+<div class="text-center w-50 m-auto p-5">
+  <h1 class="py-5">Editing your profile</h1>
+  <%= render 'form' %>
+  <%= link_to 'Go Back to profile', view_user_path(@user.id) %>
+</div>

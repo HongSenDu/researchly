@@ -1,19 +1,8 @@
-<h1><%=@user.username%>'s Profile</h1>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Contact: <%=@user.email%></td>
-    </tr>
-    <tr>
-      <td>Bio: <%=@bio%></td>
-    </tr>
-  </tbody>
-</table>
-<% if @is_current_user %>
-  <%= link_to 'Edit Profile', edit_user_path %>
-<% end %>
+<div class="text-center w-50 m-auto p-5">
+  <h1 class="text-center"><%=@user.username%>'s Profile</h1>
+  <div class="mb-3">Contact: <%=@user.email%></div>
+  <div class="mb-3">Bio: <%=@bio%></div>
+  <% if @is_current_user %>
+    <%= link_to 'Edit Profile', edit_user_path %> | <%= link_to 'Sign out', destroy_user_session_path %>
+  <% end %>
+</div>

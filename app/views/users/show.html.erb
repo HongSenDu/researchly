@@ -1,25 +1,30 @@
 <p id="notice"><%= notice %></p>
-<h1>Groups <% if @is_current_user == true %>
+<p class="text-right px-5"><%= link_to "View #{@is_current_user ? "your" : @user.username + "'s"} Profile", view_user_path(@user) %></p>
+<h1 class="text-center">Groups <% if @is_current_user == true %>
     you
   <% else %>
     <%= @user.username %>
-  <% end %> are a member of:</h1>
-<table>
+  <% end %> are a member of</h1>
+<table class="table table-hover text-center" style="width:80% ; margin:auto">
   <thead>
     <tr>
-      <th colspan="2"></th>
+      <th>Groups</th>
+      <th>Description</th>
+      <th>Group Lead</th>
     </tr>
   </thead>
   <tbody>
     <% @groups.each do |group| %>
-      <tr>
+      <tr class="py-3 text-center">
         <td><%= link_to group.name,  group_path(group)%></td>
+        <td><%= group.description %></td>
         <td><%= group.description %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'New Group', new_group_path %> | 
-<%= link_to 'Join a Group', groups_path %>
+<div class="text-center py-5">
+  <%= link_to 'New Group', new_group_path %> | 
+  <%= link_to 'Join a Group', groups_path %>
+</div>
 <br>
-<%= link_to "View #{@user.username}'s Profile", view_user_path(@user) %>
