@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit view update destroy ]
-
+  before_action :is_current_user, only: %i[ show edit view update destroy ]
   # GET /users or /users.json
   def index
     @users = User.all
@@ -77,11 +77,18 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
-      @is_current_user = (current_user['id'] == @user.id)
     end
 
     # Only allow a list of trusted parameters through.
     def user_params
       params.fetch(:user, {})
+    end
+
+    def is_current_user
+      if current_user
+        @is_current_user = (current_user['id'] == @user.id)
+      else
+        @is_current_user = false
+      end
     end
 end
