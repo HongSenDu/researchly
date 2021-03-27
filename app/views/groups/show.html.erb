@@ -20,6 +20,7 @@
 </table>
 <%= link_to 'Edit', edit_group_path(@group)%> |
 <%= link_to 'Back', profile_path(session[:profile_id]) %> |
-<%= link_to 'Join', group_path(@group), :method => :join_group %>|
+<%= link_to 'Join Group', group_path(@group), :method => :join_group %>|
+<%= link_to 'Leave Group', leave_group_path,  :method => :leave_group%> |
 <%= link_to "Delete", @group, :confirm => "Are you sure?", :method => :destroy %>|
 <%= link_to 'New Project', new_project_path%>
