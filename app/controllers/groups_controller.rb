@@ -54,18 +54,14 @@ class GroupsController < ApplicationController
     end 
   end
   def leave_group
-    is_a_member = Membership.where(user_id: session[:profile_id], group_id: params[:id])
+    is_a_member = Membership.find_by user_id: session[:profile_id], group_id: params[:id]
     puts is_a_member
-    if(is_a_member.isnil?)
-      redirect_to(group_path(@group), alert: "Empty field") and return
+    if(is_a_member.nil?)
+      redirect_to( group_path(params[:id]), alert: "Not a member") and return
     else
       is_a_member.destroy
       flash[:notice] = "Sucessfully Left Group"
       redirect_to profile_path(session[:profile_id])
-    end
-    if(Membership.where(group_id: params[:id]).isnil?)
-      Group.where(group_id: params[:id]).destroy
-      return
     end
   end
   def destroy
