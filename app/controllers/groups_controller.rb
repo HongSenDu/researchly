@@ -45,6 +45,31 @@ class GroupsController < ApplicationController
       end
     end 
   end
+  def leave_group
+    is_a_member = Membership.where(user_id: session[:profile_id], group_id: params[:id])
+    if(is_a_member)
+      is_a_member.destroy
+      flash[:notice] = "Sucessfully Left Group"
+      redirect_to profile_path(session[:profile_id])
+    end
+    if(Membership.where(group_id: params[:id]).isnil?)
+      Group.where(group_id: params[:id]).destroy
+      return
+    end
+  end
+  def destroy
+    membership_type = Membership.where(user_id: session[:profile_id], group_id: params[:id])
+    if(membership_type.type == 'leader')
+       @group.destroy
+      respond_to do |format|
+        format.html { redirect_to groups_url, notice: "Profile was successfully destroyed." }
+        format.json { head :no_content }
+      end  
+    else
+      flash[:notice] = "Must be the group leader to destroy group"
+    end
+  end
+
   # POST /groups or /groups.json
   def create
     if(params[:group][:name].nil?) or (params[:group][:name] == "")
@@ -52,7 +77,12 @@ class GroupsController < ApplicationController
       redirect_to new_group_path
     else
       
+      #create a new group
       @group = Group.new(group_params)
+      #generate a code for the group
+      @group.code = Array.new(8){[*"A".."Z", *"0".."9"].sample}.join
+      #after group is created add creator to group as leader
+      Membership.create!(user_id: session[:profile_id], group_id: @group.id, type: "leader")
 
       respond_to do |format|
         if @group.save
