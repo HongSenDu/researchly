@@ -79,13 +79,16 @@ class GroupsController < ApplicationController
       
       #create a new group
       @group = Group.new(group_params)
-      #generate a code for the group
-      @group.code = Array.new(8){[*"A".."Z", *"0".."9"].sample}.join
-      #after group is created add creator to group as leader
-      Membership.create!(user_id: session[:profile_id], group_id: @group.id, member_type: "leader")
 
       respond_to do |format|
         if @group.save
+          #generate a code for the group
+          o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
+          new_code = (0...8).map { o[rand(o.length)] }.join
+          puts new_code
+          @group.update(code: new_code)
+          #after group is created add creator to group as leader
+          Membership.create!(user_id: session[:profile_id], group_id: @group.id, member_type: "leader")
           format.html {redirect_to @group, notice: "Group was successfully created."}
           format.json {render :show, status: :created, location: @group}
         else
@@ -126,8 +129,6 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      #groupID = Project.find_by_id(params[:id]).group_id
-      #group = Group.find_by_id(groupID)
       @group = Group.find(params[:id])
 
     end
