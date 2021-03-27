@@ -35,6 +35,12 @@ Scenario: Change Existing Project Description
 	Then I should be on the project1 homepage
 	And I should see "the coolest description"
 
+Scenario: Change Existing Project Status
+	When I fill in "Status" with "complete"
+	And I press "Update Project"
+	Then I should be on the project1 homepage
+	And I should see "complete"
+
 Scenario: Cannot Edit Project to Have No Name (Sad Path)
 	When I fill in "Project Name" with ""
 	And I press "Update"
