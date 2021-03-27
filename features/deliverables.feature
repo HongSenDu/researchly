@@ -47,3 +47,8 @@ Scenario: Did not fill out fields
     And  I fill in "Name" with ""
     And I press "Update Deliverable"
     Then I should see "Deliverable must have a name"
+
+Scenario: Delete an exisitng deliverable
+    When I press delete for deliverable 4
+    Then I should see "Deliverable was successfully destroyed."
+    And I should not see "Deliver 4"

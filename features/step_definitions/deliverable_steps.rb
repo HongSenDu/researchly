@@ -35,3 +35,7 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
       fail "Incorrect"
   end
 end
+
+When /I press delete for deliverable (.*)/ do |num|
+  page.find_by_id(num).click
+end
