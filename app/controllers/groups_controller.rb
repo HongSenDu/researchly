@@ -82,7 +82,7 @@ class GroupsController < ApplicationController
       #generate a code for the group
       @group.code = Array.new(8){[*"A".."Z", *"0".."9"].sample}.join
       #after group is created add creator to group as leader
-      Membership.create!(user_id: session[:profile_id], group_id: @group.id, type: "leader")
+      Membership.create!(user_id: session[:profile_id], group_id: @group.id, member_type: "leader")
 
       respond_to do |format|
         if @group.save
