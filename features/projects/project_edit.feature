@@ -9,18 +9,23 @@ Background: projects added to the database
 	|1		|a@gmail.com	|123456		|123456					|
 
 	Given the following group exists:
-	|id		|name			|description
-	|1		|Bio Lab		|Columbia University's single Bio Lab
+	|id		|name			|description							|
+	|1		|group1			|Columbia University's single Bio Lab	|
 
 	Given the following memberships exists:
-	|id		|user_id			|group_id
-	|1		|1					|1
+	|id		|user_id			|group_id	|
+	|1		|1					|1			|
 
 	Given the following projects exist: 
 	|id		|name		|description		|group_id|
 	|1		|project1	|description		|1		 |
 	|2		|project2	|something			|1		 |
 
+	And I am on the profile1 homepage
+	And I follow "group1"
+    And I am on the group1 homepage
+    And I follow "project1"
+    Then I should be on the project1 homepage
 	And I am on the details page for “project1”
 
 Scenario: Change Existing Project Name
