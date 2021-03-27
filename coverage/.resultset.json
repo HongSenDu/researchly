@@ -558,7 +558,7 @@
         }
       }
     },
-    "timestamp": 1616807670
+    "timestamp": 1616808333
   },
   "RSpec": {
     "coverage": {
@@ -575,8 +575,17 @@
           null,
           1,
           2,
+          null,
           2,
+          null,
           2,
+          0,
+          null,
+          null,
+          2,
+          0,
+          null,
+          null,
           2,
           2,
           null,
@@ -882,7 +891,6 @@
           2,
           2,
           2,
-          2,
           null,
           null,
           null,
@@ -1076,17 +1084,13 @@
           1,
           null,
           1,
-          4,
-          4,
-          4,
+          0,
           null,
-          null
-        ]
-      },
-      "/home/aaron/researchly/app/models/deliverable.rb": {
-        "lines": [
+          null,
           1,
-          1,
+          0,
+          null,
+          null,
           null
         ]
       },
@@ -1097,8 +1101,15 @@
           1,
           null
         ]
+      },
+      "/home/aaron/researchly/app/models/deliverable.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1616560455
+    "timestamp": 1616808345
   }
 }

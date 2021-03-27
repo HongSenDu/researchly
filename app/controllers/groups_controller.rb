@@ -13,11 +13,11 @@ class GroupsController < ApplicationController
     @projects = Project.where(group_id: @group.id)
 
     if (params.has_key?(:name))
-      @projects = Project.where(group_id: @group.id).name_order
+      @projects = @projects.name_order
     end
 
     if (params.has_key?(:status))
-      @projects = Project.where(group_id: @group.id).status_order
+      @projects = @projects.status_order
     end
 
     session[:group] = @group
