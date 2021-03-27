@@ -11,7 +11,6 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
 		@deliverables = Deliverable.where(project_id: params[:id])
     session[:project_id] = params[:id]
-    @percent = Project.percent_completed(params[:id])
   end
 
   # GET /projects/new
@@ -62,7 +61,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to group_path(session[:group]), notice: "Project was successfully destroyed." }
+      format.html { redirect_to group_path(session[:group_id]), notice: "Project was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -75,6 +74,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :description, :group_id)
+      params.require(:project).permit(:name, :description, :group_id, :status)
     end
 end

@@ -1,9 +1,12 @@
 class Project < ApplicationRecord
     has_many :deliverables, :dependent => :destroy
 
-    def self.percent_completed(id)
-        @deliverables = Deliverable.where(project_id: id)
-        @done = Deliverable.where(project_id: id).where(status: "done").count
-        @done = @done.to_f / @deliverables.count * 100
+    def self.name_order
+        Project.order("name")
+      end
+
+    def self.status_order
+      Project.order("status").reverse_order
     end
+
 end

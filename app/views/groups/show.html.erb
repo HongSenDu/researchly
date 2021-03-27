@@ -4,8 +4,8 @@
 <table class="table table-hover" style="width:80% ; margin:auto">
   <thead>
     <tr>
-      <th>Project</th>
-      <th>Completion</th>
+      <th><%= link_to "Project", group_path(params[:id], :name => 'name')%></th>
+      <th><%= link_to "Status", group_path(params[:id], :status => 'status')%></th>
       <th>Delete</th>
     </tr>
   </thead>
@@ -14,8 +14,8 @@
     <% @projects.each do |project| %>
       <tr>
       <td><%= link_to project.name, project_path(project) %></td>
-      <td><%= @percent %></td>
-      <td><%= button_to "delete", project_path(project), :method => :delete, data: { confirm: 'Are you certain you want to delete this?' } %></td>
+      <td><%= project.status %></td>
+      <td><%= button_to "delete", project_path(project), :method => :delete, :data => { confirm: 'Are you certain you want to delete this?' } %></td>
       </tr>
     <% end %>
   </tbody>
