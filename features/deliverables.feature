@@ -15,8 +15,15 @@ Background: populate tables
     Given the following deliverables exist:
     | id    | name      | description           | status      | project_id |
     | 5     | Deliver 5 | The fifth deliverable | started     | 11         |
+    | 4     | Deliver 4 | The fifth deliverable | finished    | 11         |
 
     And I am on the project11 homepage
+
+
+Scenario: Sort by status
+    When I follow "Sort by status"
+    Then I should be on "the project11 homepage"
+    And I should see "Deliver 4" before "Deliver 5"
 
 Scenario: Edit an exisitng deliverable
     When I click on edit for deliverable 5

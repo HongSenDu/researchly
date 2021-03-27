@@ -9,7 +9,13 @@ class ProjectsController < ApplicationController
   # GET /projects/1 or /projects/1.json
   def show
     @project = Project.find(params[:id])
-		@deliverables = Deliverable.where(project_id: params[:id])
+    sort = params[:sort]
+    if (not sort.nil?) and sort.eql?("status")
+      @deliverables = Deliverable.where(project_id: params[:id]).order(:status)
+    else
+      @deliverables = Deliverable.where(project_id: params[:id])
+    end
+		#@deliverables = Deliverable.where(project_id: params[:id])
     session[:project_id] = params[:id]
   end
 
