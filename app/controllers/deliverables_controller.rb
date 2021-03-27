@@ -81,7 +81,6 @@ class DeliverablesController < ApplicationController
     project_id = (Deliverable.find params[:id]).project_id
     @project = Project.find_by_id(project_id)
     @deliverable.destroy
-    puts "AHHHHHHHHHHHH"
     respond_to do |format|
       format.html { redirect_to @project, notice: "Deliverable was successfully destroyed." }
       format.json { head :no_content }

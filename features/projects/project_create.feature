@@ -21,7 +21,7 @@ Background: projects added to the database
 	|1		|project1	|description		|1		 |
 	|2		|project2	|something			|1		 |
 
-	And I am on the profile1 homepage
+	And I am on the user1 homepage
 	And I follow "group1"
 	Then I should be on the group1 homepage
 
