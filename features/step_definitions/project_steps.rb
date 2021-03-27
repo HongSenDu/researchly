@@ -9,6 +9,15 @@ Given /the following group exists/ do |groups_table|
     Group.create group
   end
 end 
+
+Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
+    page1 = page.body.gsub("\n", '')
+    expect(page1 =~ /.*#{e1}.*#{e2}.*/).not_to eq(nil) 
+end
+
+# When /I press delete for project(.+)/ do |num|
+#   find("a[href='/projects/5']").press
+# end
   
 =begin
   Then /I should see "(.*)" before "(.*)"/ do |e1, e2|

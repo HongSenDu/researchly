@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1>Project: <%= @project.name %> </h1>
 <h1>Description: <%= @project.description %> </h1>
+<h5>Status: <%= @project.status %> </h5>
 <a href=/projects/<%= @project.id%>?sort=status><button type="button" class="btn btn-warning">Sort by status</button></a>
 <table class="table table-hover" style="width:80% ; margin:auto">
   <thead>
@@ -23,7 +24,8 @@
     <% end %>
   </tbody>
 </table>
+<br  />
 <%= link_to 'Add new deliverable', new_deliverable_path(@project), :class => 'btn btn-warning' %>
-<br>
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', group_path(params[:id]) %>
+<%= link_to 'Back', group_path(session[:group_id]) %> |
+<%= button_to "delete", project_path(@project), :method => :delete, :data => { confirm: 'Are you certain you want to delete this?' } %>

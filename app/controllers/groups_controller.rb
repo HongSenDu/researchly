@@ -9,7 +9,17 @@ class GroupsController < ApplicationController
   # GET /groups/1 or /groups/1.json
   def show
     @group = Group.find(params[:id])
+
     @projects = Project.where(group_id: @group.id)
+
+    if (params.has_key?(:name))
+      @projects = @projects.name_order
+    end
+
+    if (params.has_key?(:status))
+      @projects = @projects.status_order
+    end
+
     session[:group] = @group
     session[:group_id] = @group.id
   end

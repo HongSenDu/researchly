@@ -4,9 +4,17 @@ Feature: display and be able to interact with deliverables
 
 Background: populate tables
 
+	Given the following users exists:
+	|id		|email			|password	|password_confirmation	|
+	|1		|a@gmail.com	|123456		|123456					|
+
     Given the following groups exist:
     | id    | name      | description   |
     | 10    | group10   | Group 10      |
+
+    Given the following memberships exists:
+	|id		|user_id			|group_id 	|
+	|1		|1					|10		    |
 
     Given the following projects exist:
     | id    | name      | description       | group_id  |
@@ -17,7 +25,11 @@ Background: populate tables
     | 5     | Deliver 5 | The fifth deliverable | started     | 11         |
     | 4     | Deliver 4 | The fifth deliverable | finished    | 11         |
 
-    And I am on the project11 homepage
+    And I am on the profile1 homepage
+	And I follow "group10"
+    And I am on the group10 homepage
+    And I follow "project11"
+    Then I should be on the project11 homepage
 
 
 Scenario: Sort by status
