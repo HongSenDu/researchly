@@ -48,7 +48,6 @@ class ProjectsController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
     if (params[:project][:name].nil?) or (params[:project][:name] == "")

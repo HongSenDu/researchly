@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Groups</h1>
+<h3>Search Results</h3> 
 <%= form_tag(search_group_path, :method => "get",   
     class: 'navbar-form navbar-left') do %>  
   <div class="input-group">  
@@ -10,25 +8,22 @@
     </div>  
   </div>  
 <% end %>
-<table>
+<table> 
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
-
-  <tbody>
-    <% @groups.each do |group| %>
+    <tbody>
+    <% @results.each do |result| %>
       <tr>
-        <td><%= group.name %></td>
+        <td><%= result.name %></td>
         <td> | </td>
-        <td><%= link_to 'Join Group ', join_group_path(group)%></td>
+        <td><%= link_to 'Join Group ', join_group_path(result)%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 <%= link_to 'New Group', new_group_path %> | 
 <%= link_to 'Profile', profile_path(session[:profile_id]) %>

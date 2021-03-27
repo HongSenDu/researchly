@@ -32,22 +32,28 @@ class GroupsController < ApplicationController
   # GET /groups/1/edit
   def edit
   end
-
+  def search
+    if params[:search].blank?
+      redirect_to(groups_path, alert: "Empty field") and return
+    else
+      @parameter = params[:search].downcase
+      @results = Group.all.where("lower(name) Like :search", search: "%#{@parameter}%")
+      puts @results
+    end
+  end
   def join_group
     #check if user is already a member
-    existing_memberships = Membership.where(user_id: session[:profile_id])
-    
+    existing_memberships = Membership.where(user_id: session[:profile_id], group_id: params[:id])
     if (existing_memberships.empty?)
       Membership.create!(user_id: session[:profile_id], group_id: params[:id])
       flash[:notice] = "Successfully Joined"
-      redirect_to profile_path(session[:profile_id])
+      redirect_to group_path(params[:id])
       return
     end
-    
     existing_memberships.each do |member|
       if member.group_id != params[:id]
         Membership.create!(user_id: session[:profile_id], group_id: params[:id])
-        flash[:notice] = "Successfully Joined"
+        flash[:notice] = "Already Joined"
         redirect_to profile_path(session[:profile_id])
         return
       else
@@ -55,6 +61,26 @@ class GroupsController < ApplicationController
       end
     end 
   end
+
+  def leave_group
+    is_a_member = Membership.find_by user_id: session[:profile_id], group_id: params[:id]
+    if(is_a_member.nil?)
+      redirect_to( group_path(params[:id]), alert: "Not a member") and return
+    else
+      is_a_member.destroy
+      flash[:notice] = "Sucessfully Left Group"
+      redirect_to profile_path(session[:profile_id])
+    end
+  end
+
+  def destroy
+    @group.destroy
+      respond_to do |format|
+        format.html { redirect_to groups_url, notice: "Profile was successfully destroyed." }
+        format.json { head :no_content }
+      end 
+  end
+
   # POST /groups or /groups.json
   def create
     if(params[:group][:name].nil?) or (params[:group][:name] == "")
@@ -62,10 +88,18 @@ class GroupsController < ApplicationController
       redirect_to new_group_path
     else
       
+      #create a new group
       @group = Group.new(group_params)
 
       respond_to do |format|
         if @group.save
+          #generate a code for the group
+          o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
+          new_code = (0...8).map { o[rand(o.length)] }.join
+          puts new_code
+          @group.update(code: new_code)
+          #after group is created add creator to group as leader
+          Membership.create!(user_id: session[:profile_id], group_id: @group.id, member_type: 'leader')
           format.html {redirect_to @group, notice: "Group was successfully created."}
           format.json {render :show, status: :created, location: @group}
         else
@@ -106,8 +140,6 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      #groupID = Project.find_by_id(params[:id]).group_id
-      #group = Group.find_by_id(groupID)
       @group = Group.find(params[:id])
 
     end
