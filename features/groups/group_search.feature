@@ -1,4 +1,4 @@
-Feature: allow users to sign up and or leave a group
+Feature: allow users to search for groups
 
     As an existing researchly user and group member 
     so I can sign up to, or leave groups
@@ -23,9 +23,9 @@ Background:
     
     Given I am logged in
     Given there are groups added to the database
+    Given I am on the groups page
 
-    Scenario: Sign up to a group I am not a member of
-    
-    Scenario: Sign up to a group I am already a member of
-
-    Scenario: Leave group I am a member of
+    Scenario: I search for a group
+    When I fill in "Search Groups" with "bio"
+    And I press "Search"
+    Then I should see "Bio Group"

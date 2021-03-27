@@ -33,19 +33,17 @@ class GroupsController < ApplicationController
   end
   def join_group
     #check if user is already a member
-    existing_memberships = Membership.where(user_id: session[:profile_id])
-    
+    existing_memberships = Membership.where(user_id: session[:profile_id], group_id: params[:id])
     if (existing_memberships.empty?)
       Membership.create!(user_id: session[:profile_id], group_id: params[:id])
       flash[:notice] = "Successfully Joined"
-      redirect_to profile_path(session[:profile_id])
+      redirect_to group_path(params[:id])
       return
     end
-    
     existing_memberships.each do |member|
       if member.group_id != params[:id]
         Membership.create!(user_id: session[:profile_id], group_id: params[:id])
-        flash[:notice] = "Successfully Joined"
+        flash[:notice] = "Already Joined"
         redirect_to profile_path(session[:profile_id])
         return
       else
@@ -53,9 +51,9 @@ class GroupsController < ApplicationController
       end
     end 
   end
+
   def leave_group
     is_a_member = Membership.find_by user_id: session[:profile_id], group_id: params[:id]
-    puts is_a_member
     if(is_a_member.nil?)
       redirect_to( group_path(params[:id]), alert: "Not a member") and return
     else
@@ -64,17 +62,13 @@ class GroupsController < ApplicationController
       redirect_to profile_path(session[:profile_id])
     end
   end
+
   def destroy
-    membership_type = Membership.where(user_id: session[:profile_id], group_id: params[:id])
-    if(membership_type.type == 'leader')
-       @group.destroy
+    @group.destroy
       respond_to do |format|
         format.html { redirect_to groups_url, notice: "Profile was successfully destroyed." }
         format.json { head :no_content }
-      end  
-    else
-      flash[:notice] = "Must be the group leader to destroy group"
-    end
+      end 
   end
 
   # POST /groups or /groups.json
@@ -95,7 +89,7 @@ class GroupsController < ApplicationController
           puts new_code
           @group.update(code: new_code)
           #after group is created add creator to group as leader
-          Membership.create!(user_id: session[:profile_id], group_id: @group.id, member_type: "leader")
+          Membership.create!(user_id: session[:profile_id], group_id: @group.id, member_type: 'leader')
           format.html {redirect_to @group, notice: "Group was successfully created."}
           format.json {render :show, status: :created, location: @group}
         else
