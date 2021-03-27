@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :profiles
   get "profiles/:id/view", to: "profiles#view", as: 'view_profile'
   get '/groups/:id/join_group', to: 'groups#join_group', as: 'join_group'
+  get 'groups/search' => 'groups#search', :as => 'search_group'
   #get 'welcome/index'
   resources :groups
   resources :deliverables

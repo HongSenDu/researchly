@@ -22,7 +22,15 @@ class GroupsController < ApplicationController
   # GET /groups/1/edit
   def edit
   end
-
+  def search
+    if params[:search].blank?
+      redirect_to(groups_path, alert: "Empty field") and return
+    else
+      @parameter = params[:search].downcase
+      @results = Group.all.where("lower(name) Like :search", search: "%#{@parameter}%")
+      puts @results
+    end
+  end
   def join_group
     #check if user is already a member
     existing_memberships = Membership.where(user_id: session[:profile_id])
