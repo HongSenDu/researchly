@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/mwinitch/ASE/researchly/app/models/user.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -13,14 +13,14 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/application_record.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/uploaders/avatar_uploader.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/uploaders/avatar_uploader.rb": {
         "lines": [
           1,
           null,
@@ -71,7 +71,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/group.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/group.rb": {
         "lines": [
           1,
           1,
@@ -80,7 +80,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/membership.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/membership.rb": {
         "lines": [
           1,
           1,
@@ -88,7 +88,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/project.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/project.rb": {
         "lines": [
           1,
           1,
@@ -104,14 +104,14 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/deliverable.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/deliverable.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/users_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -209,7 +209,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/application_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
@@ -228,43 +228,43 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/helpers/application_helper.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/helpers/deliverables_helper.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/deliverables_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/helpers/groups_helper.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/groups_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/helpers/projects_helper.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/projects_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/helpers/users_helper.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/users_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/helpers/welcome_helper.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/helpers/welcome_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/groups_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/groups_controller.rb": {
         "lines": [
           1,
           1,
@@ -419,7 +419,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/projects_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/projects_controller.rb": {
         "lines": [
           1,
           1,
@@ -431,17 +431,17 @@
           null,
           null,
           1,
-          20,
-          20,
-          20,
+          19,
+          19,
+          19,
           1,
+          null,
+          18,
+          null,
           null,
           19,
           null,
           null,
-          20,
-          null,
-          null,
           null,
           1,
           4,
@@ -462,8 +462,8 @@
           null,
           1,
           1,
-          2,
-          1,
+          0,
+          0,
           null,
           0,
           0,
@@ -497,7 +497,7 @@
           1,
           null,
           1,
-          31,
+          30,
           null,
           null,
           null,
@@ -507,7 +507,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/deliverables_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/deliverables_controller.rb": {
         "lines": [
           1,
           1,
@@ -612,7 +612,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/welcome_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/welcome_controller.rb": {
         "lines": [
           1,
           null,
@@ -627,7 +627,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/channels/application_cable/channel.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -637,17 +637,7 @@
         "branches": {
         }
       },
-      "/home/mwinitch/ASE/researchly/app/channels/application_cable/connection.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/mwinitch/ASE/researchly/app/jobs/application_job.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -660,7 +650,17 @@
         "branches": {
         }
       },
-      "/home/mwinitch/ASE/researchly/app/mailers/application_mailer.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/channels/application_cable/connection.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -671,11 +671,11 @@
         }
       }
     },
-    "timestamp": 1616864970
+    "timestamp": 1617035079
   },
   "RSpec": {
     "coverage": {
-      "/home/mwinitch/ASE/researchly/app/controllers/groups_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/groups_controller.rb": {
         "lines": [
           1,
           1,
@@ -687,20 +687,20 @@
           null,
           null,
           1,
-          2,
+          0,
           null,
-          2,
+          0,
           null,
-          2,
+          0,
           0,
           null,
           null,
-          2,
+          0,
           0,
           null,
           null,
-          2,
-          2,
+          0,
+          0,
           null,
           null,
           null,
@@ -830,7 +830,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/application_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
@@ -849,7 +849,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/spec/controllers/projects_controller_spec.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/spec/controllers/projects_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -863,8 +863,8 @@
           1,
           1,
           1,
-          1,
-          1,
+          0,
+          0,
           null,
           null,
           null,
@@ -876,8 +876,8 @@
           1,
           1,
           1,
-          1,
-          1,
+          0,
+          0,
           null,
           null,
           null,
@@ -885,49 +885,27 @@
           1,
           1,
           1,
-          1,
-          1,
+          0,
+          0,
           null,
           1,
           1,
           1,
-          1,
-          1,
+          0,
+          0,
           null,
           null,
           null,
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/projects_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/projects_controller.rb": {
         "lines": [
           1,
           1,
           null,
           null,
           1,
-          2,
-          null,
-          null,
-          null,
-          1,
-          2,
-          2,
-          2,
-          0,
-          null,
-          2,
-          null,
-          null,
-          2,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          null,
           1,
           null,
           null,
@@ -936,19 +914,21 @@
           0,
           0,
           0,
+          0,
+          null,
+          0,
           null,
           null,
           0,
           null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
           null,
           null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
           null,
           null,
           null,
@@ -959,6 +939,26 @@
           null,
           null,
           0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
           0,
           0,
           0,
@@ -977,7 +977,7 @@
           1,
           null,
           1,
-          2,
+          0,
           null,
           null,
           null,
@@ -987,7 +987,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/spec/controllers/users_controller_spec.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/spec/controllers/users_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -1088,7 +1088,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/users_controller.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -1186,7 +1186,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/spec/models/user_spec.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/spec/models/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -1290,7 +1290,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/group.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/group.rb": {
         "lines": [
           1,
           1,
@@ -1299,7 +1299,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/project.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/project.rb": {
         "lines": [
           1,
           1,
@@ -1315,14 +1315,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/deliverable.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/mwinitch/ASE/researchly/app/models/membership.rb": {
+      "/Users/hongsendu/Columbia 2019-2020/Spring 2021 Files/researchly/app/models/membership.rb": {
         "lines": [
           1,
           1,
@@ -1331,6 +1324,6 @@
         ]
       }
     },
-    "timestamp": 1616864980
+    "timestamp": 1617035094
   }
 }
