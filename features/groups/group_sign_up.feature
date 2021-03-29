@@ -46,3 +46,15 @@ Background:
     Then I should see "Bio Group"
     When I follow "Join Group"
     Then I should see "Already Joined"
+
+    Scenario: Leave Group
+    When I follow "Join a Group"
+    When I fill in "Search Groups" with "bio"
+    And I press "Search"
+    Then I should see "Bio Group"
+    When I follow "Join Group"
+    Then I should see "Successfully Joined"
+    When I follow "Back"
+    When I follow "Bio Group"
+    Then I follow "Leave Group"
+    Then I should see "Sucessfully Left Group"

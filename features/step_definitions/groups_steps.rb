@@ -18,12 +18,6 @@ def join_group(group_name)
     click_button "Search"
     click_button "Join Group"
 end
-def leave_group(group_name, arg2, arg3)
-    puts(group_name)
-    puts(arg2)
-    puts(arg3)
-    click_button "Leave Group"
-end
 def delete_group
     @group ||= Group.where(:name => @temp["name"]).first
     @group.destroy unless @group.nil?
