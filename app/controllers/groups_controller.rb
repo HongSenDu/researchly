@@ -38,7 +38,6 @@ class GroupsController < ApplicationController
     else
       @parameter = params[:search].downcase
       @results = Group.all.where("lower(name) Like :search", search: "%#{@parameter}%")
-      puts @results
     end
   end
   def join_group
