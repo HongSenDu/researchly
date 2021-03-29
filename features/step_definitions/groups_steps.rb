@@ -18,11 +18,6 @@ def join_group(group_name)
     click_button "Search"
     click_button "Join Group"
 end
-def leave_group(group_name)
-    puts(group_name)
-    visit '/group/:id/show'
-    click 'Leave GrouP'
-end
 def delete_group
     @group ||= Group.where(:name => @temp["name"]).first
     @group.destroy unless @group.nil?
@@ -61,21 +56,5 @@ end
 Given /^I am a member of a group$/ do
     create_group
     join_group
-end
-### THEN ###
-
-
-### When ###
-
-When /^I sign up with {string}/ do |string|
-    join_group(string)
-  end
-
-When /I click on Join Group for group (.+)/ do |num|
-    find("a[href='/groups/#{num}/join_group']").click
-end
-
-When /I click on Leave Group for group (.+)/ do |num|
-    find("a[href='/groups/#{num}/leave_group']").click
 end
 

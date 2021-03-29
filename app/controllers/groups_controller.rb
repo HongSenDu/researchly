@@ -38,7 +38,6 @@ class GroupsController < ApplicationController
     else
       @parameter = params[:search].downcase
       @results = Group.all.where("lower(name) Like :search", search: "%#{@parameter}%")
-      puts @results
     end
   end
   def join_group
@@ -76,7 +75,7 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
       respond_to do |format|
-        format.html { redirect_to groups_url, notice: "user was successfully destroyed." }
+        format.html { redirect_to groups_url, notice: "Group was successfully destroyed." }
         format.json { head :no_content }
       end 
   end
