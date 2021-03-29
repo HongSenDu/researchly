@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_034040) do
+ActiveRecord::Schema.define(version: 2021_03_20_002937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 2021_03_12_034040) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "project_id", null: false
+    t.integer "project_id", null: false
+    t.datetime "deadline"
     t.index ["project_id"], name: "index_deliverables_on_project_id"
   end
 
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_034040) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "code"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_034040) do
     t.datetime "membership_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
     t.index ["group_id"], name: "index_memberships_on_group_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
@@ -47,7 +50,8 @@ ActiveRecord::Schema.define(version: 2021_03_12_034040) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "group_id", null: false
+    t.integer "group_id", null: false
+    t.string "status"
     t.index ["group_id"], name: "index_projects_on_group_id"
   end
 
