@@ -9,7 +9,13 @@ class ProjectsController < ApplicationController
   # GET /projects/1 or /projects/1.json
   def show
     @project = Project.find(params[:id])
-		@deliverables = Deliverable.where(project_id: params[:id])
+    sort = params[:sort]
+    if (not sort.nil?) and sort.eql?("status")
+      @deliverables = Deliverable.where(project_id: params[:id]).order(:status)
+    else
+      @deliverables = Deliverable.where(project_id: params[:id])
+    end
+		#@deliverables = Deliverable.where(project_id: params[:id])
     session[:project_id] = params[:id]
   end
 
@@ -42,7 +48,6 @@ class ProjectsController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
     if (params[:project][:name].nil?) or (params[:project][:name] == "")
@@ -57,14 +62,14 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1 or /projects/1.json
-  # def destroy
-  #   @project.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  #DELETE /projects/1 or /projects/1.json
+  def destroy
+    @project.destroy
+    respond_to do |format|
+      format.html { redirect_to group_path(session[:group_id]), notice: "Project was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,6 +79,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :description, :group_id)
+      params.require(:project).permit(:name, :description, :group_id, :status)
     end
 end

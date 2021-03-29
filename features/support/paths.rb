@@ -15,8 +15,13 @@ module NavigationHelpers
       when /the project11 homepage/
         '/projects/11'
 
+      when /the group10 homepage/
+        '/groups/10'
+
       when /^the profile1 homepage$/
-        '/profiles/1'
+        '/users/1'
+      when /^the user1 homepage$/
+        '/users/1'
         
       when /the home\s?page/
         '/'
@@ -43,8 +48,8 @@ module NavigationHelpers
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
-      #   when /^(.*)'s profile page$/i
-      #     user_profile_path(User.find_by_login($1))
+      #   when /^(.*)'s user page$/i
+      #     user_user_path(User.find_by_login($1))
         
       when /^the group1 homepage$/
         '/groups/1'

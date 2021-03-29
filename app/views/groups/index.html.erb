@@ -1,7 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Groups</h1>
-
+<%= form_tag(search_group_path, :method => "get",   
+    class: 'navbar-form navbar-left') do %>  
+  <div class="input-group">  
+    <%= search_field_tag :search, params[:search], placeholder: "Search Groups", class: "form-control" %>  
+    <div class="input-group-btn">  
+    <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+    </div>  
+  </div>  
+<% end %>
 <table>
   <thead>
     <tr>
@@ -23,4 +31,4 @@
 <br>
 
 <%= link_to 'New Group', new_group_path %> | 
-<%= link_to 'Profile', profile_path(session[:profile_id]) %>
+<%= link_to 'user', user_path(session[:user_id]) %>

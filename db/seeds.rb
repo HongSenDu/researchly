@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-users = [{:email => "michael@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret'},
-    {:email => "aaron@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret'},
-    {:email => "andrew@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret'},
-    {:email => "hong@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret'},
+users = [{:email => "michael@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Michael", :bio => "Cool person"},
+    {:email => "aaron@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Aaron", :bio => "Cool person"},
+    {:email => "andrew@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Andrew", :bio => "Cool person"},
+    {:email => "hong@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Hong", :bio => ""},
   ]
 
 users.each do |user|

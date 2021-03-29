@@ -1,48 +1,48 @@
 require "test_helper"
 
-class ProfilesControllerTest < ActionDispatch::IntegrationTest
+class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @profile = profiles(:one)
+    @user = users(:one)
   end
 
   test "should get index" do
-    get profiles_url
+    get users_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_profile_url
+    get new_user_url
     assert_response :success
   end
 
-  test "should create profile" do
-    assert_difference('Profile.count') do
-      post profiles_url, params: { profile: {  } }
+  test "should create user" do
+    assert_difference('user.count') do
+      post users_url, params: { user: {  } }
     end
 
-    assert_redirected_to profile_url(Profile.last)
+    assert_redirected_to user_url(user.last)
   end
 
-  test "should show profile" do
-    get profile_url(@profile)
+  test "should show user" do
+    get user_url(@user)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_profile_url(@profile)
+    get edit_user_url(@user)
     assert_response :success
   end
 
-  test "should update profile" do
-    patch profile_url(@profile), params: { profile: {  } }
-    assert_redirected_to profile_url(@profile)
+  test "should update user" do
+    patch user_url(@user), params: { user: {  } }
+    assert_redirected_to user_url(@user)
   end
 
-  test "should destroy profile" do
-    assert_difference('Profile.count', -1) do
-      delete profile_url(@profile)
+  test "should destroy user" do
+    assert_difference('user.count', -1) do
+      delete user_url(@user)
     end
 
-    assert_redirected_to profiles_url
+    assert_redirected_to users_url
   end
 end

@@ -8,6 +8,11 @@ class DeliverablesController < ApplicationController
 
   # GET /deliverables/1 or /deliverables/1.json
   def show
+    destroy = params[:destroy]
+    if destroy.eql?("true")
+      puts "Redirecting..."
+      redirect_to :action => 'destroy' 
+    end
   end
 
   # GET /deliverables/new
@@ -72,13 +77,15 @@ class DeliverablesController < ApplicationController
   end
 
   # DELETE /deliverables/1 or /deliverables/1.json
-  # def destroy
-  #   @deliverable.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to deliverables_url, notice: "Deliverable was successfully destroyed." }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    project_id = (Deliverable.find params[:id]).project_id
+    @project = Project.find_by_id(project_id)
+    @deliverable.destroy
+    respond_to do |format|
+      format.html { redirect_to @project, notice: "Deliverable was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
