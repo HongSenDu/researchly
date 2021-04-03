@@ -19,6 +19,9 @@ class DeliverablesController < ApplicationController
   def new
     project_id = params[:format]
     @project = Project.find_by_id project_id
+    @members = Membership.where(:group_id => @project.group_id).pluck(:user_id)
+    @members = User.where(id: @members)
+    puts @members
     #@deliverable = Deliverable.new
   end
 
