@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
+<h1><%=@deliverable.name %></h1>
+<table class="table table-hover" style="width:80% ; margin:auto">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.username %></td>
+        <td>Filler</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= link_to 'Edit', edit_deliverable_path(@deliverable) %> |
 <%= link_to 'Back', deliverables_path %>

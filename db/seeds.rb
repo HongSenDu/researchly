@@ -67,3 +67,11 @@ memberships.each do |membership|
     Membership.create!(membership)
 end
 
+assignments = [{:user_id => 1, :deliverable_id => 1},
+    {:user_id => 2, :deliverable_id => 1},
+    {:user_id => 3, :deliverable_id => 1}
+  ]
+
+assignments.each do |assignment|
+    Assignment.create!(assignment)
+end

@@ -8,11 +8,15 @@ class DeliverablesController < ApplicationController
 
   # GET /deliverables/1 or /deliverables/1.json
   def show
-    destroy = params[:destroy]
-    if destroy.eql?("true")
-      puts "Redirecting..."
-      redirect_to :action => 'destroy' 
-    end
+    # destroy = params[:destroy]
+    # if destroy.eql?("true")
+    #   puts "Redirecting..."
+    #   redirect_to :action => 'destroy' 
+    # end
+    deliverable_id = params[:id]
+    @deliverable = Deliverable.find_by_id(deliverable_id)
+    assignments = Assignment.select('user_id').where(deliverable_id: deliverable_id)
+    @people = User.where(id:assignments)
   end
 
   # GET /deliverables/new
