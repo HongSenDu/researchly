@@ -8,7 +8,7 @@
   <%= text_field :deliverable, 'status', :class => 'form-control' %>
   <h3> Assign members to deliverable </h3>
   <% @members.each do |member| %>
-    <div>
+    <div class="checkbox">
       <%= check_box_tag(member.id) %>
       <%= label_tag(member.id, member.username) %>
     </div>

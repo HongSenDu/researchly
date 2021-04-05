@@ -7,12 +7,11 @@
       <th>Edit</th>
     </tr>
   </thead>
-
   <tbody>
     <% @people.each do |person| %>
       <tr>
         <td><%= person.username %></td>
-        <td>Filler</td>
+        <td><%= link_to 'Destroy', remove_user_path(:id => @deliverable.id, :user_id => person.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

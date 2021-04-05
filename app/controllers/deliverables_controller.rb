@@ -1,6 +1,7 @@
 class DeliverablesController < ApplicationController
-  before_action :set_deliverable, only: %i[ show edit update destroy ]
-
+  before_action :set_deliverable, only: %i[ new create show edit update destroy remove ]
+  before_action :get_members, only: %i[ new create edit update destroy ]
+  before_action :get_assignments, only: %i[ edit show ]
   # GET /deliverables or /deliverables.json
   def index
     @deliverables = Deliverable.all
@@ -14,25 +15,17 @@ class DeliverablesController < ApplicationController
     #   redirect_to :action => 'destroy' 
     # end
     deliverable_id = params[:id]
-    @deliverable = Deliverable.find_by_id(deliverable_id)
-    assignments = Assignment.select('user_id').where(deliverable_id: deliverable_id)
-    @people = User.where(id:assignments)
   end
 
   # GET /deliverables/new
   def new
     project_id = params[:format]
-    @project = Project.find_by_id project_id
-    @members = Membership.where(:group_id => @project.group_id).pluck(:user_id)
-    @members = User.where(id: @members)
-    puts @members
     #@deliverable = Deliverable.new
   end
 
   # GET /deliverables/1/edit
   def edit
-    #puts "Hello world"
-    #puts params
+    @members = @members - @people
   end
 
   # POST /deliverables or /deliverables.json
@@ -46,6 +39,9 @@ class DeliverablesController < ApplicationController
     @project = Project.find_by_id(project_id)
     @deliverable = Deliverable.new(deliverable_new)
     @deliverable.save
+    
+    helpers.add_members(@members, @deliverable.id)
+
     redirect_to @project, notice: "Deliverable was successfully created."
     
     #respond_to do |format|
@@ -70,10 +66,12 @@ class DeliverablesController < ApplicationController
       project_id = (Deliverable.find params[:id]).project_id
       #puts "The project ID is #{project_id}"
       @project = Project.find_by_id(project_id)
+
+      helpers.add_members(@members, @deliverable.id)
       #puts @project
       respond_to do |format|
         if @deliverable.update(deliverable_params)
-          format.html { redirect_to @project, notice: "Deliverable was successfully updated." }
+          format.html { redirect_to @deliverable, notice: "Deliverable was successfully updated." }
           format.json { render :show, status: :ok, location: @deliverable }
         else
           format.html { render :edit, status: :unprocessable_entity }
@@ -94,12 +92,32 @@ class DeliverablesController < ApplicationController
     end
   end
 
+    # DELETE /deliverables/1 or /deliverables/1.json
+    def remove
+      puts "hi"
+      puts params
+      Assignment.find_by(user_id: params[:user_id], deliverable_id: @deliverable.id).destroy
+      redirect_to @deliverable
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_deliverable
-      @deliverable = Deliverable.find(params[:id])
+      @deliverable = Deliverable.find(params[:id] || params[:format])
     end
 
+    def get_members
+      # people within the project
+      @project = Project.find_by_id @deliverable.project_id
+      @members = Membership.where(:group_id => @project.group_id).pluck(:user_id)
+      @members = User.where(id: @members)
+    end
+
+    def get_assignments
+      # people within the deliverable
+      assignments = Assignment.select('user_id').where(deliverable_id: @deliverable.id)
+      @people = User.where(id:assignments)
+    end
     # Only allow a list of trusted parameters through.
     def deliverable_params
       #params.fetch(:deliverable, {})
