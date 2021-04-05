@@ -18,12 +18,12 @@ users.each do |user|
 end
 
 
-groups = [{:name => "Group 1", :description => "cool group"},
-          {:name => "Group 2", :description => "not cool group"},
-          {:name => "Group 3", :description => "decent group"},
-          {:name => "Group 4", :description => "test group"},
-          {:name => "Group 5", :description => "group 5"},
-          {:name => "Group 6", :description => "group 6"}
+groups = [{:name => "Group 1", :description => "cool group", :code => 'QwdmntyA'},
+          {:name => "Group 2", :description => "not cool group", :code => 'Qwd23tyB'},
+          {:name => "Group 3", :description => "decent group", :code => 'Qwd23tyC'},
+          {:name => "Group 4", :description => "test group", :code => 'Qwd23tyD'},
+          {:name => "Group 5", :description => "group 5", :code => 'Qwd23tyE'},
+          {:name => "Group 6", :description => "group 6", :code => 'Qwd23tyF'}
         ]
 
 groups.each do |group|
@@ -32,10 +32,10 @@ end
 
 
 
-projects = [{:name => "Project 1", :description => "", :group_id => 1},
-    {:name => "Project 2", :description => "", :group_id => 2},
-    {:name => "Project 3", :description => "", :group_id => 3},
-    {:name => "Project 4", :description => "", :group_id => 4}
+projects = [{:name => "Project 1", :description => "", :group_id => 1, :status => 'complete'},
+    {:name => "Project 2", :description => "", :group_id => 2, :status => 'ongoing'},
+    {:name => "Project 3", :description => "", :group_id => 3, :status => 'complete'},
+    {:name => "Project 4", :description => "", :group_id => 4, :status => 'ongoing'}
   ]
 
 projects.each do |project|
@@ -54,13 +54,13 @@ deliverables.each do |deliverable|
     Deliverable.create!(deliverable)
 end
 
-memberships = [{:user_id => 1, :group_id => 1},
-    {:user_id => 1, :group_id => 2},
-    {:user_id => 2, :group_id => 1},
-    {:user_id => 3, :group_id => 3},
-    {:user_id => 3, :group_id => 2},
-    {:user_id => 4, :group_id => 1},
-    {:user_id => 3, :group_id => 3}
+memberships = [{:user_id => 1, :group_id => 1, :member_type => 'leader'},
+    {:user_id => 1, :group_id => 2, :member_type => 'member'},
+    {:user_id => 2, :group_id => 1, :member_type => 'member'},
+    {:user_id => 3, :group_id => 3, :member_type => 'member'},
+    {:user_id => 3, :group_id => 2, :member_type => 'leader'},
+    {:user_id => 4, :group_id => 1, :member_type => 'member'},
+    {:user_id => 3, :group_id => 3, :member_type => 'leader'}
   ]
 
 memberships.each do |membership|
