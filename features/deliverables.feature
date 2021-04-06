@@ -64,3 +64,17 @@ Scenario: Delete an exisitng deliverable
     When I press delete for deliverable 4
     Then I should see "Deliverable was successfully destroyed."
     And I should not see "Deliver 4"
+
+Scenario: Update percentage for complete
+    When I click on edit for deliverable 5
+    Then I should see "Editing Deliverable"
+    And  I fill in "Status" with "Complete"
+    And I press "Update Deliverable"
+    Then I should be on "the deliverable5 homepage"
+    And I follow "Back"
+    Then I should see "Percent Completed: 50.0%"
+
+Scenario: Delete all deliverables for the project
+    When I press delete for deliverable 4
+    And I press delete for deliverable 5
+    Then I should see "No deliverables created for this project"

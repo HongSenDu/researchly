@@ -16,6 +16,16 @@ class ProjectsController < ApplicationController
       @deliverables = Deliverable.where(project_id: params[:id])
     end
 		#@deliverables = Deliverable.where(project_id: params[:id])
+
+    if @deliverables.length == 0
+      @msg = "No deliverables created for this project"
+    else
+      total = @deliverables.length.to_f
+      fin1 = @deliverables.where(status: "Complete").length
+      fin2 = @deliverables.where(status: "complete").length
+      res = (((fin1 + fin2)/ total) * 100).round(2)
+      @msg = "Percent Completed: #{res}%"
+    end
     session[:project_id] = params[:id]
   end
 
