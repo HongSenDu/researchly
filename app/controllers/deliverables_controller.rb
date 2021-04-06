@@ -1,6 +1,7 @@
 class DeliverablesController < ApplicationController
-  before_action :set_deliverable, only: %i[ new create show edit update destroy remove ]
-  before_action :get_members, only: %i[ new create edit update destroy ]
+  before_action :set_deliverable, only: %i[ show edit update destroy remove ]
+  before_action :get_members, only: %i[ edit update destroy ]
+  before_action :get_members_new, only: %i[ new create ]
   before_action :get_assignments, only: %i[ edit show ]
   # GET /deliverables or /deliverables.json
   def index
@@ -14,7 +15,9 @@ class DeliverablesController < ApplicationController
     #   puts "Redirecting..."
     #   redirect_to :action => 'destroy' 
     # end
-    deliverable_id = params[:id]
+    # deliverable_id = params[:id]
+    @deliverable = Deliverable.find(params[:id])
+    @project = Project.find_by_id @deliverable.project_id
   end
 
   # GET /deliverables/new
@@ -109,6 +112,14 @@ class DeliverablesController < ApplicationController
     def get_members
       # people within the project
       @project = Project.find_by_id @deliverable.project_id
+      @members = Membership.where(:group_id => @project.group_id).pluck(:user_id)
+      @members = User.where(id: @members)
+    end
+
+    def get_members_new
+      # people within the project
+      #puts params['format']
+      @project = Project.find_by_id params[:format]
       @members = Membership.where(:group_id => @project.group_id).pluck(:user_id)
       @members = User.where(id: @members)
     end

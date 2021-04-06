@@ -42,8 +42,8 @@ Scenario: Edit an exisitng deliverable
     Then I should see "Editing Deliverable"
     And  I fill in "Status" with "Complete"
     And I press "Update Deliverable"
-    Then I should be on "the project11 homepage"
-    And the project "Deliver 5" should have a status of "Complete"
+    Then I should be on "the deliverable5 homepage"
+    And I should see "Deliverable was successfully updated."
 
 Scenario: Create a new deliverable
     When I follow "Add new deliverable"

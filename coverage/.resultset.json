@@ -110,6 +110,8 @@
           1,
           1,
           1,
+          null,
+          null,
           null
         ]
       },
@@ -239,6 +241,13 @@
       "/home/mwinitch/ASE/researchly/app/helpers/deliverables_helper.rb": {
         "lines": [
           1,
+          1,
+          2,
+          2,
+          0,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -432,17 +441,17 @@
           null,
           null,
           1,
-          20,
-          20,
-          20,
+          19,
+          19,
+          19,
           1,
+          null,
+          18,
+          null,
           null,
           19,
           null,
           null,
-          20,
-          null,
-          null,
           null,
           1,
           4,
@@ -498,7 +507,7 @@
           1,
           null,
           1,
-          31,
+          30,
           null,
           null,
           null,
@@ -512,7 +521,9 @@
         "lines": [
           1,
           1,
-          null,
+          1,
+          1,
+          1,
           null,
           1,
           0,
@@ -520,22 +531,7 @@
           null,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
           null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
           null,
           null,
           null,
@@ -543,6 +539,20 @@
           null,
           1,
           1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null,
+          null,
           1,
           1,
           1,
@@ -551,6 +561,11 @@
           1,
           1,
           1,
+          1,
+          1,
+          null,
+          1,
+          null,
           1,
           null,
           null,
@@ -577,6 +592,8 @@
           1,
           null,
           1,
+          null,
+          1,
           1,
           2,
           1,
@@ -599,17 +616,53 @@
           null,
           null,
           null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
           1,
           null,
           1,
+          7,
+          null,
+          null,
+          1,
+          null,
+          6,
+          6,
           6,
           null,
+          null,
+          1,
+          null,
+          null,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          null,
+          4,
+          4,
           null,
           null,
           1,
           null,
           4,
           null,
+          null
+        ]
+      },
+      "/home/mwinitch/ASE/researchly/app/models/assignment.rb": {
+        "lines": [
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -672,11 +725,11 @@
         }
       }
     },
-    "timestamp": 1617463198
+    "timestamp": 1617731853
   },
   "RSpec": {
     "coverage": {
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/groups_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/controllers/groups_controller.rb": {
         "lines": [
           1,
           1,
@@ -830,7 +883,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/application_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
@@ -849,7 +902,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/spec/controllers/projects_controller_spec.rb": {
+      "/home/mwinitch/ASE/researchly/spec/controllers/projects_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -899,7 +952,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/projects_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/controllers/projects_controller.rb": {
         "lines": [
           1,
           1,
@@ -987,7 +1040,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/spec/controllers/users_controller_spec.rb": {
+      "/home/mwinitch/ASE/researchly/spec/controllers/users_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -1088,7 +1141,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/users_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -1186,7 +1239,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/spec/models/user_spec.rb": {
+      "/home/mwinitch/ASE/researchly/spec/models/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -1290,7 +1343,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/models/group.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/group.rb": {
         "lines": [
           1,
           1,
@@ -1299,7 +1352,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/models/project.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/project.rb": {
         "lines": [
           1,
           1,
@@ -1315,14 +1368,17 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/models/deliverable.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/deliverable.rb": {
         "lines": [
           1,
           1,
+          1,
+          null,
+          null,
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/models/membership.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/membership.rb": {
         "lines": [
           1,
           1,
@@ -1331,6 +1387,6 @@
         ]
       }
     },
-    "timestamp": 1617036645
+    "timestamp": 1617731896
   }
 }

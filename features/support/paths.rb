@@ -15,6 +15,9 @@ module NavigationHelpers
       when /the project11 homepage/
         '/projects/11'
 
+      when /the deliverable5 homepage/
+        '/deliverables/5'
+
       when /the group10 homepage/
         '/groups/10'
 
