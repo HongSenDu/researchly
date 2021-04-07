@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'activities/index'
   resources :users
   get "users/:id/view", to: "users#view", as: 'view_user'
   get "deliverables/:id/remove", to: "deliverables#remove", as: 'remove_user'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   get 'groups/:id/leave_group', to: 'groups#leave_group', as: 'leave_group'
 
   #get 'welcome/index'
+  resources :activities
   resources :groups
   resources :deliverables
   resources :projects
