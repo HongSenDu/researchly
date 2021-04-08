@@ -25,6 +25,9 @@ module NavigationHelpers
         '/users/1'
       when /^the user1 homepage$/
         '/users/1'
+
+      when /^the details page for project11$/
+        '/projects/11/edit'
         
       when /the home\s?page/
         '/'
@@ -68,6 +71,9 @@ module NavigationHelpers
 
       when /^the projects3 detail page$/
         '/projects/3'
+
+      when /^the Project12 page$/
+        '/projects/12'
 
       when /^the join page for "Bio Group"$/
         'groups/1'
