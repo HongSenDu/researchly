@@ -1,8 +1,7 @@
 <h1>Group History</h1>
 <% @activities.each do |activity| %>
-    <div class="activity">
+    <div class="activity" style="width:25% ; margin:left ; ">
         <%= link_to activity.owner.username, activity.owner if activity.owner %>
         <%= render_activity activity %>
     </div>
-
 <% end %>

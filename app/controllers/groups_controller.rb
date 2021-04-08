@@ -20,6 +20,7 @@ class GroupsController < ApplicationController
       @projects = @projects.status_order
     end
 
+    @activities = PublicActivity::Activity.order("created_at desc").where(group: params[:id]).first(5)
     session[:group] = @group
     session[:group_id] = @group.id
   end

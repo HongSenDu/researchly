@@ -2,15 +2,32 @@
 <h1>Welcome to <%= @group.name %> </h1>
 <h1>Description: <%= @group.description %> </h1>
 <h3>Group Code: <%= @group.code %> </h3>
-<table class="table table-hover" style="width:80% ; margin:auto">
+
+<br  /><h3> Recent Changes </h3> 
+<% if !@activities.empty?%>
+  <% @activities.each do |activity| %>
+      <div class="activity" style="width:25% ; margin:left">
+          <%= link_to activity.owner.username, activity.owner if activity.owner %>
+          <%= render_activity activity %>
+      </div> <br>
+  <% end %>
+<% else %>
+  <div class="activity" style="width:25% ; margin:left ; border:1px solid black">
+    No changes as yet <br>
+  </div>
+<% end %>
+<%= link_to "see all changes", activity_path(params[:id]) %>
+
+<br />
+
+<table class="table table-hover" style="width:50% ; margin:left" ; padding: 10px>
   <thead>
     <tr>
       <th><%= link_to "Project", group_path(params[:id], :name => 'name')%></th>
       <th><%= link_to "Status", group_path(params[:id], :status => 'status')%></th>
+      <th>Remove</th>
     </tr>
   </thead>
-
-  <%= link_to "recent history", activity_path(params[:id]) %>
 
   <tbody>
     <% @projects.each do |project| %>
