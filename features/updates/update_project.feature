@@ -1,6 +1,6 @@
-Feature: display and be able to interact with deliverables
+Feature: Group users can see recent group activity relating to group projects
 
-    As an exisiting user I want to be able to view, modify, and create deliverables for my projects
+    As an exisiting user I want to be able to view my group's recent project activity
 
 Background: populate tables
 

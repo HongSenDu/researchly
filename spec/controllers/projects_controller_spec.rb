@@ -28,7 +28,7 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
-  context 'GET show' do
+  context 'GET show' do 
     it 'has a 200 status code' do
       @group = Group.create!(name: 'Group1', description: 'Description' )
       @project = Project.create!(name: 'project1', description: 'A cool Group', group_id: '1')
