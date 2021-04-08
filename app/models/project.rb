@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
 
-  include PublicActivity::Model
-  tracked owner: ->(controller, model) { controller && controller.current_user}
+  include PublicActivity::Common
+  #tracked owner: ->(controller, model) { controller && controller.current_user}
 
     has_many :deliverables, :dependent => :destroy
 

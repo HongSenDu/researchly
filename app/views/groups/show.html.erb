@@ -10,6 +10,8 @@
     </tr>
   </thead>
 
+  <%= link_to "recent history", activity_path(params[:id]) %>
+
   <tbody>
     <% @projects.each do |project| %>
       <tr>

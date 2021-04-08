@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
 
     @projects = Project.where(group_id: @group.id)
-
+ 
     if (params.has_key?(:name))
       @projects = @projects.name_order
     end

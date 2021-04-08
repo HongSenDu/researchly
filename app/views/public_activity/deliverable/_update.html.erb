@@ -1,5 +1,5 @@
-created 
- 
+edited 
+
 <% if activity.trackable && activity.trackable.is_a?(Deliverable) %>
     <% id = activity.trackable.project_id; p = Project.find(id) %>
     <%= link_to activity.trackable.name, activity.trackable %> deliverable for <%= link_to p.name, p %> project
