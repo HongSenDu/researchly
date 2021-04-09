@@ -7,7 +7,7 @@ RSpec.describe "Activities", type: :request do
       get "/activities/show"
       expect(response).to have_http_status(:success)
     end
-    it 'receives the click on "New Project"' do
+    it 'renders activities show view' do
       get "/activities/show"
       expect(response).to render_template('show')
     end
