@@ -43,6 +43,7 @@ class GroupsController < ApplicationController
   def join_group
     #check if user is already a member
     group = Group.find(params[:id])
+    user = User.find(session[:user_id])
     if params[:group_code].blank?  
       redirect_to(groups_path, alert: "Need code") and return 
     elsif params[:group_code] !=  group.code
@@ -50,7 +51,7 @@ class GroupsController < ApplicationController
     else
       existing_memberships = Membership.where(user_id: session[:user_id], group_id: params[:id])
       if (existing_memberships.empty?)
-        Membership.create!(user_id: session[:user_id], group_id: params[:id])
+        Membership.create!(user_id: session[:user_id], group_id: params[:id], username: user.username)
         flash[:notice] = "Successfully Joined"
         redirect_to group_path(params[:id])
         return

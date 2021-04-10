@@ -323,6 +323,7 @@
           null,
           6,
           6,
+          6,
           1,
           5,
           1,
@@ -750,11 +751,11 @@
         }
       }
     },
-    "timestamp": 1618036630
+    "timestamp": 1618067319
   },
   "RSpec": {
     "coverage": {
-      "/home/mwinitch/ASE/researchly/app/controllers/groups_controller.rb": {
+      "/Users/andrew/Documents/Researchly/researchly/app/controllers/groups_controller.rb": {
         "lines": [
           1,
           1,
@@ -767,18 +768,18 @@
           null,
           1,
           2,
-          null,
           2,
-          null,
           2,
-          0,
-          null,
-          null,
+          2,
           2,
           0,
           null,
           null,
           2,
+          0,
+          null,
+          null,
+          2,
           2,
           null,
           null,
@@ -815,54 +816,11 @@
           0,
           null,
           0,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
           0,
           0,
           0,
           0,
-          null,
-          null,
-          null,
-          null,
-          1,
           0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
           null,
           null,
           null,
@@ -876,8 +834,67 @@
           0,
           0,
           null,
+          null,
+          null,
+          null,
+          1,
           0,
           0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
           0,
           0,
           null,
@@ -908,7 +925,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/application_controller.rb": {
+      "/Users/andrew/Documents/Researchly/researchly/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
@@ -927,7 +944,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/spec/controllers/projects_controller_spec.rb": {
+      "/Users/andrew/Documents/Researchly/researchly/spec/controllers/projects_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -977,7 +994,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/projects_controller.rb": {
+      "/Users/andrew/Documents/Researchly/researchly/app/controllers/projects_controller.rb": {
         "lines": [
           1,
           1,
@@ -1075,7 +1092,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/spec/controllers/users_controller_spec.rb": {
+      "/Users/andrew/Documents/Researchly/researchly/spec/controllers/users_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -1176,7 +1193,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/controllers/users_controller.rb": {
+      "/Users/andrew/Documents/Researchly/researchly/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -1274,7 +1291,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/spec/models/user_spec.rb": {
+      "/Users/andrew/Documents/Researchly/researchly/spec/models/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -1378,7 +1395,7 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/group.rb": {
+      "/Users/andrew/Documents/Researchly/researchly/app/models/group.rb": {
         "lines": [
           1,
           1,
@@ -1387,7 +1404,15 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/project.rb": {
+      "/Users/andrew/Documents/Researchly/researchly/app/models/membership.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/andrew/Documents/Researchly/researchly/app/models/project.rb": {
         "lines": [
           1,
           1,
@@ -1403,25 +1428,17 @@
           null
         ]
       },
-      "/home/mwinitch/ASE/researchly/app/models/deliverable.rb": {
+      "/Users/andrew/Documents/Researchly/researchly/app/models/deliverable.rb": {
         "lines": [
           1,
           1,
           1,
           null,
           null,
-          null
-        ]
-      },
-      "/home/mwinitch/ASE/researchly/app/models/membership.rb": {
-        "lines": [
-          1,
-          1,
-          1,
           null
         ]
       }
     },
-    "timestamp": 1617733782
+    "timestamp": 1618067388
   }
 }
