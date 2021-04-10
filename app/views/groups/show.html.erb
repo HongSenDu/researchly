@@ -3,7 +3,7 @@
 <h1>Description: <%= @group.description %> </h1>
 <h3>Group Code: <%= @group.code %> </h3>
 
-<br  /><h3> Recent Changes </h3> 
+<br  /><h4> Recent Activity </h4> 
 <% if !@activities.empty?%>
   <% @activities.each do |activity| %>
       <div class="activity" style="width:25% ; margin:left">
@@ -20,7 +20,7 @@
 
 <br />
 
-<table class="table table-hover" style="width:50% ; margin:left" ; padding: 10px>
+<table class="table table-hover" style="width:80% ; margin:auto" ; padding: 10px>
   <thead>
     <tr>
       <th><%= link_to "Project", group_path(params[:id], :name => 'name')%></th>

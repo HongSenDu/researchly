@@ -786,10 +786,92 @@
         }
       }
     },
-    "timestamp": 1617931676
+    "timestamp": 1618024415
   },
   "RSpec": {
     "coverage": {
+      "/home/aaron/researchly/app/controllers/activities_controller.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/home/aaron/researchly/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/aaron/researchly/spec/controllers/groups_controller_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/aaron/researchly/app/controllers/groups_controller.rb": {
         "lines": [
           1,
@@ -941,28 +1023,6 @@
           null,
           1,
           0,
-          null,
-          null
-        ]
-      },
-      "/home/aaron/researchly/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
           null,
           null
         ]
@@ -1430,26 +1490,6 @@
           null
         ]
       },
-      "/home/aaron/researchly/spec/requests/activities_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
       "/home/aaron/researchly/app/models/group.rb": {
         "lines": [
           1,
@@ -1499,18 +1539,8 @@
           1,
           null
         ]
-      },
-      "/home/aaron/researchly/app/controllers/activities_controller.rb": {
-        "lines": [
-          1,
-          1,
-          2,
-          2,
-          null,
-          null
-        ]
       }
     },
-    "timestamp": 1617931684
+    "timestamp": 1618024424
   }
 }
