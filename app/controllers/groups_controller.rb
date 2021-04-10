@@ -9,7 +9,8 @@ class GroupsController < ApplicationController
   # GET /groups/1 or /groups/1.json
   def show
     @group = Group.find(params[:id])
-
+    @members = Membership.where(group_id: @group.id)
+    @User = Membership.find_by(user_id: session[:user_id], group_id: @group.id)
     @projects = Project.where(group_id: @group.id)
 
     if (params.has_key?(:name))
@@ -62,13 +63,17 @@ class GroupsController < ApplicationController
   end
 
   def leave_group
-    is_a_member = Membership.find_by user_id: session[:user_id], group_id: params[:id]
+    is_a_member = Membership.find_by user_id: params[:user_id], group_id: params[:id]
     if(is_a_member.nil?)
       redirect_to( group_path(params[:id]), alert: "Not a member") and return
     else
       is_a_member.destroy
       flash[:notice] = "Sucessfully Left Group"
-      redirect_to user_path(session[:user_id])
+      if(params[:user_id] == session[:user_id])
+        redirect_to user_path(session[:user_id])
+      else
+        redirect_to group_path(params[:id])
+      end
     end
   end
 
