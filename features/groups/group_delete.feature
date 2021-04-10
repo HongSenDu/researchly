@@ -16,12 +16,12 @@ Background:
     |aaron@gmail.com   |topsecret          |topsecret             |
 
     Given the following memberships exist:
-    |user_id           |group_id           |
-    |1                 |2                  |
-    |2                 |1                  |
-    |3                 |                   |
+    |user_id           |group_id           |member_type|
+    |1                 |1                  |leader     |
+    |2                 |1                  |member     |
+    |3                 |2                  |member     |
     
-    Given I am logged in
+    Given I am signed in with "andrew@gmail.com" and "topsecret"
     Given there are groups added to the database
 
     Scenario: I want to delete a group

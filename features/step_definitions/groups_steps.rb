@@ -23,10 +23,10 @@ def delete_group
     @group.destroy unless @group.nil?
 end
 
-def sign_in
-    visit '/users/sign_in'
-    fill_in "user_email", :with => @visitor[:email]
-    fill_in "user_password", :with => @visitor[:password]
+def sign_in_user(user_email, user_password)
+    visit '/u/sign_in'
+    fill_in "user_email", :with => user_email
+    fill_in "user_password", :with => user_password
     click_button "Log in"
 end
 ### Given ###
@@ -47,6 +47,9 @@ Given /^I am a group member$/ do
     create_user
     create_group
     join_group
+end
+Given /^I am signed in with "(.*)" and "(.*)"$/ do |user_email, user_password|
+    sign_in_user(user_email, user_password)
 end
 
 Given /^there are groups added to the database$/ do

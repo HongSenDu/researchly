@@ -29,3 +29,7 @@ Background:
     When I fill in "Search Groups" with "bio"
     And I press "Search"
     Then I should see "Bio Group"
+
+    Scenario: I leave the search blank
+    When I press "Search"
+    Then I should see "Empty field"

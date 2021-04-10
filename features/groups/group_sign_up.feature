@@ -5,9 +5,9 @@ Feature: allow users to sign up and or leave a group
 
 Background:
     Given the following groups exist:
-    |name              |description        |
-    |Bio Group         |bio group          |
-    |Chemistry Group   |chem group         |
+    |name              |description        |code    |
+    |Bio Group         |bio group          |abcdefgh|
+    |Chemistry Group   |chem group         |ijklmnop|
     
     Given the following users exist:
     |email             |password           |password_confirmation |
@@ -25,36 +25,57 @@ Background:
     Given there are groups added to the database
 
     Scenario: Sign up to a group
-    When I follow "Join a Group"
-    When I fill in "Search Groups" with "bio"
-    And I press "Search"
-    Then I should see "Bio Group"
-    When I follow "Join Group"
-    Then I should see "Successfully Joined"
+        When I follow "Join a Group"
+        When I fill in "Search Groups" with "bio"
+        And I press "Search"
+        Then I should see "Bio Group"
+        When I fill in "Enter group code to join" with "abcdefgh"
+        When I press "Join"
+        Then I should see "Successfully Joined"
 
+    Scenario: Sign up to a group with the wrong code
+        When I follow "Join a Group"
+        When I fill in "Search Groups" with "bio"
+        And I press "Search"
+        Then I should see "Bio Group"
+        When I fill in "Enter group code to join" with "gajkdbv"
+        When I press "Join"
+        Then I should see "Wrong code"
+
+    Scenario: Sign up to a group without a code
+        When I follow "Join a Group"
+        When I fill in "Search Groups" with "bio"
+        And I press "Search"
+        Then I should see "Bio Group"
+        When I press "Join"
+        Then I should see "Need code"
+    
     Scenario: Signing up to a group I am already a part of
-    When I follow "Join a Group"
-    When I fill in "Search Groups" with "bio"
-    And I press "Search"
-    Then I should see "Bio Group"
-    When I follow "Join Group"
-    Then I should see "Successfully Joined"
-    When I follow "Back"
-    When I follow "Join a Group"
-    When I fill in "Search Groups" with "bio"
-    And I press "Search"
-    Then I should see "Bio Group"
-    When I follow "Join Group"
-    Then I should see "Already Joined"
+        When I follow "Join a Group"
+        When I fill in "Search Groups" with "bio"
+        And I press "Search"
+        Then I should see "Bio Group"
+        When I fill in "Enter group code to join" with "abcdefgh"
+        When I press "Join"
+        Then I should see "Successfully Joined"
+        When I follow "Back"
+        When I follow "Join a Group"
+        When I fill in "Search Groups" with "bio"
+        And I press "Search"
+        Then I should see "Bio Group"
+        When I fill in "Enter group code to join" with "abcdefgh"
+        When I press "Join"
+        Then I should see "Already Joined"
 
     Scenario: Leave Group
-    When I follow "Join a Group"
-    When I fill in "Search Groups" with "bio"
-    And I press "Search"
-    Then I should see "Bio Group"
-    When I follow "Join Group"
-    Then I should see "Successfully Joined"
-    When I follow "Back"
-    When I follow "Bio Group"
-    Then I follow "Leave Group"
-    Then I should see "Sucessfully Left Group"
+        When I follow "Join a Group"
+        When I fill in "Search Groups" with "bio"
+        And I press "Search"
+        Then I should see "Bio Group"
+        When I fill in "Enter group code to join" with "abcdefgh"
+        When I press "Join"
+        Then I should see "Successfully Joined"
+        When I follow "Back"
+        When I follow "Bio Group"
+        Then I follow "Leave Group"
+        Then I should see "Sucessfully Left Group"

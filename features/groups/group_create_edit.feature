@@ -16,12 +16,12 @@ Background:
     |aaron@gmail.com   |topsecret          |topsecret             |
 
     Given the following memberships exist:
-    |user_id           |group_id           |
-    |1                 |2                  |
-    |2                 |1                  |
-    |3                 |                   |
+    |user_id           |group_id           |member_type|
+    |1                 |1                  |leader     |
+    |2                 |1                  |member     |
+    |3                 |2                  |member     |
     
-    Given I am logged in
+    Given I am signed in with "andrew@gmail.com" and "topsecret"
     Given there are groups added to the database
     Given I am on the groups page
 
@@ -34,6 +34,14 @@ Scenario: Create a new group
     Then I should see "newGroup"
     And I should see "A new group Description"
 
+Scenario: Try to Create a new group without a name
+    When I follow "New Group"
+    Then I should see "Create new Group"
+    And I fill in "Name" with ""
+    And I fill in "Description" with "A new group Description"
+    And I press "Create"
+    Then I should see "Group must have a name"
+    
 Scenario: Edit Existing Group Description
     When I go to the show page for "Bio Group"
     And I follow "Edit"
@@ -71,3 +79,15 @@ Scenario: Cancel creating a group (Sad Path)
     Then I should see "Create new Group"
     And I follow "Cancel" 
     Then I should see "Groups"
+
+Scenario: Upgrade a member to leader
+    When I go to the show page for "Bio Group"
+    And I follow "Upgrade to Leader"
+    Then I should see "is now a leader"
+
+Scenario: Upgrading a member who is already a leader
+    When I go to the show page for "Bio Group"
+    And I follow "Upgrade to Leader"
+    Then I should see "is now a leader"
+    And I follow "Upgrade to Leader"
+    Then I should see "Already a group leader"
