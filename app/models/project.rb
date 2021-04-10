@@ -1,4 +1,8 @@
 class Project < ApplicationRecord
+
+  include PublicActivity::Common
+  #tracked owner: ->(controller, model) { controller && controller.current_user}
+
     has_many :deliverables, :dependent => :destroy
 
     def self.name_order

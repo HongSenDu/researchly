@@ -45,6 +45,7 @@ class DeliverablesController < ApplicationController
     
     helpers.add_members(@members, @deliverable.id)
 
+    @deliverable.create_activity :create, owner: current_user, group: group_id
     redirect_to @project, notice: "Deliverable was successfully created."
     
     #respond_to do |format|
@@ -80,6 +81,7 @@ class DeliverablesController < ApplicationController
           format.html { render :edit, status: :unprocessable_entity }
           format.json { render json: @deliverable.errors, status: :unprocessable_entity }
         end
+        @deliverable.create_activity :update, owner: current_user, group: group_id
       end
     end
   end
@@ -88,6 +90,7 @@ class DeliverablesController < ApplicationController
   def destroy
     project_id = (Deliverable.find params[:id]).project_id
     @project = Project.find_by_id(project_id)
+    @deliverable.create_activity :destroy, owner: current_user, group: group_id
     @deliverable.destroy
     respond_to do |format|
       format.html { redirect_to @project, notice: "Deliverable was successfully destroyed." }
@@ -134,4 +137,13 @@ class DeliverablesController < ApplicationController
       #params.fetch(:deliverable, {})
       params.require(:deliverable).permit(:name, :description, :status)
     end
+
+    def group_id
+      id = session[:group_id]
+    end
+
+    def current_user
+      user = User.find(session[:user_id])
+    end
+
 end

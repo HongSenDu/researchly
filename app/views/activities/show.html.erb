@@ -1,0 +1,8 @@
+<h1>Group History</h1>
+<%= link_to 'Back', group_path(session[:group_id]) %>
+<% @activities.each do |activity| %>
+    <div class="activity" style="width:25% ; margin:left ; ">
+        <%= link_to activity.owner.username, activity.owner if activity.owner %>
+        <%= render_activity activity %>
+    </div>
+<% end %>

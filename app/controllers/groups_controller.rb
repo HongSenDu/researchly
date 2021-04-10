@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
     @members = Membership.where(group_id: @group.id)
     @User = Membership.find_by(user_id: session[:user_id], group_id: @group.id)
     @projects = Project.where(group_id: @group.id)
+ 
     if (params.has_key?(:name))
       @projects = @projects.name_order
     end
@@ -20,6 +21,7 @@ class GroupsController < ApplicationController
       @projects = @projects.status_order
     end
 
+    @activities = PublicActivity::Activity.order("created_at desc").where(group: params[:id]).first(5)
     session[:group] = @group
     session[:group_id] = @group.id
   end

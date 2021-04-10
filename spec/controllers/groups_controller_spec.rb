@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+ 
 RSpec.describe GroupsController, type: :controller do
     
     context "user is logged in" do

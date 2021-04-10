@@ -56,6 +56,7 @@ class ProjectsController < ApplicationController
           format.json { render json: @project.errors, status: :unprocessable_entity }
         end
       end
+      @project.create_activity :create, owner: current_user, group: group_id
     end
   end
   # PATCH/PUT /projects/1 or /projects/1.json
@@ -70,10 +71,12 @@ class ProjectsController < ApplicationController
       flash[:notice] = "#{@project.name} was successfully updated."
       redirect_to project_path(@project)
     end
+    @project.create_activity :update, owner: current_user, group: group_id
   end
 
   #DELETE /projects/1 or /projects/1.json
   def destroy
+    @project.create_activity :destroy, owner: current_user, group: group_id
     @project.destroy
     respond_to do |format|
       format.html { redirect_to group_path(session[:group_id]), notice: "Project was successfully destroyed." }
@@ -84,11 +87,20 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params[:id])
+      @project = Project.find(params[:id] || params[:format])
     end
 
     # Only allow a list of trusted parameters through.
     def project_params
       params.require(:project).permit(:name, :description, :group_id, :status)
     end
+
+    def group_id
+      id = session[:group_id]
+    end
+
+    def current_user
+      user = User.find(session[:user_id])
+    end
+
 end

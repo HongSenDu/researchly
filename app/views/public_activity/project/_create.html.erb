@@ -1,0 +1,7 @@
+created
+
+<% if activity.trackable && activity.trackable.is_a?(Project) %>
+    <%= link_to activity.trackable.name, activity.trackable %> project
+<% else %>
+    a project that has since been deleted 
+<% end %>
