@@ -26,7 +26,7 @@
       <th>Group Members</th>
       <%if @User.member_type == "leader"%>
       <th>Remove</th>
-      <th>Make Leader</th>
+      <th>Make a group Leader</th>
       <%end%>
     </tr>
   </thead>
@@ -37,6 +37,7 @@
       <td><%= member.username%></td>
       <%if @User.member_type == "leader"%>
         <td><%= link_to "Remove from Group", leave_group_path(:user_id => member.user_id) %></td>
+        <td><%= link_to "Upgrade to Leader", make_leader_path(:user_id => member.user_id) %></td>
       <%end%>
       </tr>
       <%end%>

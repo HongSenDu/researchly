@@ -120,7 +120,6 @@ class GroupsController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /groups/1 or /groups/1.json
   def update
     if(params[:group][:name].nil?) or (params[:group][:name] == "")
@@ -133,6 +132,17 @@ class GroupsController < ApplicationController
       @group = Group.find(params[:id])
       @group.update(group_params)
       flash[:notice] = "#{@group.name} was sucessfully updated"
+      redirect_to group_path(@group)
+    end
+  end
+  def make_leader
+    membership = Membership.find_by user_id: params[:user_id], group_id: params[:id]
+    @group = Group.find(params[:id])
+    if(membership.member_type != "leader")
+      membership.update_attribute(:member_type, "leader")
+      redirect_to group_path(@group)
+    else
+      flash[:notice] = "Already a group leader"
       redirect_to group_path(@group)
     end
   end
