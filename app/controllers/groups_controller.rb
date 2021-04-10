@@ -74,6 +74,8 @@ class GroupsController < ApplicationController
       flash[:notice] = "Sucessfully Left Group"
       if(params[:user_id] == session[:user_id])
         redirect_to user_path(session[:user_id])
+      else(params[:user_id] != session[:user_id])
+        redirect_to group_path(params[:id])
       end
     end
   end
