@@ -1,22 +1,76 @@
 <p id="notice"><%= notice %></p>
-<h1>Welcome to <%= @group.name %> </h1>
-<h1>Description: <%= @group.description %> </h1>
-<h3>Group Code: <%= @group.code %> </h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    <table class="table table-hover" style="width:80% ; margin:auto">
+    <thead>
+      <tr>
+        <th>Group Members</th>
+        <%if @User.member_type == "leader"%>
+        <th>Remove</th>
+        <th>Make a group Leader</th>
+        <%end%>
+      </tr>
+    </thead>
+    <tbody>
+      <% @members.each do |member| %>
+        <tr>
+        <%if member.user_id != @User.user_id%>
+        <td><%= member.username%></td>
+        <%if @User.member_type == "leader"%>
+          <td><%= link_to "Remove from Group", leave_group_path(:user_id => member.user_id) %></td>
+          <td><%= link_to "Upgrade to Leader", make_leader_path(:user_id => member.user_id) %></td>
+        <%end%>
+        </tr>
+        <%end%>
+      <% end %>
+    </tbody>
+  </table>
+    </div>
+    <div class="col-md-4">  
+      <h1>Welcome to <%= @group.name %> </h1>
+      <h1>Description: <%= @group.description %> </h1>
+      <h3>Group Code: <%= @group.code %> </h3>
 
-<br  /><h4> Recent Activity </h4> 
-<% if !@activities.empty?%>
-  <% @activities.each do |activity| %>
-      <div class="activity" style="width:25% ; margin:left">
-          <%= link_to activity.owner.username, activity.owner if activity.owner %>
-          <%= render_activity activity %>
-      </div> <br>
-  <% end %>
-<% else %>
-  <div class="activity" style="width:25% ; margin:left ; border:1px solid black">
-    No changes as yet <br>
+      <table class="table table-hover" style="width:80% ; margin:auto" ; padding: 10px>
+        <thead>
+          <tr>
+            <th><%= link_to "Project", group_path(params[:id], :name => 'name')%></th>
+            <th><%= link_to "Status", group_path(params[:id], :status => 'status')%></th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @projects.each do |project| %>
+            <tr>
+            <td><%= link_to project.name, project_path(project) %></td>
+            <td><%= project.status %></td>
+            <td><%= button_to "delete", project_path(project), :method => :delete, :data => { confirm: 'Are you certain you want to delete this?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <br  /><h4> Recent Activity </h4> 
+      <% if !@activities.empty?%>
+        <% @activities.each do |activity| %>
+            <div class="activity">
+                <%= link_to activity.owner.username, activity.owner if activity.owner %>
+                <%= render_activity activity %>
+            </div> <br>
+        <% end %>
+      <% else %>
+        <div class="activity" style="width:25% ; margin:left ; border:1px solid black">
+          No changes as yet <br>
+        </div>
+      <% end %>
+      <%= link_to "see all changes", activity_path(params[:id]) %>
+    </div>
   </div>
-<% end %>
-<%= link_to "see all changes", activity_path(params[:id]) %>
+</div>
 
 <br />
 
