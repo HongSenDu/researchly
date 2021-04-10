@@ -19,7 +19,15 @@
       <tr>
         <td><%= result.name %></td>
         <td> | </td>
-        <td><%= link_to 'Join Group ', join_group_path(result)%></td>
+        <td>
+        <%= form_tag(join_group_path(result), :method => "get") do %>  
+        <div class="input-group">  
+          <%= search_field_tag :group_code, params[:group_code], placeholder: "Enter group code to join", class: "form-control" %>  
+            <div class="input-group-btn">  
+            <%= button_tag "Join", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+          </div>  
+        </div>
+        <%end%></td> 
       </tr>
     <% end %>
   </tbody>

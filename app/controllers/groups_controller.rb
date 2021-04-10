@@ -43,23 +43,30 @@ class GroupsController < ApplicationController
   end
   def join_group
     #check if user is already a member
-    existing_memberships = Membership.where(user_id: session[:user_id], group_id: params[:id])
-    if (existing_memberships.empty?)
-      Membership.create!(user_id: session[:user_id], group_id: params[:id])
-      flash[:notice] = "Successfully Joined"
-      redirect_to group_path(params[:id])
-      return
-    end
-    existing_memberships.each do |member|
-      if member.group_id != params[:id]
+    group = Group.find(params[:id])
+    if params[:group_code].blank?  
+      redirect_to(groups_path, alert: "Need code") and return 
+    elsif params[:group_code] !=  group.code
+      redirect_to(groups_path, alert: "Wrong code") and return 
+    else
+      existing_memberships = Membership.where(user_id: session[:user_id], group_id: params[:id])
+      if (existing_memberships.empty?)
         Membership.create!(user_id: session[:user_id], group_id: params[:id])
-        flash[:notice] = "Already Joined"
-        redirect_to user_path(session[:user_id])
+        flash[:notice] = "Successfully Joined"
+        redirect_to group_path(params[:id])
         return
-      else
-        flash[:notice] = "Cannot Join Group"
       end
-    end 
+      existing_memberships.each do |member|
+        if member.group_id != params[:id]
+          Membership.create!(user_id: session[:user_id], group_id: params[:id])
+          flash[:notice] = "Already Joined"
+          redirect_to user_path(session[:user_id])
+          return
+        else
+          flash[:notice] = "Cannot Join Group"
+        end
+      end 
+    end
   end
 
   def leave_group
