@@ -9,9 +9,22 @@ class UsersController < ApplicationController
   # GET /users/1 or /users/1.json
   def show
     id = params[:id]
-    m = Membership.select('group_id').where(user_id: id)
-		g = Group.where(id:m)
-    @groups = g
+    memberships = Membership.where(user_id: id)
+    m = memberships.select('group_id')
+    @groups = Group.where(id:m)
+    @leads = []
+    @users = []
+    memberships.each do |membership|
+      @leads.append(Membership.where(:group_id => membership.group_id, :member_type => "leader").pluck(:username)[0])
+    end
+    assignments = Assignment.where(:user_id => id)
+    @deliverables = Deliverable.where(id: assignments.pluck(:deliverable_id))
+    @deliverables.each do |deliverable|
+      all_user_assignments = Assignment.where(:deliverable_id => deliverable.id).pluck("user_id")
+      @users.append(User.where(:id => all_user_assignments))
+    end
+    puts "hi"
+    puts @users
     session[:user_id] = id
   end
 

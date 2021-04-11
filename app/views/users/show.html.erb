@@ -7,7 +7,7 @@
   <% else %>
     <%= @user.username %>
   <% end %> are a member of</h1>
-<table class="table table-hover text-center" style="width:80% ; margin:auto">
+<table class="table table-hover text-center mb-5" style="width:80% ; margin:auto">
   <thead>
     <tr>
       <th>Groups</th>
@@ -16,13 +16,43 @@
     </tr>
   </thead>
   <tbody>
-    <% @groups.each do |group| %>
+    <% @groups.each_with_index do |group, index| %>
       <tr class="py-3 text-center">
         <td><%= link_to group.name,  group_path(group)%></td>
         <td><%= group.description %></td>
-        <td><%= group.description %></td>
+        <td><%= @leads[index]%></td>
       </tr>
     <% end %>
+  </tbody>
+</table>
+<h1 class="text-center">Deliverables <% if @is_current_user == true %>
+    you are
+  <% else %>
+    <%= @user.username %> is
+  <% end %> assigned to</h1>
+<table class="table table-hover text-center" style="width:80% ; margin:auto">
+  <thead>
+    <tr>
+      <th>Deliverable</th>
+      <th>Description</th>
+      <th>Members</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @deliverables.each_with_index do |deliverable, index| %>
+      <tr class="py-3 text-center">
+        <td><%= link_to deliverable.name,  deliverable_path(deliverable)%></td>
+        <td><%= deliverable.description %></td>
+        <td><% @users[index].each do |user| %>
+          <% if user.avatar_url%>
+            <%= image_tag(user.avatar_url, :size => "30x30", :class=>"rounded-circle") %>
+            <% else %>
+            <%= image_tag('default-avatar.png', :size => "30x30", :class=>"rounded-circle") %>
+          <% end %>
+            <% end %>
+        </td>
+      </tr>
+    <% end %>s
   </tbody>
 </table>
 <div class="text-center py-5">
