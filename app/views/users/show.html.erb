@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <p class="text-right px-5">
   <%= link_to "View #{@is_current_user ? "your" : (@user.username == nil ? "" : @user.username + "\"s")} Profile", view_user_path(@user) %>
 </p>

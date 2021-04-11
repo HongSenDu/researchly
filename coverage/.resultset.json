@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/andrew/Documents/Researchly/researchly/app/models/user.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -14,14 +14,14 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/models/application_record.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/uploaders/avatar_uploader.rb": {
+      "/home/mwinitch/ASE/researchly/app/uploaders/avatar_uploader.rb": {
         "lines": [
           1,
           null,
@@ -69,10 +69,14 @@
           null,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/models/group.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/group.rb": {
         "lines": [
           1,
           1,
@@ -81,7 +85,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/models/membership.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/membership.rb": {
         "lines": [
           1,
           1,
@@ -89,7 +93,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/models/project.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/project.rb": {
         "lines": [
           1,
           null,
@@ -98,19 +102,6 @@
           null,
           1,
           null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/andrew/Documents/Researchly/researchly/app/models/deliverable.rb": {
-        "lines": [
           1,
           1,
           null,
@@ -122,7 +113,20 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/users_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/deliverable.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/mwinitch/ASE/researchly/app/controllers/users_controller.rb": {
         "lines": [
           1,
           1,
@@ -136,6 +140,19 @@
           1,
           49,
           49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          38,
+          null,
+          49,
+          49,
+          49,
+          0,
+          0,
+          null,
           49,
           49,
           49,
@@ -220,7 +237,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/application_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
@@ -242,19 +259,19 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/helpers/application_helper.rb": {
+      "/home/mwinitch/ASE/researchly/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/helpers/activities_helper.rb": {
+      "/home/mwinitch/ASE/researchly/app/helpers/activities_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/helpers/deliverables_helper.rb": {
+      "/home/mwinitch/ASE/researchly/app/helpers/deliverables_helper.rb": {
         "lines": [
           1,
           1,
@@ -267,31 +284,39 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/helpers/groups_helper.rb": {
+      "/home/mwinitch/ASE/researchly/app/helpers/groups_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/helpers/projects_helper.rb": {
+      "/home/mwinitch/ASE/researchly/app/helpers/projects_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/helpers/users_helper.rb": {
+      "/home/mwinitch/ASE/researchly/app/helpers/users_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/helpers/welcome_helper.rb": {
+      "/home/mwinitch/ASE/researchly/app/helpers/welcome_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/groups_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/models/assignment.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/mwinitch/ASE/researchly/app/controllers/groups_controller.rb": {
         "lines": [
           1,
           1,
@@ -465,7 +490,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/projects_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/controllers/projects_controller.rb": {
         "lines": [
           1,
           1,
@@ -575,7 +600,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/deliverables_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/controllers/deliverables_controller.rb": {
         "lines": [
           1,
           1,
@@ -728,15 +753,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/models/assignment.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/activities_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/controllers/activities_controller.rb": {
         "lines": [
           1,
           1,
@@ -746,7 +763,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/controllers/welcome_controller.rb": {
+      "/home/mwinitch/ASE/researchly/app/controllers/welcome_controller.rb": {
         "lines": [
           1,
           null,
@@ -761,7 +778,7 @@
           null
         ]
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/mailers/application_mailer.rb": {
+      "/home/mwinitch/ASE/researchly/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -771,7 +788,17 @@
         "branches": {
         }
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/jobs/application_job.rb": {
+      "/home/mwinitch/ASE/researchly/app/channels/application_cable/connection.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/mwinitch/ASE/researchly/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -784,17 +811,7 @@
         "branches": {
         }
       },
-      "/Users/andrew/Documents/Researchly/researchly/app/channels/application_cable/connection.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/andrew/Documents/Researchly/researchly/app/channels/application_cable/channel.rb": {
+      "/home/mwinitch/ASE/researchly/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -805,7 +822,7 @@
         }
       }
     },
-    "timestamp": 1618111099
+    "timestamp": 1618182201
   },
   "RSpec": {
     "coverage": {
@@ -1343,6 +1360,19 @@
           1,
           1,
           1,
+          1,
+          1,
+          0,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          1,
+          1,
+          1,
           null,
           null,
           1,
@@ -1577,8 +1607,16 @@
           null,
           null
         ]
+      },
+      "/home/mwinitch/ASE/researchly/app/models/assignment.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1618072969
+    "timestamp": 1618182208
   }
 }
