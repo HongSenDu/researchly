@@ -1,8 +1,12 @@
 <div class="text-center w-50 m-auto p-5">
-<%= link_to 'Back', @user %>
+  <%= link_to 'Back', @user %>
   <h1 class="text-center"><%=@user.username%>'s Profile</h1>
   <div class="py-4">
-    <%= image_tag(@user.avatar_url, :size => "300x300", :class=>"rounded-circle") if @user.avatar_url %>
+    <% if @user.avatar_url%>
+      <%= image_tag(@user.avatar_url, :size => "300x300", :class=>"rounded-circle") %>
+    <% else %>
+      <%= image_tag('default-avatar.png', :size => "300x300", :class=>"rounded-circle") %>
+    <% end %>
   </div>
   <div class="mb-3">Contact: <%=@user.email%></div>
   <div class="mb-3">Bio: <%=@bio%></div>
