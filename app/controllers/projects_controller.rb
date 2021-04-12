@@ -12,6 +12,8 @@ class ProjectsController < ApplicationController
     sort = params[:sort]
     if (not sort.nil?) and sort.eql?("status")
       @deliverables = Deliverable.where(project_id: params[:id]).order(:status)
+    elsif (not sort.nil?) and sort.eql?("name")
+      @deliverables = Deliverable.where(project_id: params[:id]).order(:name)
     else
       @deliverables = Deliverable.where(project_id: params[:id])
     end

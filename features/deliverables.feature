@@ -33,9 +33,13 @@ Background: populate tables
 
 
 Scenario: Sort by status
-    When I follow "Sort by status"
+    When I follow "Status"
     Then I should be on "the project11 homepage"
     And I should see "Deliver 4" before "Deliver 5"
+
+Scenario: Sort by name
+    When I follow "Deliverable"
+    Then I should see "Deliver 4" before "Deliver 5"
 
 Scenario: Edit an exisitng deliverable
     When I click on edit for deliverable 5
