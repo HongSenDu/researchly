@@ -12,7 +12,7 @@ Github Repository Link: [https://github.com/HongSenDu/researchly.git](https://gi
 * Michael Winitch (mlw2173)
 * Aaron Jackson (arj2145)
 
-## Iteration Two: New Features
+## Iteration Three: New Features
 * See deliverables on an User's Home Page
 * Added ability to see a project's completion percentage
 * Join groups via code
