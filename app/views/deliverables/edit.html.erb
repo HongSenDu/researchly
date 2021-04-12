@@ -1,5 +1,5 @@
 <div class="py-3">
-  <h1>Editing Deliverable</h1>
+  <h1 style="margin-left:40px;">Editing Deliverable</h1>
   <%= form_tag deliverable_path(@deliverable), :method => :put, :style => 'width:80% ; margin:auto' do %>
     <%= label :deliverable, :name, 'Name', :class => 'col-form-label' %>
     <%= text_field :deliverable, 'name', :class => 'form-control' %>
