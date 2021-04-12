@@ -12,6 +12,8 @@ class ProjectsController < ApplicationController
     sort = params[:sort]
     if (not sort.nil?) and sort.eql?("status")
       @deliverables = Deliverable.where(project_id: params[:id]).order(:status)
+    elsif (not sort.nil?) and sort.eql?("name")
+      @deliverables = Deliverable.where(project_id: params[:id]).order(:name)
     else
       @deliverables = Deliverable.where(project_id: params[:id])
     end
@@ -65,9 +67,10 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Project must have a name"
       redirect_to edit_project_path(@project)
     else 
-
+      puts project_params
       @project = Project.find params[:id]
       @project.update(project_params)
+      @project.update(status: params['status'])
       flash[:notice] = "#{@project.name} was successfully updated."
       redirect_to project_path(@project)
     end

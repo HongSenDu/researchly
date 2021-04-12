@@ -41,10 +41,10 @@ Scenario: Change Existing Project Description
 	And I should see "the coolest description"
 
 Scenario: Change Existing Project Status
-	When I fill in "Status" with "complete"
+	When I select "Complete" from "status"
 	And I press "Update Project"
 	Then I should be on the project1 homepage
-	And I should see "complete"
+	And I should see "Complete"
 
 Scenario: Cannot Edit Project to Have No Name (Sad Path)
 	When I fill in "Project Name" with ""

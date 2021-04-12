@@ -33,14 +33,18 @@ Background: populate tables
 
 
 Scenario: Sort by status
-    When I follow "Sort by status"
+    When I follow "Status"
     Then I should be on "the project11 homepage"
     And I should see "Deliver 4" before "Deliver 5"
+
+Scenario: Sort by name
+    When I follow "Deliverable"
+    Then I should see "Deliver 4" before "Deliver 5"
 
 Scenario: Edit an exisitng deliverable
     When I click on edit for deliverable 5
     Then I should see "Editing Deliverable"
-    And  I fill in "Status" with "Complete"
+    And  I select "Complete" from "status"
     And I press "Update Deliverable"
     Then I should be on "the deliverable5 homepage"
     And I should see "Deliverable was successfully updated."
@@ -49,6 +53,7 @@ Scenario: Create a new deliverable
     When I follow "Add new deliverable"
     Then I should see "Create a new deliverable for project11"
     And  I fill in "Name" with "Brand new deliverable"
+    And  I select "Ongoing" from "status"
     And I press "Create Deliverable"
     Then I should be on "the project11 homepage"
     And I should see "Brand new deliverable"
@@ -68,7 +73,7 @@ Scenario: Delete an exisitng deliverable
 Scenario: Update percentage for complete
     When I click on edit for deliverable 5
     Then I should see "Editing Deliverable"
-    And  I fill in "Status" with "Complete"
+    And  I select "Complete" from "status"
     And I press "Update Deliverable"
     Then I should be on "the deliverable5 homepage"
     And I follow "Back"
