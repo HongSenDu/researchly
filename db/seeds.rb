@@ -42,12 +42,12 @@ projects.each do |project|
     Project.create!(project)
 end
 
-deliverables = [{:name => "deliverable 1", :description => "", :status => "done", :project_id => 1},
-    {:name => "deliverable 2", :description => "", :status => "ongoing", :project_id => 1},
-    {:name => "deliverable 3", :description => "", :status => "done", :project_id => 2},
-    {:name => "deliverable 4", :description => "", :status => "ongoing", :project_id => 3},
-    {:name => "deliverable 5", :description => "", :status => "ongoing", :project_id => 3},
-    {:name => "deliverable 6", :description => "", :status => "done", :project_id => 3}
+deliverables = [{:name => "deliverable 1", :description => "", :status => "Complete", :project_id => 1},
+    {:name => "deliverable 2", :description => "", :status => "Ongoing", :project_id => 1},
+    {:name => "deliverable 3", :description => "", :status => "Complete", :project_id => 2},
+    {:name => "deliverable 4", :description => "", :status => "Ongoing", :project_id => 3},
+    {:name => "deliverable 5", :description => "", :status => "Ongoing", :project_id => 3},
+    {:name => "deliverable 6", :description => "", :status => "Complete", :project_id => 3}
   ]
 
 deliverables.each do |deliverable|
