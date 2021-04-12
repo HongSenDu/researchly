@@ -13,6 +13,17 @@ Github Repository Link: [https://github.com/HongSenDu/researchly.git](https://gi
 * Aaron Jackson (arj2145)
 
 ## Iteration Two: New Features
+* See deliverables on an User's Home Page
+* Added ability to see a project's completion percentage
+* Join groups via code
+* Add members to deliverables
+* Enhanced deliverables page
+* Implemented Navbar
+* Seamlessly update status of deliverables and projects
+* Check recent activities within a group
+* Change/Assign group leaders
+
+## Iteration Two: New Features
 * The ability to delete groups, projects, and deliverables
 * The ability to leave a group
 * Fixed all of the back buttons
