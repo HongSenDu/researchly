@@ -54,8 +54,6 @@ Once you signed in, go to profile in the top right corner, and you will be able 
 ### Uploading a Profile Image
 On the edit profile page, you can click choose file to select a file on your local computer to upload. After uploading, click save image to save your profile image and upload it to our AWS bucket.
 
-Once you signed in, go to profile in the top right corner, and you will be able to view your profile. Then you can click on edit your profile where you can upload an avatar or change your username or bio.
-
 ### Create a new group
 On your profile page click "new group" and give the group a name and description, and then click create. 
 
