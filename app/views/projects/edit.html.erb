@@ -1,14 +1,14 @@
-<h2>Edit Existing Project</h2>
-<%= form_tag project_path(@project), :method => :put do %>
-  <%= label :project, :name, 'Project Name', :class => 'col-form-label' %>
-  <%= text_field :project, 'name', :class => 'form-control' %>
-  <%= label :project, :description, 'Description', :class => 'col-form-label' %>
-  <%= text_field :project, 'description', :class => 'form-control' %>
-  <%= label :project, :status, 'Status', :class => 'col-form-label' %>
-  <%= text_field :project, 'status', :class => 'form-control' %>
-  <br/>
-
-  <%= submit_tag 'Update Project', :class => 'btn btn-primary' %>
-  <%= link_to 'Cancel', @project, :class => 'btn btn-secondary' %>
-<% end %>
-
+<div class="p-3">
+  <h2>Edit Existing Project</h2>
+  <%= form_tag project_path(@project), :method => :put do %>
+    <%= label :project, :name, 'Project Name', :class => 'col-form-label' %>
+    <%= text_field :project, 'name', :class => 'form-control' %>
+    <%= label :project, :description, 'Description', :class => 'col-form-label' %>
+    <%= text_field :project, 'description', :class => 'form-control' %>
+    <%= label :project, :status, 'Status', :class => 'col-form-label' %>
+    <%= select_tag :status, options_for_select([ "Ongoing", "Complete" ], "Ongoing") %>
+    <br/>
+    <%= submit_tag 'Update Project', :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', @project, :class => 'btn btn-secondary' %>
+  <% end %>
+</div>
