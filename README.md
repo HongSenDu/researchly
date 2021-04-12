@@ -2,7 +2,7 @@
 Welcome to Researchly! Researchly is a research group project management SaaS application. As such, you will be able to create and join research groups, create and edit projects for that group, and create and edit deliverables (tasks) for each project.
 
 ## Links
-Heroku Link: [https://researchly-app-2.herokuapp.com](https://researchly-app-3.herokuapp.com)
+Heroku Link: [https://researchly-app-3.herokuapp.com](https://researchly-app-3.herokuapp.com)
 
 Github Repository Link: [https://github.com/HongSenDu/researchly.git](https://github.com/HongSenDu/researchly.git)
 
