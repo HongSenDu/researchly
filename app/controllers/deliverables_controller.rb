@@ -37,7 +37,7 @@ class DeliverablesController < ApplicationController
     deliverable_new = Hash.new
     deliverable_new[:name] = deliverable_params[:name]
     deliverable_new[:description] = deliverable_params[:description]
-    deliverable_new[:status] = deliverable_params[:status]
+    deliverable_new[:status] = params[:status]
     deliverable_new[:project_id] = project_id
     @project = Project.find_by_id(project_id)
     @deliverable = Deliverable.new(deliverable_new)
@@ -61,7 +61,6 @@ class DeliverablesController < ApplicationController
 
   # PATCH/PUT /deliverables/1 or /deliverables/1.json
   def update
-
     if (params[:deliverable][:name].nil?) or (params[:deliverable][:name] == "")
       flash[:alert] = "Deliverable must have a name"
       redirect_to edit_deliverable_path
@@ -75,6 +74,7 @@ class DeliverablesController < ApplicationController
       #puts @project
       respond_to do |format|
         if @deliverable.update(deliverable_params)
+          @deliverable.update(status: params['status'])
           format.html { redirect_to @deliverable, notice: "Deliverable was successfully updated." }
           format.json { render :show, status: :ok, location: @deliverable }
         else
@@ -100,8 +100,6 @@ class DeliverablesController < ApplicationController
 
     # DELETE /deliverables/1 or /deliverables/1.json
     def remove
-      puts "hi"
-      puts params
       Assignment.find_by(user_id: params[:user_id], deliverable_id: @deliverable.id).destroy
       redirect_to @deliverable
     end

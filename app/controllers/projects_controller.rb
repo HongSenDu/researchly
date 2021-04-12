@@ -67,9 +67,10 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Project must have a name"
       redirect_to edit_project_path(@project)
     else 
-
+      puts project_params
       @project = Project.find params[:id]
       @project.update(project_params)
+      @project.update(status: params['status'])
       flash[:notice] = "#{@project.name} was successfully updated."
       redirect_to project_path(@project)
     end

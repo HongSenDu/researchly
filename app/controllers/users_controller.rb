@@ -23,7 +23,6 @@ class UsersController < ApplicationController
       all_user_assignments = Assignment.where(:deliverable_id => deliverable.id).pluck("user_id")
       @users.append(User.where(:id => all_user_assignments))
     end
-    puts @users
     session[:user_id] = id
   end
 

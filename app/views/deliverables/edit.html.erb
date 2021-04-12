@@ -1,20 +1,23 @@
-<h1>Editing Deliverable</h1>
-<%= form_tag deliverable_path(@deliverable), :method => :put, :style => 'width:80% ; margin:auto' do %>
-  <%= label :deliverable, :name, 'Name', :class => 'col-form-label' %>
-  <%= text_field :deliverable, 'name', :class => 'form-control' %>
-  <%= label :deliverable, :description, 'Description', :class => 'col-form-label' %>
-  <%= text_field :deliverable, 'description', :class => 'form-control' %>
-  <%= label :deliverable, :status, 'Status', :class => 'col-form-label' %>
-  <%= text_field :deliverable, 'status', :class => 'form-control' %>
-  <br/>
-  <h3> Add members to deliverable </h3>
-  <% @members.each do |member| %>
-    <div class="checkbox">
-      <%= check_box_tag(member.id) %>
-      <%= label_tag(member.id, member.username) %>
-    </div>
+<div class="py-3">
+  <h1>Editing Deliverable</h1>
+  <%= form_tag deliverable_path(@deliverable), :method => :put, :style => 'width:80% ; margin:auto' do %>
+    <%= label :deliverable, :name, 'Name', :class => 'col-form-label' %>
+    <%= text_field :deliverable, 'name', :class => 'form-control' %>
+    <%= label :deliverable, :description, 'Description', :class => 'col-form-label' %>
+    <%= text_field :deliverable, 'description', :class => 'form-control' %>
+    <%= label :project, :status, 'Status', :class => 'col-form-label' %>
+    <%= select_tag :status, options_for_select([ "Ongoing", "Complete" ], "Ongoing") %>
+    <br/>
+    <h3> Add members to deliverable </h3>
+    <% @members.each do |member| %>
+      <div class="checkbox">
+        <%= check_box_tag(member.id) %>
+        <%= label_tag(member.id, member.username) %>
+      </div>
+    <% end %>
+    <%= @members.length == 0 ? 'No members to add!' : '' %><br>
+    <br/>
+    <%= submit_tag 'Update Deliverable', :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', project_path(session[:project_id]), :class => 'btn btn-secondary' %>
   <% end %>
-  <%= @members.length == 0 ? 'No members to add!' : '' %><br>
-  <%= submit_tag 'Update Deliverable', :class => 'btn btn-primary' %>
-  <%= link_to 'Cancel', project_path(session[:project_id]), :class => 'btn btn-secondary' %>
-<% end %>
+</div>

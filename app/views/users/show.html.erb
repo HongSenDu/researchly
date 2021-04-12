@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+<p id="notice"><%= notice %></p>
+=======
 <p class="text-right px-5">
   <%= link_to "View #{@is_current_user ? "your" : (@user.username == nil ? "" : @user.username + "\"s")} Profile", view_user_path(@user) %>
 </p>
+>>>>>>> c13d03882269202ae256a8a9675b9f5c90da3f71
 <h1 class="text-center">Groups <% if @is_current_user == true %>
     you
   <% else %>
