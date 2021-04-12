@@ -1,5 +1,5 @@
 # Welcome to Researchly
-Welcome to Researchly! Researchly is a research group project management SaaS application. As such, you will be able to create and join research groups, create and edit projects for that group, and create and edit deliverables (tasks) for each project.
+Welcome to Researchly! Researchly is a research group project management SaaS application. As such, you will be able to create and join research groups, create and edit projects for that group, and create and edit deliverables (tasks) for each project. You can also assign group members to work on specific tasks.
 
 ## Links
 Heroku Link: [https://researchly-app-3.herokuapp.com](https://researchly-app-3.herokuapp.com)
@@ -22,6 +22,7 @@ Github Repository Link: [https://github.com/HongSenDu/researchly.git](https://gi
 * Seamlessly update status of deliverables and projects
 * Check recent activities within a group
 * Change/Assign group leaders
+* Sort deliverables by name
 
 ## Iteration Two: New Features
 * The ability to delete groups, projects, and deliverables
@@ -51,14 +52,20 @@ On the landing page, click sign-up, enter an email, password, and password confi
 
 Once you signed in, go to profile in the top right corner, and you will be able to view your profile. Then you can click on edit your profile where you can upload an avatar or change your username or bio. 
 
-### Uploading a Profile Image
-On the edit profile page, you can click choose file to upload a file from your local computer. After uploading, click save user to save your profile image and upload it to our AWS bucket.
-
 ### Create a new group
-On your profile page click "new group" and give the group a name and description, and then click create. 
+On either the home page, or group page, you can click "New Group" to create a new group. Whoever creates the group will be the leader of that group. 
 
 ### Join a group
-On the profile page click "join a group" which lists all the groups and you can then choose one you wish to join. 
+On the profile page click "join a group" which lists all groups and you can then choose one you wish to join. You will need a unique code to join each group. The codes for each group are as follows:
+* Human Centered Design Lab: QwdmntyA
+* Bell Labs: Qwd23tyB
+* Scrum Bucket: Qwd23tyC
+
+### Remove group members
+On the group's homepage, if you are a group leader you can remove members from the group by clicking "Remove from Group" for that person.
+
+### Make a group member a leader
+On the group's homepage, if you are a group leader you can upgrade members to become leaders by clicking "Upgrade to Leader" for that person.
 
 ### Creating a new project
 On the group home page, click "new project" and give the project a name and description. Then click create and you should now be on the project details page
@@ -73,13 +80,19 @@ On the group homepage click "edit" and then you can edit the group's name or des
 On the group home page, click the project you'd like to edit and then you should now be on the projects detail page. Then click "edit" and change the project name and description to your liking. Click "Update Project" and you should now be back on the project details page and see the updated name and description. 
 
 ### Editing a Deliverable
-On the details page of the project whose deliverable you'd like to edit, locate the deliverable you'd like to edit. Then click the "edit" link that corresponds to it in the table. Change the deliverable name, description and status to your liking. Click "Update Deliverable" and you should now be back on the project details page and see the updated deliverable.
+On the details page of the project whose deliverable you'd like to edit, locate the deliverable you'd like to edit. Then click the "edit" link that corresponds to it in the table. Change the deliverable name, description and status to your liking. Click "Update Deliverable" and you should now be back on the Deliverable details page and see the updated deliverable.
+
+### Assigning Members to Deliverables
+Also on the "edit deliverable page", you will have the ability to assign a member to that specific deliverable. All members in the group who are not already assigned to the deliverable will be listed with a checkbox next to their name. To assign a member, click the checkbox by their name and click "Update Deliverable." You should now be back on the Deliverable Details page and see the updated deliverable with the new assignments. 
+
+### Removing Members from Deliverables
+On the Deliverables Detail page - you should see all the members currently assigned to that specific deliverable listed in a table. In this table, their should be a "remove" link next to each members name. To remove a member, simply click their respective "remove" link and they will be unassigned from the deliverable. 
 
 ### Delete a group
-On the group's homepage click the "delete" button to delete the group. This will also remove all of its projects and deliverables.
+On the group's homepage click the "delete" button to delete the group. This will also remove all of its projects and deliverables. Only group leaders can delete a group. 
 
-### Delete a Project
+### Delete a project
 Go onto the projects homepage for the group, and click the "delete" button for that project to remove it. This will also remove all of its deliverables. 
 
-### Delete a Deliverable
+### Delete a deliverable
 Go to the project you want to delete a deliverable from. You should see a table of all deliverables. CLick the "Delete" button for the deliverable you want to remove. 
