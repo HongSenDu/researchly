@@ -107,7 +107,7 @@ class GroupsController < ApplicationController
           new_code = (0...8).map { o[rand(o.length)] }.join
           @group.update(code: new_code)
           #after group is created add creator to group as leader
-          Membership.create!(user_id: session[:user_id], group_id: @group.id, member_type: 'leader', username: username)
+          Membership.create!(user_id: session[:user_id], group_id: @group.id, member_type: 'leader', username: user.username)
           format.html {redirect_to @group, notice: "Group was successfully created."}
           format.json {render :show, status: :created, location: @group}
         else
