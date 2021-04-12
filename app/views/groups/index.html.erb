@@ -19,11 +19,11 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= group.name %></td>
+        <td style="padding:10px;"><%= group.name %></td>
         <td> | </td>
         <td>
         <%= form_tag(join_group_path(group), :method => "get") do %>  
-        <div class="input-group">  
+        <div class="input-group" style="padding:10px;">  
           <%= search_field_tag :group_code, params[:group_code], placeholder: "Enter group code to join", class: "form-control" %>  
             <div class="input-group-btn">  
             <%= button_tag "Join", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  

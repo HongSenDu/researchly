@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-users = [{:email => "michael@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Michael", :bio => "Cool person"},
-    {:email => "aaron@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Aaron", :bio => "Cool person"},
-    {:email => "andrew@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Andrew", :bio => "Cool person"},
-    {:email => "hong@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Hong", :bio => ""},
+users = [{:email => "michael@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Michael", :bio => "Junior at Columbia University studying CS."},
+    {:email => "aaron@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Aaron", :bio => "Junior at Columbia University studying CS."},
+    {:email => "andrew@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Andrew", :bio => "Junior at Columbia University studying CS."},
+    {:email => "hong@gmail.com", :password => 'topsecret', :password_confirmation => 'topsecret', :username => "Hong", :bio => "Sophmore at Columbia University studying CS."},
   ]
 
 users.each do |user|
@@ -18,12 +18,9 @@ users.each do |user|
 end
 
 
-groups = [{:name => "Group 1", :description => "cool group", :code => 'QwdmntyA'},
-          {:name => "Group 2", :description => "not cool group", :code => 'Qwd23tyB'},
-          {:name => "Group 3", :description => "decent group", :code => 'Qwd23tyC'},
-          {:name => "Group 4", :description => "test group", :code => 'Qwd23tyD'},
-          {:name => "Group 5", :description => "group 5", :code => 'Qwd23tyE'},
-          {:name => "Group 6", :description => "group 6", :code => 'Qwd23tyF'}
+groups = [{:name => "Human Centered Design Lab", :description => "Lab focused on tackling the biggest issues in human computer interaction.", :code => 'QwdmntyA'},
+          {:name => "Bell Labs", :description => "Follow the River and Find the C", :code => 'Qwd23tyB'},
+          {:name => "Scrum Bucket Research Group", :description => "The Coolest Research Group on Zoom", :code => 'Qwd23tyC'},
         ]
 
 groups.each do |group|
@@ -32,22 +29,18 @@ end
 
 
 
-projects = [{:name => "Project 1", :description => "", :group_id => 1, :status => 'complete'},
-    {:name => "Project 2", :description => "", :group_id => 2, :status => 'ongoing'},
-    {:name => "Project 3", :description => "", :group_id => 3, :status => 'complete'},
-    {:name => "Project 4", :description => "", :group_id => 4, :status => 'ongoing'}
+projects = [{:name => "Solving P = NP", :description => "Trying to Solve the P = NP", :group_id => 3, :status => 'Ongoing'},
+    {:name => "Programmer Client Interaction", :description => "Finding out the best approaches for clients and programmers to communicate.", :group_id => 3, :status => 'Ongoing'},
   ]
 
 projects.each do |project|
     Project.create!(project)
 end
 
-deliverables = [{:name => "deliverable 1", :description => "", :status => "Complete", :project_id => 1},
-    {:name => "deliverable 2", :description => "", :status => "Ongoing", :project_id => 1},
-    {:name => "deliverable 3", :description => "", :status => "Complete", :project_id => 2},
-    {:name => "deliverable 4", :description => "", :status => "Ongoing", :project_id => 3},
-    {:name => "deliverable 5", :description => "", :status => "Ongoing", :project_id => 3},
-    {:name => "deliverable 6", :description => "", :status => "Complete", :project_id => 3}
+deliverables = [{:name => "Initial Meeting", :description => "First meeting to establish the project.", :status => "Complete", :project_id => 2},
+    {:name => "Early draft of paper", :description => "An initial outline of what the eventual published paper will consist of.", :status => "Complete", :project_id => 2},
+    {:name => "Demo communication product", :description => "Demo new communication project to clients to get feedback", :status => "Ongoing", :project_id => 2},
+    {:name => "Deploy early demo", :description => "Figure out how to deploy the application", :status => "Ongoing", :project_id => 2},
   ]
 
 deliverables.each do |deliverable|
@@ -55,20 +48,26 @@ deliverables.each do |deliverable|
 end
 
 memberships = [{:user_id => 1, :group_id => 1, :member_type => 'leader', :username => "Michael"},
-    {:user_id => 1, :group_id => 2, :member_type => 'member', :username => "Michael"},
-    {:user_id => 2, :group_id => 1, :member_type => 'member', :username => "Aaron"},
+    {:user_id => 1, :group_id => 3, :member_type => 'member', :username => "Michael"},
+    {:user_id => 2, :group_id => 3, :member_type => 'member', :username => "Aaron"},
     {:user_id => 3, :group_id => 3, :member_type => 'member', :username => "Andrew"},
-    {:user_id => 3, :group_id => 2, :member_type => 'leader', :username => "Andrew"},
-    {:user_id => 4, :group_id => 1, :member_type => 'member', :username => "Hong"}
+    {:user_id => 3, :group_id => 3, :member_type => 'leader', :username => "Andrew"},
+    {:user_id => 3, :group_id => 2, :member_type => 'member', :username => "Andrew"},
+    {:user_id => 4, :group_id => 3, :member_type => 'member', :username => "Hong"}
   ]
 
 memberships.each do |membership|
     Membership.create!(membership)
 end
 
-assignments = [{:user_id => 1, :deliverable_id => 1},
+assignments = [{:user_id => 3, :deliverable_id => 3},
     {:user_id => 2, :deliverable_id => 1},
-    {:user_id => 3, :deliverable_id => 1}
+    {:user_id => 3, :deliverable_id => 4},
+    {:user_id => 1, :deliverable_id => 4},
+    {:user_id => 2, :deliverable_id => 4},
+    {:user_id => 4, :deliverable_id => 4},
+    {:user_id => 2, :deliverable_id => 3},
+    {:user_id => 4, :deliverable_id => 3},
   ]
 
 assignments.each do |assignment|
