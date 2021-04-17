@@ -44,6 +44,7 @@ class DeliverablesController < ApplicationController
     @deliverable.save
     
     helpers.add_members(@members, @deliverable.id)
+    
 
     @deliverable.create_activity :create, owner: current_user, group: group_id
     redirect_to @project, notice: "Deliverable was successfully created."
@@ -91,6 +92,8 @@ class DeliverablesController < ApplicationController
     project_id = (Deliverable.find params[:id]).project_id
     @project = Project.find_by_id(project_id)
     @deliverable.create_activity :destroy, owner: current_user, group: group_id
+    # @activity = PublicActivity::Activity.find_by(trackable_id: (params[:id]), trackable_type: controller_path.classify)
+    # @activity.destroy
     @deliverable.destroy
     respond_to do |format|
       format.html { redirect_to @project, notice: "Deliverable was successfully destroyed." }
@@ -100,6 +103,9 @@ class DeliverablesController < ApplicationController
 
     # DELETE /deliverables/1 or /deliverables/1.json
     def remove
+      user = User.find_by_id params[:user_id]
+      @deliverable_id = Deliverable.find_by_id params[:id]
+      @deliverable.create_activity :unassign, owner: user, group: group_id
       Assignment.find_by(user_id: params[:user_id], deliverable_id: @deliverable.id).destroy
       redirect_to @deliverable
     end
