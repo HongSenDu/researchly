@@ -14,11 +14,13 @@ class ProjectsController < ApplicationController
       @deliverables = Deliverable.where(project_id: params[:id]).order(:status)
     elsif (not sort.nil?) and sort.eql?("name")
       @deliverables = Deliverable.where(project_id: params[:id]).order(:name)
+    elsif (not sort.nil?) and sort.eql?("deadline")
+      @deliverables = Deliverable.where(project_id: params[:id]).order(deadline: :desc)
     else
       @deliverables = Deliverable.where(project_id: params[:id])
     end
 		#@deliverables = Deliverable.where(project_id: params[:id])
-
+    
     if @deliverables.length == 0
       @msg = "No deliverables created for this project"
     else

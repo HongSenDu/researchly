@@ -16,6 +16,14 @@
   <%end%>
 
   <br />
+  <%
+    if not @deliverable.deadline.nil?
+       a = @deliverable.deadline.strftime("%m/%d/%Y")
+    else
+      a = @deliverable.deadline
+    end
+  %>
+  <h5>Due Date: <%= a %></h5>
 
   <table class="table table-hover" style="width:40% ; margin:left">
     <thead>

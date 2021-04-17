@@ -39,6 +39,7 @@ class DeliverablesController < ApplicationController
     deliverable_new[:description] = deliverable_params[:description]
     deliverable_new[:status] = params[:status]
     deliverable_new[:project_id] = project_id
+    deliverable_new[:deadline] = deliverable_params[:deadline]
     @project = Project.find_by_id(project_id)
     @deliverable = Deliverable.new(deliverable_new)
     @deliverable.save
@@ -133,7 +134,7 @@ class DeliverablesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def deliverable_params
       #params.fetch(:deliverable, {})
-      params.require(:deliverable).permit(:name, :description, :status)
+      params.require(:deliverable).permit(:name, :description, :status, :deadline)
     end
 
     def group_id
