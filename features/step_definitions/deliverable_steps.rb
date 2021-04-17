@@ -16,6 +16,12 @@ Given /the following deliverables exist/ do |deliverables_table|
     end
 end
 
+Given /the following assignments exist/ do |assignments_table|
+  assignments_table.hashes.each do |assignment|
+    Assignment.create assignment
+  end
+end
+
 When /I click on edit for deliverable (.+)/ do |num|
     find("a[href='/deliverables/#{num}/edit']").click
 end
@@ -39,3 +45,8 @@ end
 When /I press delete for deliverable (.*)/ do |num|
   page.find_by_id(num).click
 end
+
+When /I click remove user (.+) for deliverable (.+)/ do |user, num|
+  find("a[href='/deliverables/#{num}/remove?user_id=#{user}']").click
+end
+#/deliverables/4/remove?user_id=4

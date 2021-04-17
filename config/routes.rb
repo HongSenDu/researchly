@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'activities/index'
   resources :users
   get "users/:id/view", to: "users#view", as: 'view_user'
-  get "deliverables/:id/remove", to: "deliverables#remove", as: 'remove_user'
+  delete "deliverables/:id/remove", to: "deliverables#remove", as: 'remove_user'
   get '/groups/:id/join_group', to: 'groups#join_group', as: 'join_group'
   get 'groups/search' => 'groups#search', :as => 'search_group'
   get 'groups/:id/leave_group', to: 'groups#leave_group', as: 'leave_group'

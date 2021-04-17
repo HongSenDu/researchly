@@ -3,10 +3,6 @@ class DeliverablesController < ApplicationController
   before_action :get_members, only: %i[ edit update destroy ]
   before_action :get_members_new, only: %i[ new create ]
   before_action :get_assignments, only: %i[ edit show ]
-  # GET /deliverables or /deliverables.json
-  def index
-    @deliverables = Deliverable.all
-  end
 
   # GET /deliverables/1 or /deliverables/1.json
   def show
@@ -73,7 +69,6 @@ class DeliverablesController < ApplicationController
       #puts @project
       respond_to do |format|
         if @deliverable.update(deliverable_params)
-          puts deliverable_params['files']
           @deliverable.remove_files! if !deliverable_params['files']
           @deliverable.save()
           format.html { redirect_to @deliverable, notice: "Deliverable was successfully updated." }
@@ -99,11 +94,11 @@ class DeliverablesController < ApplicationController
     end
   end
 
-    # DELETE /deliverables/1 or /deliverables/1.json
-    def remove
-      Assignment.find_by(user_id: params[:user_id], deliverable_id: @deliverable.id).destroy
-      redirect_to @deliverable
-    end
+  # DELETE /deliverables/1 or /deliverables/1.json
+  def remove
+    Assignment.find_by(user_id: params[:user_id], deliverable_id: @deliverable.id).destroy
+    redirect_to @deliverable
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
