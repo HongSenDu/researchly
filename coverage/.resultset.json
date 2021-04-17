@@ -288,6 +288,12 @@
           null,
           null,
           null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
           null
         ]
       },
@@ -696,6 +702,15 @@
           null,
           3,
           3,
+          null,
+          3,
+          3,
+          null,
+          3,
+          0,
+          0,
+          null,
+          null,
           3,
           6,
           3,
@@ -842,9 +857,25 @@
         ],
         "branches": {
         }
+      },
+      "/home/aaron/researchly/app/mailers/deliverable_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1618643882
+    "timestamp": 1618647440
   },
   "RSpec": {
     "coverage": {
@@ -1485,6 +1516,50 @@
           null
         ]
       },
+      "/home/aaron/researchly/spec/mailers/deliverable_mailer_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          3,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/aaron/researchly/app/mailers/deliverable_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/aaron/researchly/app/mailers/application_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/home/aaron/researchly/spec/models/user_spec.rb": {
         "lines": [
           1,
@@ -1651,6 +1726,6 @@
         ]
       }
     },
-    "timestamp": 1618643896
+    "timestamp": 1618647451
   }
 }

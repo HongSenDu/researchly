@@ -75,6 +75,15 @@ class DeliverablesController < ApplicationController
       #puts @project
       respond_to do |format|
         if @deliverable.update(deliverable_params)
+
+          @assignments = Assignment.where(deliverable_id: @deliverable.id).pluck(:user_id)
+          @users = User.where(id: @assignments)
+
+          @users.each do |user|
+            puts user.username 
+            helpers.mail_deliverable_complete(user, @deliverable, params['status'])
+          end
+
           @deliverable.update(status: params['status'])
           format.html { redirect_to @deliverable, notice: "Deliverable was successfully updated." }
           format.json { render :show, status: :ok, location: @deliverable }
