@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_034228) do
+ActiveRecord::Schema.define(version: 2021_04_16_200123) do
 
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_04_10_034228) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "project_id", null: false
     t.datetime "deadline"
+    t.string "files"
     t.index ["project_id"], name: "index_deliverables_on_project_id"
   end
 

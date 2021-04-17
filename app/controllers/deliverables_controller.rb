@@ -65,7 +65,6 @@ class DeliverablesController < ApplicationController
       flash[:alert] = "Deliverable must have a name"
       redirect_to edit_deliverable_path
     else 
-    
       project_id = (Deliverable.find params[:id]).project_id
       #puts "The project ID is #{project_id}"
       @project = Project.find_by_id(project_id)
@@ -74,7 +73,9 @@ class DeliverablesController < ApplicationController
       #puts @project
       respond_to do |format|
         if @deliverable.update(deliverable_params)
-          @deliverable.update(status: params['status'])
+          puts deliverable_params['files']
+          @deliverable.remove_files! if !deliverable_params['files']
+          @deliverable.save()
           format.html { redirect_to @deliverable, notice: "Deliverable was successfully updated." }
           format.json { render :show, status: :ok, location: @deliverable }
         else
@@ -133,7 +134,7 @@ class DeliverablesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def deliverable_params
       #params.fetch(:deliverable, {})
-      params.require(:deliverable).permit(:name, :description, :status)
+      params.require(:deliverable).permit(:name, :description, :status, {files: []}, {remove_files: []}, :remove_files)
     end
 
     def group_id

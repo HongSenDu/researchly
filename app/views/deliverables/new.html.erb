@@ -6,7 +6,7 @@
   <%= text_field :deliverable, 'description', :class => 'form-control' %>
   <div class="py-3">
     <h3> Status </h3>
-    <%= select_tag "status", options_for_select([ "Ongoing", "Complete" ], "Ongoing") %>
+    <%= select_tag "Status", options_for_select([ "Ongoing", "Complete" ], "Ongoing") %>
   </div>
   <h3> Assign members to deliverable </h3>
   <% @members.each do |member| %>
