@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   def show
-    id = params[:id]
+    id = params[:id] 
     @activities = PublicActivity::Activity.order("created_at desc").where(group: id)
+    # @activities = PublicActivity::Activity.order("created_at desc")
   end
 end

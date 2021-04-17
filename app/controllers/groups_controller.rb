@@ -54,6 +54,7 @@ class GroupsController < ApplicationController
       existing_memberships = Membership.where(user_id: session[:user_id], group_id: params[:id])
       if (existing_memberships.empty?)
         Membership.create!(user_id: session[:user_id], group_id: params[:id], username: user.username)
+        group.create_activity :join_group, owner: current_user, group: params[:id]
         flash[:notice] = "Successfully Joined"
         redirect_to group_path(params[:id])
         return
@@ -72,6 +73,8 @@ class GroupsController < ApplicationController
   def leave_group
     is_a_member = Membership.find_by user_id: params[:user_id], group_id: params[:id]
     if(!is_a_member.nil?)
+      group = Group.find(params[:id])
+      group.create_activity :leave_group, owner: current_user, group: params[:id]
       is_a_member.destroy
       flash[:notice] = "Sucessfully Left Group"
       if(params[:user_id] == session[:user_id])
@@ -166,5 +169,9 @@ class GroupsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def group_params
       params.require(:group).permit(:name, :description)
+    end
+
+    def current_user
+      user = User.find(session[:user_id])
     end
 end
