@@ -4,6 +4,12 @@ Given /the following groups exist/ do |groups_table|
     end
 end
 
+Given /the following assignments exist/ do |assignments_table|
+  assignments_table.hashes.each do |assignment|
+    Assignment.create assignment
+  end
+end
+
 # Given /the following projects exist/ do |projects_table|
 #     projects_table.hashes.each do |project|
 #       Project.create project
