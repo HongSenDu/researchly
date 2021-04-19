@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   get 'activities/index'
 
   get "users/:id/view", to: "users#view", as: 'view_user'

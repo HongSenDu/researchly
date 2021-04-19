@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_034228) do
+ActiveRecord::Schema.define(version: 2021_04_19_203738) do
 
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
@@ -71,6 +71,21 @@ ActiveRecord::Schema.define(version: 2021_04_10_034228) do
     t.string "username"
     t.index ["group_id"], name: "index_memberships_on_group_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "recipient_id"
+    t.integer "group_id"
+    t.string "subject"
+    t.string "body"
+    t.boolean "read"
+    t.boolean "show_user"
+    t.boolean "show_recipient"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_messages_on_ancestry"
   end
 
   create_table "projects", force: :cascade do |t|
