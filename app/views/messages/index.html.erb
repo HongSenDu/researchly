@@ -1,41 +1,16 @@
-<p id="notice"><%= notice %></p>
+<% title "Messages" %>
 
-<h1>Messages</h1>
+<% for message in @messages %>
+  <div class="message">
+    <div class="created_at"><%= message.created_at.strftime("%B %d, %Y") %></div>   
+    <div class="content">
+      <%= message.body %>
+    </div>
+    <div class="actions">
+      <%= link_to "Reply", new_message_path(:parent_id => message) %> |
+      <%= link_to "Destroy", message, :confirm => "Are you sure?", :method => :delete %>
+    </div>
+  </div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Recipient</th>
-      <th>Group</th>
-      <th>Subject</th>
-      <th>Body</th>
-      <th>Read</th>
-      <th>Show user</th>
-      <th>Show recipient</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.user_id %></td>
-        <td><%= message.recipient_id %></td>
-        <td><%= message.group_id %></td>
-        <td><%= message.subject %></td>
-        <td><%= message.body %></td>
-        <td><%= message.read %></td>
-        <td><%= message.show_user %></td>
-        <td><%= message.show_recipient %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Message', new_message_path %>
+<%= render "form" %>

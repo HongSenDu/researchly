@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    @message = Message.new(:parent_id => params[:parent_id])
   end
 
   # GET /messages/1/edit
