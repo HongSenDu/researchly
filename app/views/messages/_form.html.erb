@@ -4,7 +4,7 @@
 
       <%= hidden_field :message, :parent_id %>
 
-      <%= hidden_field :message, :user_id, :value => current_user.id, :class => 'form-control'%>
+      <%= hidden_field :message, :user_id, :value => session[:user_id], :class => 'form-control'%>
 
       <%if params[:parent_id]%>
         <%= hidden_field :message, :recipient_id, :value => Message.find(params[:parent_id]).recipient_id, :class => 'form-control'%>
