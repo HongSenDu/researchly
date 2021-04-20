@@ -45,25 +45,31 @@ class MessagesController < ApplicationController
   # DELETE /messages/1 or /messages/1.json
   def destroy
     @message = Message.find(params[:id])
-    if @message.user_id = current_user.id
+    if @message.group_id
+      isthread = true
+    else
+      isthread = false
+    end
+    puts isthread
+    if @message.user_id = current_user.id && !isthread
       @message.update_attribute(:show_user, false)
-      respond_to do |format|
-        format.html { redirect_to inbox_path, notice: "Message deleted." }
-        format.json { head :no_content }
-      end 
-    elsif @message.recipient_id == current_user.id
+      flash[:notice] = "Message deleted"
+      redirect_to inbox_path and return
+    elsif @message.recipient_id == current_user.id  && !isthread
       @message.update_attribute(:show_recipient, false)
-      respond_to do |format|
-        format.html { redirect_to inbox_path, notice: "Message deleted." }
-        format.json { head :no_content }
-      end 
+      flash[:notice] = "Message deleted"
+      redirect_to inbox_path and return
     end
     if @message.show_user == false && @message.show_recipient == false
-      @message.destroy
-      respond_to do |format|
-        format.html { redirect_to inbox_path, notice: "Message deleted" }
-        format.json { head :no_content }
-      end 
+      if isthread
+        @message.destroy
+        flash[:notice] = "Message deleted"
+        redirect_to group_path(session[:group_id]) and return
+      else
+        @message.destroy
+        flash[:notice] = "Message deleted"
+        redirect_to inbox_path and return
+      end
     end
   end
 

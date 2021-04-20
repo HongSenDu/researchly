@@ -29,11 +29,13 @@
         </tbody>
       </table> 
     </div>
-    <div class="col-md-6">  
+    <div class="col-md-6">
+    <% if current_user %> 
       <table class="table table-hover" style="width:100% ; margin:auto" ; padding: 10px>
         <thead>
           <tr>
             <th>Message Board</th> 
+            <th>Poster</th>
           </tr>
         </thead>
 
@@ -42,8 +44,7 @@
             <tr>
             <td><%= message.body %><br>
             <% if message.user_id == current_user.id%>
-            <%= link_to "Reply", new_message_path(:parent_id => message) %> |
-            <%= link_to 'Delete', message, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= button_to 'Delete', message, :method => :delete, :id => message.id, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm" %>
             <% end %></td>
             <% if User.find(message.user_id).avatar_url%>
                 <td><%= image_tag(User.find(message.user_id).avatar_url, :size => "30x30", :class=>"rounded-circle") %>
@@ -56,6 +57,7 @@
         </tbody>
       </table>
       <%= render 'thread', message: @message %>
+      <%end%>
     </div>
 
     <div class="col-md-3" style="margin-top:-15vh;">

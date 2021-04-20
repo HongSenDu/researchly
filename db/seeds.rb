@@ -76,9 +76,9 @@ assignments.each do |assignment|
 end
 
 messages = [
-    {:user_id => 2, :group_id => 1, :body => "Hello World!"},
-    {:user_id => 3, :group_id => 3, :body => "Good job team"},
-    {:user_id => 1, :group_id => 3, :body => "Researchly is awesome"},
+    {:user_id => 2, :group_id => 1, :body => "Hello World!", :show_user => false, :show_recipient => false},
+    {:user_id => 3, :group_id => 3, :body => "Good job team", :show_user => false, :show_recipient => false},
+    {:user_id => 1, :group_id => 3, :body => "Researchly is awesome", :show_user => false, :show_recipient => false},
     {:user_id => 2, :recipient_id => 3, :subject => "Status of Deliverable", :body => "Hey can you give me an update on the status of those deliverables", :user_read => false, :show_user => true, :show_recipient => true},
     {:user_id => 2, :recipient_id => 3, :subject => "Research", :body => "hey my research is showing something amazing", :user_read => false, :recipient_read => true, :show_user => true, :show_recipient => true},
     {:user_id => 1, :recipient_id => 3, :subject => "Testing", :body => "Is this thing on?", :user_read => false, :recipient_read => true, :show_user => true, :show_recipient => false},

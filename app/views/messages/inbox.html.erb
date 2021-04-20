@@ -16,7 +16,7 @@
 
   <tbody>
     <% @messages.each do |message| %>
-      <%if message.group_id == nil %>
+      <%if message.group_id == nil && message.parent == nil %>
         <%if current_user.id == message.user_id%>
           <tr class = "<%= 'read' if message.user_read == true %>">
         <%elsif current_user.id == message.recipient_id %>

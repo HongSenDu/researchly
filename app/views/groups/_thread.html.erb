@@ -1,4 +1,4 @@
-  <%= puts request.original_url%>
+
     <%= form_tag inbox_path, :class => 'form' do %>
 
       <%= hidden_field :message, :parent_id %>
@@ -16,8 +16,8 @@
 
       <%= hidden_field :message, :read, :class => 'form-control' %>
 
-      <%= hidden_field :message, :show_user, :class => 'form-control' %>
-      <%= hidden_field :message, :show_recipient, :class => 'form-control' %>
+      <%= hidden_field :message, :show_user, :value => false, :class => 'form-control' %>
+      <%= hidden_field :message, :show_recipient, :value => false, :class => 'form-control' %>
 
       <br/>
       <%= submit_tag 'Create', :class => 'btn btn-primary' %>

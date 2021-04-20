@@ -15,6 +15,9 @@
  ul{
   list-style-type: none;
   }
+  li{
+   list-style-type: none; 
+  }
   .message_container{
     border: 1px;
     list-style: none;
@@ -64,8 +67,4 @@
   }
   tr.read{
     background-color:#c6cbcf;
-  }
-  blockquote.twitter-tweet a:hover,
-  blockquote.twitter-tweet a:focus {
-  text-decoration: underline;
   }
