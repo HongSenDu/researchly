@@ -8,13 +8,8 @@
 
       <%= hidden_field :message, :user_id, :value => current_user.id, :class => 'form-control'%>
 
-      <%= label :message, :recipient_id, 'recipient id', :class => 'col-form-label' %>
-      <%= select_tag(:recipient_id, '<option value="1">Lisbon</option>...', class:"form-control" )%>
-      <select class="form-control" id="exampleFormControlSelect1">
-      <% User.all.each do |user| %>
-        <option value="<%= user.id%>"><%= user.username%></option>
-      <%end%>
-      </select>
+      <%= label :message, :recipient_id, 'To', :class => 'col-form-label' %>
+      <%= select_tag("message[recipient_id]", options_from_collection_for_select(User.all, 'id', 'username'), class:"form-control" )%>
 
       <%= hidden_field :message, :group_id, :class => 'form-control'%>
 
@@ -24,7 +19,8 @@
       <%= label :message, :body, 'Body', :class => 'col-form-label' %>
       <%= text_area :message, :body, :class => 'form-control' %>  
 
-      <%= hidden_field :message, :read, :value => false, :class => 'form-control' %>
+      <%= hidden_field :message, :user_read, :value => false, :class => 'form-control' %>
+      <%= hidden_field :message, :recipient_read, :value => false, :class => 'form-control' %>
 
       <%= hidden_field :message, :show_user, :value => true, :class => 'form-control' %>
       <%= hidden_field :message, :show_recipient, :value => true, :class => 'form-control' %>
