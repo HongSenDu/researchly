@@ -114,6 +114,7 @@ class DeliverablesController < ApplicationController
     def remove
       user = User.find_by_id params[:user_id]
       @deliverable_id = Deliverable.find_by_id params[:id]
+      DeliverableMailer.deliverable_unassign(user, @deliverable).deliver!
       @deliverable.create_activity :unassign, owner: user, group: group_id
       Assignment.find_by(user_id: params[:user_id], deliverable_id: @deliverable.id).destroy
       redirect_to @deliverable
