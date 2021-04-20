@@ -37,7 +37,7 @@ projects.each do |project|
     Project.create!(project)
 end
 
-deliverables = [{:name => "Initial Meeting", :description => "First meeting to establish the project.", :status => "Complete", :project_id => 2},
+deliverables = [{:name => "Initial Meeting", :description => "First meeting to establish the project.", :status => "Complete", :project_id => 2, :deadline => Time.zone.parse('2012-07-11 21:00')},
     {:name => "Early draft of paper", :description => "An initial outline of what the eventual published paper will consist of.", :status => "Complete", :project_id => 2},
     {:name => "Demo communication product", :description => "Demo new communication project to clients to get feedback", :status => "Ongoing", :project_id => 2},
     {:name => "Deploy early demo", :description => "Figure out how to deploy the application", :status => "Ongoing", :project_id => 2},

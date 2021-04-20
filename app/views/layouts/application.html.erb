@@ -7,10 +7,11 @@
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('flaskcleanicon.ico') %>
   </head>
   <body>
     <% if user_signed_in?  %>
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;margin-bottom:15px;">
         <a class="navbar-brand" href="/users/<%=current_user.id%>">Researchly</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -36,10 +37,16 @@
       </nav>
     <% end %>
     <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
+      <p class="alert alert-success alert-dismissible fade show" style="width:95%;margin:auto">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>  
+      <%= notice %>
+      </p>
     <% end %>
     <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+      <p class="alert alert-danger alert-dismissible fade show" style="width:90%;margin:auto">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <%= alert %>
+      </p>
     <% end %>
     <%= yield %>
     <p class="alert"><%= alert %></p>

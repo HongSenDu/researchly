@@ -7,6 +7,8 @@
     <%= text_area :deliverable, 'description', :class => 'form-control' %>
     <%= label :project, :status, 'Status', :class => 'col-form-label' %>
     <%= select_tag :status, options_for_select([ "Ongoing", "Complete" ], "Ongoing") %>
+    <%= label :deliverable, :deadline, 'Deadline', :class => 'col-form-label' %>
+    <%= date_field :deliverable, 'deadline', :class => 'form-control' %>
     <br/>
     <h3> Add members to deliverable </h3>
     <% @members.each do |member| %>
