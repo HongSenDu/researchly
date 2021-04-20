@@ -30,6 +30,8 @@ gem 'public_activity'
 gem 'ancestry'
 #font awesome gem
 gem "font-awesome-rails"
+gem "fog-aws"
+gem 'public_activity'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'jquery-rails'

@@ -1,20 +1,25 @@
+<%= javascript_pack_tag 'application' %>
 <div style="padding:30px">
-  <h1><%=@deliverable.name %></h1><br/>
-
+  <h1><%=@deliverable.name %></h1>
+  <br/>
   <%if @deliverable.status == "Complete" %>
     <h3 style="color:yellowgreen">Status: <%=@deliverable.status %></h3>
   <%else%>
     <h3 style="color:orange">Status: Ongoing</h3>
   <%end%>
-
   <br />
-
-  <%if !@deliverable.description.empty? %>
-    <h5>Description: <%=@deliverable.description %></h5>
-  <%else%>
-    <h5>No Description Available</h5>
-  <%end%>
-
+  <div class="row w-100">
+    <div class="col">
+      <%if !@deliverable.description.empty? %>
+        <h5>Description: <%=@deliverable.description %></h5>
+      <%else%>
+        <h5>No Description Available</h5>
+      <%end%>
+    </div>
+    <div class="col text-center">
+      <h5>Shared files</h5>
+    </div>
+  </div>
   <br />
   <%
     if not @deliverable.deadline.nil?
@@ -24,23 +29,48 @@
     end
   %>
   <h5>Due Date: <%= a %></h5>
-
-  <table class="table table-hover" style="width:40% ; margin:left">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Remove Member</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @people.each do |person| %>
-        <tr>
-          <td><%= person.username %></td>
-          <td><%= link_to 'Remove', remove_user_path(:id => @deliverable.id, :user_id => person.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="row w-100">
+    <div class="col d-flex justify-content-center">
+      <table class="table table-hover" style="width:90% ; margin:left">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th class="text-center">Remove Member</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @people.each do |person| %>
+            <tr >
+              <td><%= person.username %></td>
+              <td class="text-center"><%= link_to 'Remove', remove_user_path(:id => @deliverable.id, :user_id => person.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col d-flex justify-content-center">
+      <% if @deliverable.files.any? %>
+        <table class="table table-hover" style="width:90% ; margin:left">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @deliverable.files.each do |file| %>
+              <tr>
+                <td><%= file.identifier %></td>
+                <td><%= link_to 'Go to File', file.url, target: "_blank" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        None so far! Edit the deliverable to add some.
+      <%end%>
+    </div>
+  </div>
   <%= link_to 'Edit', edit_deliverable_path(@deliverable) %> |
   <%= link_to 'Back', project_path(@project) %>
 </div>

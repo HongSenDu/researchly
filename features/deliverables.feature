@@ -5,16 +5,16 @@ Feature: display and be able to interact with deliverables
 Background: populate tables
 
 	Given the following users exists:
-	|id		|email			|password	|password_confirmation	|
-	|1		|a@gmail.com	|123456		|123456					|
+	|id		|email			|password	|password_confirmation	| username |
+	|1		|a@gmail.com	|123456		|123456					| Steve    |
 
     Given the following groups exist:
     | id    | name      | description   |
     | 10    | group10   | Group 10      |
 
     Given the following memberships exists:
-	|id		|user_id			|group_id 	|
-	|1		|1					|10		    |
+	|id		|user_id			|group_id 	| username  |
+	|1		|1					|10		    | Steve     |
 
     Given the following projects exist:
     | id    | name      | description       | group_id  |
@@ -48,7 +48,7 @@ Scenario: Sort by deadline
 Scenario: Edit an exisitng deliverable
     When I click on edit for deliverable 5
     Then I should see "Editing Deliverable"
-    And  I select "Complete" from "status"
+    And  I select "Complete" from "Status"
     And I press "Update Deliverable"
     Then I should be on "the deliverable5 homepage"
     And I should see "Deliverable was successfully updated."
@@ -57,7 +57,7 @@ Scenario: Create a new deliverable
     When I follow "Add new deliverable"
     Then I should see "Create a new deliverable for project11"
     And  I fill in "Name" with "Brand new deliverable"
-    And  I select "Ongoing" from "status"
+    And  I select "Ongoing" from "Status"
     And I press "Create Deliverable"
     Then I should be on "the project11 homepage"
     And I should see "Brand new deliverable"
@@ -77,11 +77,35 @@ Scenario: Delete an exisitng deliverable
 Scenario: Update percentage for complete
     When I click on edit for deliverable 5
     Then I should see "Editing Deliverable"
-    And  I select "Complete" from "status"
+    And  I select "Complete" from "Status"
     And I press "Update Deliverable"
     Then I should be on "the deliverable5 homepage"
     And I follow "Back"
     Then I should see "Percent Completed: 50.0%"
+
+Scenario: Add members to deliverable
+    When I click on edit for deliverable 5
+    Then I should see "Editing Deliverable"
+    And I should see "Steve"
+    When I check "1"
+    And I press "Update Deliverable"
+    Then I should be on "the deliverable5 homepage"
+    And I should see "Steve"
+    When I click on edit for deliverable 5
+    Then I should see "No members to add!"
+
+Scenario: Remove members to deliverable
+    When I click on edit for deliverable 5
+    Then I should see "Editing Deliverable"
+    And I should see "Steve"
+    When I check "1"
+    And I press "Update Deliverable"
+    Then I should be on the deliverable5 homepage
+    And I should see "Steve"
+    When I click remove user 1 for deliverable 5
+    Then I should not see "Steve"
+    When I click on edit for deliverable 5
+    Then I should see "Steve"
 
 Scenario: Delete all deliverables for the project
     When I press delete for deliverable 4
