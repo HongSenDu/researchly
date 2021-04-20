@@ -1,38 +1,31 @@
-<%= form_with(model: message) do |form| %>
-  <% if message.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+<h1>Create a new message</h1>
+<div class=fluid-container>
+  <div class="col-md-4">
+  <%= puts request.original_url%>
+    <%= form_tag inbox_path, :class => 'form' do %>
 
-      <ul>
-        <% message.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <%= form.hidden_field :parent_id %>
+      <%= hidden_field :message, :parent_id %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
+      <%= hidden_field :message, :user_id, :value => current_user.id, :class => 'form-control'%>
 
-  <div class="field">
-    <%= form.label :recipient_id %>
-    <%= form.number_field :recipient_id %>
-  </div>
+      <%= label :message, :recipient_id, 'recipient id', :class => 'col-form-label' %>
+      <%= number_field :message, :recipient_id, :class => 'form-control', :min => 1%> 
 
-  <div class="field">
-    <%= form.label :subject %>
-    <%= form.text_field :subject %>
-  </div>
+      <%= hidden_field :message, :group_id, :class => 'form-control'%>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
+      <%= label :message, :subject, 'Subject', :class => 'col-form-label' %>
+      <%= text_field :message, :subject, :class => 'form-control' %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+      <%= label :message, :body, 'Body', :class => 'col-form-label' %>
+      <%= text_area :message, :body, :class => 'form-control' %>  
+
+      <%= hidden_field :message, :read, :value => false, :class => 'form-control' %>
+
+      <%= hidden_field :message, :show_user, :value => true, :class => 'form-control' %>
+      <%= hidden_field :message, :show_recipient, :value => true, :class => 'form-control' %>
+
+      <br/>
+      <%= submit_tag 'Create', :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', inbox_path, :class => 'btn btn-secondary' %>
+    <% end %>
+ </div>

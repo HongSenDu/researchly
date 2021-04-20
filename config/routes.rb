@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'groups/search' => 'groups#search', :as => 'search_group'
   get 'groups/:id/leave_group', to: 'groups#leave_group', as: 'leave_group'
   get '/groups/:id/make_leader', to: 'groups#make_leader', as: 'make_leader'
+  get '/users/inbox', to: 'messages#inbox', as: 'inbox'
+  post '/users/inbox', to: 'messages#create'
 
   #get 'welcome/index'
   resources :messages  

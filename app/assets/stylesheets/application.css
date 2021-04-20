@@ -20,58 +20,52 @@
     list-style: none;
     margin: 0px;
     padding: 0px;
-}
- .nested_messages .nested_messages .nested_messages {
-    margin-left: 0;
+  }
+  .nested_messages .nested_messages .nested_messages {
+      margin-left: 0;
   }
   div.message {
-    display: inline-block;
-    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-    font-size: 15px;
-    font-weight: bold;
-    line-height: 16px;
-    border-color:rgb(0, 172, 237);;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-    margin: 10px 5px;
-    padding: 0 16px 16px 16px;
-    max-width: 468px;
-    width: 300px;
-}
-blockquote.message {
-    display: inline-block;
-    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 16px;
-    border-color: #eee #ddd #bbb;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-    margin: 10px 5px;
-    padding: 0 16px 16px 16px;
-    max-width: 468px;
-}
+      display: inline-block;
+      font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 16px;
+      border-color:rgb(0, 172, 237);;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 1px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      margin: 10px 5px;
+      padding: 0 16px 16px 16px;
+      max-width: 468px;
+      width: 100%;
+  }
+  .message blockquote.message {
+      display: inline-block;
+      font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 16px;
+      border-color: #eee #ddd #bbb;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 1px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      margin: 10px 5px;
+      padding: 0 16px 16px 16px;
+      max-width: 468px;
+  }
 
-blockquote.message p {
-padding-top: 10px;
-font-size: 16px;
-font-weight: normal;
-line-height: 20px;
-}
-
-blockquote.message a {
-color: inherit;
-font-weight: normal;
-outline: 0 none;
-}
-tr.read{
-  background-color:#c6cbcf;
-}
-blockquote.twitter-tweet a:hover,
-blockquote.twitter-tweet a:focus {
-text-decoration: underline;
-}
+  blockquote.message p {
+  padding-top: 10px;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+  }
+  tr.read{
+    background-color:#c6cbcf;
+  }
+  blockquote.twitter-tweet a:hover,
+  blockquote.twitter-tweet a:focus {
+  text-decoration: underline;
+  }
