@@ -52,9 +52,19 @@ class GroupsController < ApplicationController
       redirect_to(groups_path, alert: "Wrong code") and return 
     else
       existing_memberships = Membership.where(user_id: session[:user_id], group_id: params[:id])
-      if (existing_memberships.empty?)
+      if (existing_memberships.empty?) 
+
+        members_id = Membership.where(group_id: params[:id]).pluck(:user_id)
+        members = User.where(id: members_id)
+
+        members.each do |member|
+          puts member.email 
+          GroupMailer.group_join(member, user, group).deliver!
+        end
+
         Membership.create!(user_id: session[:user_id], group_id: params[:id], username: user.username)
         group.create_activity :join_group, owner: current_user, group: params[:id]
+
         flash[:notice] = "Successfully Joined"
         redirect_to group_path(params[:id])
         return
@@ -75,6 +85,16 @@ class GroupsController < ApplicationController
     if(!is_a_member.nil?)
       group = Group.find(params[:id])
       group.create_activity :leave_group, owner: current_user, group: params[:id]
+
+      members_id = Membership.where(group_id: params[:id]).pluck(:user_id)
+      members = User.where(id: members_id)
+      user = User.find_by_id(is_a_member.user_id)
+
+      members.each do |member|
+        puts member.email 
+        GroupMailer.group_leave(member, user, group).deliver!
+      end
+
       is_a_member.destroy
       flash[:notice] = "Sucessfully Left Group"
       if(params[:user_id] == session[:user_id])

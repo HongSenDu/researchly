@@ -110,7 +110,7 @@ class DeliverablesController < ApplicationController
     end
   end
 
-    # DELETE /deliverables/1 or /deliverables/1.json
+    # DELETE /deliverables/1 or /deliverables/1.json 
     def remove
       user = User.find_by_id params[:user_id]
       @deliverable_id = Deliverable.find_by_id params[:id]

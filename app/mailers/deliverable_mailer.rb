@@ -1,5 +1,5 @@
 class DeliverableMailer < ApplicationMailer
-default from: "researchly65@gmail.com"
+default from: "researchly65@gmail.com" 
 
   def deliverable_complete(user, deliverable)
     @greeting = "Hi"

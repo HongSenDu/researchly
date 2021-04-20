@@ -14,7 +14,7 @@ module DeliverablesHelper
             end
         end
     end
-
+ 
     def mail_deliverable_complete(user, deliverable, status)
         if deliverable.status == "Ongoing" && status == "Complete"
             DeliverableMailer.deliverable_complete(user, deliverable).deliver! 
