@@ -55,6 +55,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= render 'thread', message: @message %>
     </div>
 
     <div class="col-md-3" style="margin-top:-15vh;">
@@ -75,6 +76,7 @@
       <table class="table table-hover" style="width:100% ; margin:auto">
         <thead>
           <tr>
+            <th></th>
             <th>Group Members</th>
             <%if @User.member_type == "leader"%>
             <th>Remove</th>
@@ -85,19 +87,19 @@
         <tbody>
           <% @members.each do |member| %>
             <tr>
+               <%if member.user_id != @User.user_id%>
                 <% if User.find(member.user_id).avatar_url%>
-                <td><%= image_tag(User.find(member.user_id).avatar_url, :size => "30x30", :class=>"rounded-circle") %></td>
+                  <td><%= image_tag(User.find(member.user_id).avatar_url, :size => "30x30", :class=>"rounded-circle") %></td>
                 <% else %>
-                <td><%= image_tag('default-avatar.png', :size => "30x30", :class=>"rounded-circle") %></td>
+                  <td><%= image_tag('default-avatar.png', :size => "30x30", :class=>"rounded-circle") %></td>
                 <% end %>
-            <%if member.user_id != @User.user_id%>
-            <td><%= member.username%></td>
-            <%if @User.member_type == "leader"%>
-              <td><%= link_to "Remove from Group", leave_group_path(:user_id => member.user_id) %></td>
-              <td><%= link_to "Upgrade to Leader", make_leader_path(:user_id => member.user_id) %></td>
-            <%end%>
+                <td><%= member.username%></td>
+                <%if @User.member_type == "leader"%>
+                  <td><%= link_to "Remove from Group", leave_group_path(:user_id => member.user_id) %></td>
+                  <td><%= link_to "Upgrade to Leader", make_leader_path(:user_id => member.user_id) %></td>
+                <%end%>
+              <%end%>
             </tr>
-            <%end%>
           <% end %>
         </tbody>
     </table>      

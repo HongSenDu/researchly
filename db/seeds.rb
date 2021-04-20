@@ -48,9 +48,11 @@ deliverables.each do |deliverable|
 end
 
 memberships = [{:user_id => 1, :group_id => 1, :member_type => 'leader', :username => "Michael"},
+
     {:user_id => 1, :group_id => 3, :member_type => 'member', :username => "Michael"},
     {:user_id => 2, :group_id => 3, :member_type => 'member', :username => "Aaron"},
     {:user_id => 3, :group_id => 3, :member_type => 'leader', :username => "Andrew"},
+
     {:user_id => 3, :group_id => 2, :member_type => 'member', :username => "Andrew"},
     {:user_id => 4, :group_id => 3, :member_type => 'member', :username => "Hong"}
   ]

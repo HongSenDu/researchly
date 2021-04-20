@@ -1,0 +1,25 @@
+  <%= puts request.original_url%>
+    <%= form_tag inbox_path, :class => 'form' do %>
+
+      <%= hidden_field :message, :parent_id %>
+
+      <%= hidden_field :message, :user_id, :value => current_user.id, :class => 'form-control'%>
+
+      <%= hidden_field :message, :recipient_id, :class => 'form-control' %>
+
+      <%= hidden_field :message, :group_id, :value => session[:group_id], :class => 'form-control'%>
+
+      <%= hidden_field :message, :subject, :class => 'form-control' %>
+
+      <%= label :message, :body, 'Body', :class => 'col-form-label' %>
+      <%= text_area :message, :body, :class => 'form-control' %>  
+
+      <%= hidden_field :message, :read, :class => 'form-control' %>
+
+      <%= hidden_field :message, :show_user, :class => 'form-control' %>
+      <%= hidden_field :message, :show_recipient, :class => 'form-control' %>
+
+      <br/>
+      <%= submit_tag 'Create', :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', group_path(session[:group_id]), :class => 'btn btn-secondary' %>
+    <% end %>

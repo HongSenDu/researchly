@@ -6,7 +6,6 @@ class MessagesController < ApplicationController
     user_sent = Message.where(user_id: current_user, group_id: nil, show_user: true)
     user_received = Message.where(recipient_id: current_user, show_recipient: true)
     @messages = (user_sent + user_received).sort{|a,b| a.created_at <=> b.created_at }
-    puts @messages
   end
 
   # GET /messages/1 or /messages/1.json
@@ -25,22 +24,18 @@ class MessagesController < ApplicationController
   end
 
   # POST /messages or /messages.json
-  def create_thread
-    @message = Message.new(params[:message])
-    if @message.save
-      redirect_to inbox_path
-    else
-      render :new
-    end
-  end
 
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to inbox_path
+      if @message.group_id
+        redirect_to group_path(session[:group_id])
+      else
+        redirect_to inbox_path
+      end
     else
       render :new
-    end
+   end
   end
 
   # DELETE /messages/1 or /messages/1.json
