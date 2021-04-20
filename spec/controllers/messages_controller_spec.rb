@@ -1,6 +1,6 @@
 require 'rails_helper'
  
-RSpec.describe GroupsController, type: :controller do
+RSpec.describe MessagesController, type: :controller do
     
     context "user is logged in" do
         before(:each) do
@@ -9,15 +9,15 @@ RSpec.describe GroupsController, type: :controller do
         end
     end
     
-    describe "GET #index" do
+    describe "GET #inbox" do
         it 'has a 200 status code' do
-            get :index 
+            get :inbox 
             expect(response.status).to eq(200)
         end
-        it 'receives the click on "New Group"' do
-            @group = Group.create!(name: 'Group1', description: 'Group1 Description')
-            get :index
-            expect(response).to render_template('index')
+        it 'receives the click on "New Message"' do
+            @message = Message.create!(user_id: 1, recipient_id: 2, subject: 'Group1', body: 'Group1 Description')
+            get :inbox
+            expect(response).to render_template('inbox')
         end
     end
     describe "GET #new" do
@@ -26,21 +26,16 @@ RSpec.describe GroupsController, type: :controller do
             expect(response.status).to eq(200)
         end
         it 'receives a click on "New Group"' do
-            @group = Group.create!(name: 'Group1', description: 'Group1 Description')
+            @message = Message.create!(user_id: 1, recipient_id: 2, subject: 'Group1', body: 'Group1 Description')
             get :new
             expect(response).to render_template('new')
         end
     end
     describe "GET #show" do
         it 'has a 200 status code' do
-            @group = Group.create!(name: 'Group1', description: 'Group1 Description')
+            @message = Message.create!(user_id: 1, recipient_id: 2, subject: 'Group1', body: 'Group1 Description')
             get :show, params: {:id => 1}
             expect(response.status).to eq(200)
         end 
-        it 'receives the click on "New Project' do
-            @group = Group.create!(name: 'Group1', description: 'Group1 Description')
-            get :show, params: {:id => 1}
-            expect(response).to render_template('show')
-        end
     end
 end
