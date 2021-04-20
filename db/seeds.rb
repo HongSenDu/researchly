@@ -79,10 +79,10 @@ messages = [
     {:user_id => 2, :group_id => 1, :body => "Hello World!"},
     {:user_id => 3, :group_id => 3, :body => "Good job team"},
     {:user_id => 1, :group_id => 3, :body => "Researchly is awesome"},
-    {:user_id => 2, :recipient_id => 3, :subject => "Status of Deliverable", :body => "Hey can you give me an update on the status of those deliverables", :read => false, :show_user => true, :show_recipient => true},
-    {:user_id => 2, :recipient_id => 3, :subject => "Research", :body => "hey my research is showing something amazing", :read => false, :show_user => true, :show_recipient => true},
-    {:user_id => 1, :recipient_id => 3, :subject => "Testing", :body => "Is this thing on?", :read => false, :show_user => true, :show_recipient => false},
-    {:user_id => 3, :recipient_id => 1, :subject => "Idea", :body => "Hey lets meet up i think this will be a good idea.", :read => false, :show_user => false, :show_recipient => true},
+    {:user_id => 2, :recipient_id => 3, :subject => "Status of Deliverable", :body => "Hey can you give me an update on the status of those deliverables", :user_read => false, :show_user => true, :show_recipient => true},
+    {:user_id => 2, :recipient_id => 3, :subject => "Research", :body => "hey my research is showing something amazing", :user_read => false, :recipient_read => true, :show_user => true, :show_recipient => true},
+    {:user_id => 1, :recipient_id => 3, :subject => "Testing", :body => "Is this thing on?", :user_read => false, :recipient_read => true, :show_user => true, :show_recipient => false},
+    {:user_id => 3, :recipient_id => 1, :subject => "Idea", :body => "Hey lets meet up i think this will be a good idea.", :user_read => false, :recipient_read => true, :show_user => false, :show_recipient => true},
   ]
 
 messages.each do |message|

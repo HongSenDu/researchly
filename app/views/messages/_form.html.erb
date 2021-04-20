@@ -9,7 +9,12 @@
       <%= hidden_field :message, :user_id, :value => current_user.id, :class => 'form-control'%>
 
       <%= label :message, :recipient_id, 'recipient id', :class => 'col-form-label' %>
-      <%= number_field :message, :recipient_id, :class => 'form-control', :min => 1%> 
+      <%= select_tag(:recipient_id, '<option value="1">Lisbon</option>...', class:"form-control" )%>
+      <select class="form-control" id="exampleFormControlSelect1">
+      <% User.all.each do |user| %>
+        <option value="<%= user.id%>"><%= user.username%></option>
+      <%end%>
+      </select>
 
       <%= hidden_field :message, :group_id, :class => 'form-control'%>
 

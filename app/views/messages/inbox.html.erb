@@ -17,7 +17,11 @@
   <tbody>
     <% @messages.each do |message| %>
       <%if message.group_id == nil %>
-        <tr class = "<%= 'read' if message.read == true%>">
+        <%if current_user.id == message.user_id%>
+          <tr class = "<%= 'read' if message.user_read == true %>">
+        <%elsif current_user.id == message.recipient_id %>
+          <tr class = "<%= 'read' if message. recipient_read == true%>">
+        <%end%>
           <%if message.user_id%>
             <td><%= User.find(message.user_id).username %></td>
           <%end%>

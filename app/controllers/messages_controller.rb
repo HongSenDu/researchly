@@ -11,7 +11,11 @@ class MessagesController < ApplicationController
   # GET /messages/1 or /messages/1.json
   def show
     @message = Message.find(params[:id])
-    @message.update_attribute(:read, true)
+    if current_user.id == @message.user_id
+      @message.update_attribute(:user_read, true)
+    elsif current_user.id == @message.recipient_id
+      @message.update_attribute(:recipient_read, true)
+    end
   end
 
   # GET /messages/new
