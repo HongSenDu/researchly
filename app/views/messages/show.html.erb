@@ -1,0 +1,8 @@
+<div class="row" style="Justify-content:left">
+    <div class="col-md-6">
+        <ul id= "message_container" class="message_container">
+            <%= nested_messages @message.subtree.arrange(:order => :created_at) %>
+        </ul>
+        <p><%= link_to "Back to All Messages", inbox_path %></p>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Messages</h1>
+
+<table class="table table-hover" style="width:100% ; margin:auto" ; padding: 10px>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Recipient</th>
+      <th>Subject</th>
+      <th>Body</th>
+      <th>Read</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages.each do |message| %>
+      <%if message.group_id == nil && message.parent == nil %>
+        <%if current_user.id == message.user_id%>
+          <tr class = "<%= 'read' if message.user_read == true %>">
+        <%elsif current_user.id == message.recipient_id %>
+          <tr class = "<%= 'read' if message. recipient_read == true%>">
+        <%end%>
+          <%if message.user_id%>
+            <td><%= User.find(message.user_id).username %></td>
+          <%end%>
+          <%if message.recipient_id %>
+            <td><%= User.find(message.recipient_id).username %></td>
+          <%end%>
+          <td><%= message.subject %></td>
+          <td><%= message.body.truncate(50) %></td>
+          <td><%= link_to 'Show', message %></td>
+          <td><%= button_to 'Delete', message, :method => :delete, :id => message.id, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <%end%>
+    <%end%>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Message', new_message_path %> |
+<%= link_to 'Back', user_path(session[:user_id]) %> |

@@ -1,0 +1,35 @@
+<div class=fluid-container>
+  <div class="col-md-4">
+    <%= form_tag inbox_path, :class => 'form' do %>
+
+      <%= hidden_field :message, :parent_id %>
+
+      <%= hidden_field :message, :user_id, :value => session[:user_id], :class => 'form-control'%>
+
+      <%if params[:parent_id]%>
+        <%= hidden_field :message, :recipient_id, :value => Message.find(params[:parent_id]).recipient_id, :class => 'form-control'%>
+        <%= hidden_field :message, :subject, :value => Message.find(params[:parent_id]).subject, :class => 'form-control'%>
+      <%else%>
+        <%= label :message, :recipient_id, 'To', :class => 'col-form-label' %>
+        <%= select_tag("message[recipient_id]", options_from_collection_for_select(User.all, 'id', 'username'), class:"form-control" )%>
+  
+        <%= label :message, :subject, 'Subject', :class => 'col-form-label' %>
+        <%= text_field :message, :subject, :class => 'form-control' %>
+      <%end%>
+
+      <%= hidden_field :message, :group_id, :class => 'form-control'%>
+
+      <%= label :message, :body, 'Body', :class => 'col-form-label' %>
+      <%= text_area :message, :body, :class => 'form-control' %>  
+
+      <%= hidden_field :message, :user_read, :value => false, :class => 'form-control' %>
+      <%= hidden_field :message, :recipient_read, :value => false, :class => 'form-control' %>
+
+      <%= hidden_field :message, :show_user, :value => true, :class => 'form-control' %>
+      <%= hidden_field :message, :show_recipient, :value => true, :class => 'form-control' %>
+
+      <br/>
+      <%= submit_tag 'Create', :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', inbox_path, :class => 'btn btn-secondary' %>
+    <% end %>
+ </div>

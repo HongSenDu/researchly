@@ -9,6 +9,7 @@
     <tr>
       <th><a href=/projects/<%= @project.id%>?sort=name>Deliverable</a></th>
       <th><a href=/projects/<%= @project.id%>?sort=status>Status</a></th>
+      <th><a href=/projects/<%= @project.id%>?sort=deadline>Deadline</a></th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
@@ -19,6 +20,14 @@
       <tr>
         <td><%= link_to deliverable.name, deliverable_path(deliverable) %></td>
         <td><%= deliverable.status %></td>
+        <%
+          if not deliverable.deadline.nil?
+            a = deliverable.deadline.strftime("%m/%d/%Y")
+          else
+            a = deliverable.deadline
+          end
+        %>
+        <td><%= a %></td>
         <td><%= link_to 'Edit', edit_deliverable_path(deliverable) %></td>
         <td><%= button_to "delete", deliverable_path(deliverable), :method => :delete, :id => deliverable.id, data: { confirm: 'Are you certain you want to delete this?' } %></td>
       </tr>

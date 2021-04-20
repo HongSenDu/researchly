@@ -1,0 +1,10 @@
+<li>
+  <div class="message">
+    <blockquote class="message" data-lang="en">
+      <p lang="en" dir="ltr"><%=message.body%></p>
+        &mdash; <%= User.find(message.user_id).username %> | <%= message.created_at.strftime("%B %d, %Y") %>
+      <%= link_to "Reply", new_message_path(:parent_id => message) %>
+      <%= button_to 'Delete', message, :method => :delete, :id => message.id, data: { confirm: 'Are you sure?' } %>
+    </blockquote>
+  </div>
+</li>

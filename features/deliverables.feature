@@ -21,9 +21,9 @@ Background: populate tables
     | 11    | project11 | The 11th project  | 10        |
 
     Given the following deliverables exist:
-    | id    | name      | description           | status      | project_id |
-    | 5     | Deliver 5 | The fifth deliverable | started     | 11         |
-    | 4     | Deliver 4 | The fifth deliverable | finished    | 11         |
+    | id    | name      | description           | status      | project_id | deadline  |
+    | 5     | Deliver 5 | The fifth deliverable | started     | 11         | 6/15/2015 |
+    | 4     | Deliver 4 | The fifth deliverable | finished    | 11         | 6/18/2018 |
 
     And I am on the profile1 homepage
 	And I follow "group10"
@@ -39,6 +39,10 @@ Scenario: Sort by status
 
 Scenario: Sort by name
     When I follow "Deliverable"
+    Then I should see "Deliver 4" before "Deliver 5"
+
+Scenario: Sort by deadline
+    When I follow "Deadline"
     Then I should see "Deliver 4" before "Deliver 5"
 
 Scenario: Edit an exisitng deliverable

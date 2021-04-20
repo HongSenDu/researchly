@@ -10,6 +10,61 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+ *= require font-awesome
  */
+ ul{
+  list-style-type: none;
+  }
+  li{
+   list-style-type: none; 
+  }
+  .message_container{
+    border: 1px;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  }
+  .nested_messages .nested_messages .nested_messages {
+      margin-left: 0;
+  }
+  div.message {
+      display: inline-block;
+      font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 16px;
+      border-color:rgb(0, 172, 237);;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 1px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      margin: 10px 5px;
+      padding: 0 16px 16px 16px;
+      max-width: 468px;
+      width: 100%;
+  }
+  .message blockquote.message {
+      display: inline-block;
+      font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 16px;
+      border-color: #eee #ddd #bbb;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 1px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      margin: 10px 5px;
+      padding: 0 16px 16px 16px;
+      max-width: 468px;
+  }
+
+  blockquote.message p {
+  padding-top: 10px;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+  }
+  tr.read{
+    background-color:#c6cbcf;
+  }

@@ -1,5 +1,5 @@
-<h1>Create new Group</h1>
-<%= form_tag groups_path, :class => 'form' do %>
+<h1 style="margin-left:15px">Create new Group</h1>
+<%= form_tag groups_path, :class => 'form', :style => "width:60%;margin-left:15px" do %>
    <%= label :group, :name, 'Name', :class => 'col-form-label' %>
    <%= text_field :group, :name, :class => 'form-control' %>
    <%= label :group, :description, 'Description', :class => 'col-form-label' %>

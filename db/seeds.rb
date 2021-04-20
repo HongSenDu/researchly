@@ -37,7 +37,7 @@ projects.each do |project|
     Project.create!(project)
 end
 
-deliverables = [{:name => "Initial Meeting", :description => "First meeting to establish the project.", :status => "Complete", :project_id => 2},
+deliverables = [{:name => "Initial Meeting", :description => "First meeting to establish the project.", :status => "Complete", :project_id => 2, :deadline => Time.zone.parse('2012-07-11 21:00')},
     {:name => "Early draft of paper", :description => "An initial outline of what the eventual published paper will consist of.", :status => "Complete", :project_id => 2},
     {:name => "Demo communication product", :description => "Demo new communication project to clients to get feedback", :status => "Ongoing", :project_id => 2},
     {:name => "Deploy early demo", :description => "Figure out how to deploy the application", :status => "Ongoing", :project_id => 2},
@@ -48,9 +48,11 @@ deliverables.each do |deliverable|
 end
 
 memberships = [{:user_id => 1, :group_id => 1, :member_type => 'leader', :username => "Michael"},
+
     {:user_id => 1, :group_id => 3, :member_type => 'member', :username => "Michael"},
     {:user_id => 2, :group_id => 3, :member_type => 'member', :username => "Aaron"},
     {:user_id => 3, :group_id => 3, :member_type => 'leader', :username => "Andrew"},
+
     {:user_id => 3, :group_id => 2, :member_type => 'member', :username => "Andrew"},
     {:user_id => 4, :group_id => 3, :member_type => 'member', :username => "Hong"}
   ]
@@ -71,4 +73,18 @@ assignments = [{:user_id => 3, :deliverable_id => 3},
 
 assignments.each do |assignment|
     Assignment.create!(assignment)
+end
+
+messages = [
+    {:user_id => 2, :group_id => 1, :body => "Hello World!", :show_user => false, :show_recipient => false},
+    {:user_id => 3, :group_id => 3, :body => "Good job team", :show_user => false, :show_recipient => false},
+    {:user_id => 1, :group_id => 3, :body => "Researchly is awesome", :show_user => false, :show_recipient => false},
+    {:user_id => 2, :recipient_id => 3, :subject => "Status of Deliverable", :body => "Hey can you give me an update on the status of those deliverables", :user_read => false, :show_user => true, :show_recipient => true},
+    {:user_id => 2, :recipient_id => 3, :subject => "Research", :body => "hey my research is showing something amazing", :user_read => false, :recipient_read => true, :show_user => true, :show_recipient => true},
+    {:user_id => 1, :recipient_id => 3, :subject => "Testing", :body => "Is this thing on?", :user_read => false, :recipient_read => true, :show_user => true, :show_recipient => false},
+    {:user_id => 3, :recipient_id => 1, :subject => "Idea", :body => "Hey lets meet up i think this will be a good idea.", :user_read => false, :recipient_read => true, :show_user => false, :show_recipient => true},
+  ]
+
+messages.each do |message|
+    Message.create!(message)
 end
