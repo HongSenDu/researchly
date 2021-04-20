@@ -8,6 +8,8 @@ class MessagesController < ApplicationController
 
   # GET /messages/1 or /messages/1.json
   def show
+    @message = Message.find(params[:id])
+    @message.update_attribute(:read, true)
   end
 
   # GET /messages/new
@@ -20,40 +22,37 @@ class MessagesController < ApplicationController
   end
 
   # POST /messages or /messages.json
-  def create
-    @message = Message.new(message_params)
-
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: "Message was successfully created." }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+  def create_thread
+    @message = Message.new(params[:message])
+    if @message.save
+      redirect_to messages_url
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /messages/1 or /messages/1.json
-  def update
-    respond_to do |format|
-      if @message.update(message_params)
-        format.html { redirect_to @message, notice: "Message was successfully updated." }
-        format.json { render :show, status: :ok, location: @message }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+  def create
+    puts params[:message]
+    @message = Message.new(params[:message])
+    if @message.save
+      redirect_to messages_url
+    else
+      render :new
     end
   end
 
   # DELETE /messages/1 or /messages/1.json
   def destroy
-    @message.destroy
-    respond_to do |format|
-      format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
-      format.json { head :no_content }
+    @message = Message.find(params[:id])
+    if @message.user_id = current_user.id
+      @message.show_user = false
+    elsif @message.recipient_id = current_user.id
+      @message.show_recipient = false
     end
+    if @message.show_user == false && @message.show_recipient == false
+      @message.destroy
+    end
+    return redirect_to messages_url
   end
 
   private

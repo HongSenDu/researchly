@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
     @members = Membership.where(group_id: @group.id)
     @User = Membership.find_by(user_id: session[:user_id], group_id: @group.id)
     @projects = Project.where(group_id: @group.id)
- 
+    @messages = Message.where(group_id: @group.id)
     if (params.has_key?(:name))
       @projects = @projects.name_order
     end

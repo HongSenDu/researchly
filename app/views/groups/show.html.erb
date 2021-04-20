@@ -33,18 +33,24 @@
       <table class="table table-hover" style="width:100% ; margin:auto" ; padding: 10px>
         <thead>
           <tr>
-            <th><%= link_to "Project", group_path(params[:id], :name => 'name')%></th>
-            <th><%= link_to "Status", group_path(params[:id], :status => 'status')%></th>
-            <th>Remove</th>
+            <th>Message Board</th> 
           </tr>
         </thead>
 
         <tbody>
-          <% @projects.each do |project| %>
+          <% @messages.each do |message| %>
             <tr>
-            <td><%= link_to project.name, project_path(project) %></td>
-            <td><%= project.status %></td>
-            <td><%= button_to "delete", project_path(project), :method => :delete, :data => { confirm: 'Are you certain you want to delete this?' } %></td>
+            <td><%= message.body %><br>
+            <% if message.user_id == current_user.id%>
+            <%= link_to "Reply", new_message_path(:parent_id => message) %> |
+            <%= link_to 'Delete', message, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %></td>
+            <% if User.find(message.user_id).avatar_url%>
+                <td><%= image_tag(User.find(message.user_id).avatar_url, :size => "30x30", :class=>"rounded-circle") %>
+              <% else %>
+                <td><%= image_tag('default-avatar.png', :size => "30x30", :class=>"rounded-circle") %>
+              <% end %>
+            <%= User.find(message.user_id).username %></td>
             </tr>
           <% end %>
         </tbody>
@@ -79,6 +85,11 @@
         <tbody>
           <% @members.each do |member| %>
             <tr>
+                <% if User.find(member.user_id).avatar_url%>
+                <td><%= image_tag(User.find(member.user_id).avatar_url, :size => "30x30", :class=>"rounded-circle") %></td>
+                <% else %>
+                <td><%= image_tag('default-avatar.png', :size => "30x30", :class=>"rounded-circle") %></td>
+                <% end %>
             <%if member.user_id != @User.user_id%>
             <td><%= member.username%></td>
             <%if @User.member_type == "leader"%>

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :messages
   get 'activities/index'
-
   get "users/:id/view", to: "users#view", as: 'view_user'
   get "deliverables/:id/remove", to: "deliverables#remove", as: 'remove_user'
   get '/groups/:id/join_group', to: 'groups#join_group', as: 'join_group'
@@ -10,6 +8,7 @@ Rails.application.routes.draw do
   get '/groups/:id/make_leader', to: 'groups#make_leader', as: 'make_leader'
 
   #get 'welcome/index'
+  resources :messages  
   resources :users 
   resources :activities
   resources :groups
