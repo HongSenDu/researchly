@@ -80,7 +80,6 @@ class DeliverablesController < ApplicationController
             helpers.mail_deliverable_complete(user, @deliverable, params['status'])
           end
 
-          @deliverable.update(status: params['status'])
           @deliverable.remove_files! if !deliverable_params['files']
           @deliverable.save()
           format.html { redirect_to @deliverable, notice: "Deliverable was successfully updated." }
@@ -143,11 +142,7 @@ class DeliverablesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def deliverable_params
       #params.fetch(:deliverable, {})
-<<<<<<< HEAD
-      params.require(:deliverable).permit(:name, :description, :status, :deadline)
-=======
       params.require(:deliverable).permit(:name, :description, :status, {files: []}, {remove_files: []}, :remove_files)
->>>>>>> data-upload
     end
 
     def group_id

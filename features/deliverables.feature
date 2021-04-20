@@ -45,7 +45,7 @@ Scenario: Sort by deadline
     When I follow "Deadline"
     Then I should see "Deliver 4" before "Deliver 5"
 
-Scenario: Edit an exisitng deliverable
+Scenario: Edit an existing deliverable
     When I click on edit for deliverable 5
     Then I should see "Editing Deliverable"
     And  I select "Complete" from "Status"
