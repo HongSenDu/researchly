@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_04_20_083717) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "project_id", null: false
     t.datetime "deadline"
+    t.string "files"
     t.index ["project_id"], name: "index_deliverables_on_project_id"
   end
 

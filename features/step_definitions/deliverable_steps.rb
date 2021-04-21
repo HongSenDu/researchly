@@ -4,11 +4,6 @@ Given /the following groups exist/ do |groups_table|
     end
 end
 
-Given /the following assignments exist/ do |assignments_table|
-  assignments_table.hashes.each do |assignment|
-    Assignment.create assignment
-  end
-end
 
 # Given /the following projects exist/ do |projects_table|
 #     projects_table.hashes.each do |project|
@@ -20,6 +15,12 @@ Given /the following deliverables exist/ do |deliverables_table|
     deliverables_table.hashes.each do |deliverable|
       Deliverable.create deliverable
     end
+end
+
+Given /the following assignments exist/ do |assignments_table|
+  assignments_table.hashes.each do |assignment|
+    Assignment.create assignment
+  end
 end
 
 When /I click on edit for deliverable (.+)/ do |num|
@@ -45,3 +46,8 @@ end
 When /I press delete for deliverable (.*)/ do |num|
   page.find_by_id(num).click
 end
+
+When /I click remove user (.+) for deliverable (.+)/ do |user, num|
+  find("a[href='/deliverables/#{num}/remove?user_id=#{user}']").click
+end
+#/deliverables/4/remove?user_id=4

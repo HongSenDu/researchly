@@ -1,17 +1,49 @@
-<%= form_with(model: deliverable) do |form| %>
-  <% if deliverable.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(deliverable.errors.count, "error") %> prohibited this deliverable from being saved:</h2>
-
-      <ul>
-        <% deliverable.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+<%= javascript_pack_tag 'deliverable' %>
+<%= form_for @deliverable do |f| %>
+  <div class="py-3" style="width:70%; margin:auto">
+    <h3><%= f.label :name, 'Name', :class => 'col-form-label' %></h3>
+    <%= f.text_field :name, :class => 'form-control' %>
+    <h3><%= f.label :description, 'Description', :class => 'col-form-label' %></h3>
+    <%= f.text_area :description, :class => 'form-control' %>
+    <h3><%= f.label :status, 'Status', :class => 'col-form-label pt-3' %></h3>
+    <%= f.select :status, options_for_select([ "Ongoing", "Complete" ], "Ongoing")%>
+    <fieldset>
+      <div class="row pt-3">
+        <div class="col">
+          <h3> Existing shared files </h3>
+          <% @deliverable.files.each_with_index do |file, index| %>
+            <div class="row file">
+              <div class="col  d-flex align-items-center " style="width:80%;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">
+                <%= hidden_field :deliverable, :files, multiple: true, value: file.identifier %>
+                <p class="my-3"><%= index + 1 %>) <%= file.identifier %></p>
+              </div>
+              <div class="col d-flex align-items-center ">
+                <button type="button" class="remove-file btn btn-secondary btn-md">Remove</button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col">
+          <h3> Add shared files </h3>
+          <p class="">
+            <%= f.label :files, "Add files to share with team (Control + Click to select multiple)" %><br />
+            <%= f.file_field :files, multiple: true %>
+          </p>
+        </div>
+      </div>
+    </fieldset>
+    <br/>
+    <h3> Add members to deliverable </h3>
+    <% @members.each do |member| %>
+      <div class="checkbox">
+        <%= check_box_tag(member.id) %>
+        <%= label_tag(member.id, member.username) %>
+      </div>
+    <% end %>
+    <%= @members.length == 0 ? 'No members to add!' : '' %><br>
+    <p class="my-3 text-center">
+      <%= f.submit 'Update Deliverable', :class => 'btn btn-primary'%>
+      <%= link_to 'Cancel', deliverable_path(@deliverable), :class => 'btn btn-secondary' %>
+    </p>
   </div>
 <% end %>

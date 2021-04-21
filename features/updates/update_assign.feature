@@ -52,7 +52,7 @@ Scenario: Assigning a user to a new Deliverable
 Scenario: Assigning a user to an exisitng deliverable
     When I click on edit for deliverable 5
     Then I should see "Editing Deliverable"
-    And  I select "Complete" from "status"
+    And  I select "Complete" from "Status"
     And I check "cool user"
     And I press "Update Deliverable"
     And I follow "Back"

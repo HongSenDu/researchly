@@ -3,10 +3,6 @@ class DeliverablesController < ApplicationController
   before_action :get_members, only: %i[ edit update destroy ]
   before_action :get_members_new, only: %i[ new create ]
   before_action :get_assignments, only: %i[ edit show ]
-  # GET /deliverables or /deliverables.json
-  def index
-    @deliverables = Deliverable.all
-  end
 
   # GET /deliverables/1 or /deliverables/1.json
   def show
@@ -67,7 +63,6 @@ class DeliverablesController < ApplicationController
       flash[:alert] = "Deliverable must have a name"
       redirect_to edit_deliverable_path
     else 
-    
       project_id = (Deliverable.find params[:id]).project_id
       #puts "The project ID is #{project_id}"
       @project = Project.find_by_id(project_id)
@@ -85,7 +80,8 @@ class DeliverablesController < ApplicationController
             helpers.mail_deliverable_complete(user, @deliverable, params['status'])
           end
 
-          @deliverable.update(status: params['status'])
+          @deliverable.remove_files! if !deliverable_params['files']
+          @deliverable.save()
           format.html { redirect_to @deliverable, notice: "Deliverable was successfully updated." }
           format.json { render :show, status: :ok, location: @deliverable }
         else
@@ -111,15 +107,11 @@ class DeliverablesController < ApplicationController
     end
   end
 
-    # DELETE /deliverables/1 or /deliverables/1.json 
-    def remove
-      user = User.find_by_id params[:user_id]
-      @deliverable_id = Deliverable.find_by_id params[:id]
-      DeliverableMailer.deliverable_unassign(user, @deliverable).deliver!
-      @deliverable.create_activity :unassign, owner: user, group: group_id
-      Assignment.find_by(user_id: params[:user_id], deliverable_id: @deliverable.id).destroy
-      redirect_to @deliverable
-    end
+  # DELETE /deliverables/1 or /deliverables/1.json
+  def remove
+    Assignment.find_by(user_id: params[:user_id], deliverable_id: @deliverable.id).destroy
+    redirect_to @deliverable
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -150,7 +142,7 @@ class DeliverablesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def deliverable_params
       #params.fetch(:deliverable, {})
-      params.require(:deliverable).permit(:name, :description, :status, :deadline)
+      params.require(:deliverable).permit(:name, :description, :status, {files: []}, {remove_files: []}, :remove_files)
     end
 
     def group_id
