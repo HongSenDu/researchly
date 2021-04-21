@@ -2,7 +2,7 @@
 Welcome to Researchly! Researchly is a research group project management SaaS application. As such, you will be able to create and join research groups, create and edit projects for that group, and create and edit deliverables (tasks) for each project. You can also assign group members to work on specific tasks.
 
 ## Links
-Heroku Link: [https://researchly-app-3.herokuapp.com](https://researchly-app-3.herokuapp.com)
+Heroku Link: [https://researchly-app.herokuapp.com](https://researchly-app.herokuapp.com)
 
 Github Repository Link: [https://github.com/HongSenDu/researchly.git](https://github.com/HongSenDu/researchly.git)
 
@@ -11,6 +11,19 @@ Github Repository Link: [https://github.com/HongSenDu/researchly.git](https://gi
 * Andrew Kenn (ajk2251)
 * Michael Winitch (mlw2173)
 * Aaron Jackson (arj2145)
+
+### CAUTION
+* Please do not create a new account with a Columbia University Email Address. All emails sent from Researchly to @Columbia.edu addresses are automatically marked as low priority by CUIT's filters. We recommend signing up with a regular @gmail.com account. 
+
+
+## Final Iteration: New Features
+* Added messaging functionality to groups
+* Recent activity now shows when member joins and/or leaves group
+* Recent activity now shows when member is assigned to or unassigned from a deliverable
+* Users now get an email when they've been assigned to a deliverable, when a deliverable they're assigned to is complete, when someone joins a group they're in, and when someone leaves a group they're in.
+* Add due dates to deliverables
+* Sort deliverables by due date
+* Added ability to attach data to deliverables so you can share important files with teammates
 
 ## Iteration Three: New Features
 * See deliverables on an User's Home Page
@@ -36,11 +49,15 @@ Github Repository Link: [https://github.com/HongSenDu/researchly.git](https://gi
 ## Instructions:
 
 To run Researchly after cloning this repository:
+
+**For the final iteration make sure to place the master.key file submitted with the README in the `config` folder. It is needed to decrypt the `credentials.yml.enc` file that contains aws credentials. Also yarn has to be run on the terminal as well to make sure the `jquery-rails` gem works.**
+
 On command line:
 ~~~
 bundle install
 rake db:migrate
 rake db:seed
+yarn 
 rails s
 ~~~
 Then you can open the browser to localhost:3000 to see the application. 
@@ -88,6 +105,12 @@ Also on the "edit deliverable page", you will have the ability to assign a membe
 ### Removing Members from Deliverables
 On the Deliverables Detail page - you should see all the members currently assigned to that specific deliverable listed in a table. In this table, their should be a "remove" link next to each members name. To remove a member, simply click their respective "remove" link and they will be unassigned from the deliverable. 
 
+### Attaching Data to Deliverables
+On the edit deliverable page, click upload files to upload files to the deliverable. You can select multiple using shift click. Click update deliverable and you can now see the files appear on the deliverable show page.
+
+### Removing Data from Deliverables
+On the edit deliverable page, click remove next to the files you want to remove and then click update deliverable. This will remove them from the deliverable on the show page.
+
 ### Delete a group
 On the group's homepage click the "delete" button to delete the group. This will also remove all of its projects and deliverables. Only group leaders can delete a group. 
 
@@ -96,3 +119,9 @@ Go onto the projects homepage for the group, and click the "delete" button for t
 
 ### Delete a deliverable
 Go to the project you want to delete a deliverable from. You should see a table of all deliverables. CLick the "Delete" button for the deliverable you want to remove. 
+
+### Inbox
+Click on the inbox on the rop right of the navigation bar to access messages. You can also click on new message to draft your own message. Select who you want to send the message to, the subject, and body, and then click create to post the message. 
+
+### Message Board
+In addition to sending direct messages, you can also send a message to a research group in the group's message board. On a group's homepage you can see the message board in the center. Fill in the body and click create to post your own message to the message board. Then this message will be displayed in that group's message board. 
